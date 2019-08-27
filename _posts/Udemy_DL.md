@@ -1,0 +1,56 @@
+```
+title: 'Test'
+date: 2019-08-27
+permalink: /posts/2019/08/test/
+tags:
+
+- test
+```
+
+https://www.udemy.com/machine-learning-with-tensorflow-for-business-intelligence/learn/v4/overview
+
+------
+
+#### Pre-processing
+
+- A very common way to do *feature scaling* is to subtract the means, and divide by the standard deviations.
+- For categorical variables, two standard approaches are:
+  - *Binary* encoding (implies undesired correlation between classes, e.g. $101$ is the "opposite" of $010$).
+  - *One-hot* encoding (usually better as uncorrelated, but may mean *lots* of inputs).
+    - Where we have thousands of classes, we sadly need to accept the imperfections of binary.
+- If some examples don't have an entry for a certain feature, in some contexts it's okay to fill this in with the *mean value* across the dataset.
+
+#### Train/validation/test
+
+- Three-way splitting of datasets, into training (80%), validation (10%; evaluated on each epoch) and test (10%; used only once) is best practice.
+- The best rule for *early stopping* is to stop if either:
+
+  - Validation loss starts to increase;
+  - Training loss is only reduced by a very small proportion (e.g. 0.1%) between epochs.
+
+#### Parameter initialisation
+
+- Initialisation of parameters is important: we want to cover a decent spread to make use of the nonlinearities (basically linear around zero) without encroaching too much onto the flat regions, where gradients fall to zero. *Xavier initialisation* achieves this.
+
+#### O
+
+- *Stochastic gradient descent*, which involves dividing the training set into batches, is generally much faster (and allows parallelisation) at the cost of slightly reduced accuracy).
+
+- *Momentum* helps to avoid local minimum in the same way that a ball rolling down a hill does not get stick in a small divot. Implemented by retaining last weight derivative and using again:  
+  $$
+  w\leftarrow w+\Delta w_t+\alpha\times\Delta w_{t-1}
+  $$
+
+- *Learning rate scheduling* involves exponentially decaying the learning rate. The exact rate of decay $c$ isn't generally too important. 
+
+  - Adaptive learning rate scheduling algorithms exist, such as `AdaGrad` and `RMSProp`, both of which curate a different learning rate for each parameter.
+  - *Adaptive moment optimisation* (`Adam`) combines adaptive scheduling with momentum. It is pretty much the most advanced optimiser that gets regular use.
+
+- Hyperparameters which must be chosen:
+
+  - Network width (usually all hidden layers have the same) and depth.
+  - Initial (or constant) learning rate $\eta$.
+  - SGD batch size.
+  - Momentum coefficient $\alpha$ (0.9 very common).
+  - Learning rate decay coefficient $c$. 
+
