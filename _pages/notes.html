@@ -5,12 +5,6 @@ permalink: /notes/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
-
-<p style="text-decoration:underline;"><a href="/talkmap.html">Map of note locations</a></p>
-
-{% endif %}
-
 {% for post in site.notes reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
