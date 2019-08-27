@@ -10,7 +10,10 @@ main:
     url: /year-archive/
 
   - title: "Talks"
-    url: /talks/    
+    url: /talks/  
+
+  - title: "Notes"
+    url: /notes/
 
  # - title: "Teaching"
  #   url: /teaching/    
