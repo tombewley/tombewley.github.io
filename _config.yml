@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Tom Bewley"
   avatar           : "profile.png"
-  bio              : "PhD student in explainable artificial intelligence, University of Bristol"
+  bio              : "PhD student in explainable artificial intelligence at the <a style='color: black;' href='http://bristol.ac.uk/'>University of Bristol</a>"
   location         : "Bristol, UK"
   employer         :
   googlescholar    : "https://scholar.google.co.uk/citations?user=OqPzZ08AAAAJ&hl=en"
