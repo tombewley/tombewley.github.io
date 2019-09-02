@@ -7,6 +7,8 @@ date: 2019-05-20
 venue: '2019 International Conference on Robotics and Automation (ICRA)'
 paperurl: 'http://tombewley.com/files/gamification.pdf'
 citation: 'Bewley, Tom, and Minas Liarokapis. &quot;On the Combination of Gamification and Crowd Computation in Industrial Automation and Robotics Applications.&quot; <i>2019 International Conference on Robotics and Automation (ICRA)</i>. IEEE, 2019.'
+redirect_from: 
+  - /gamification/
 ---
 ![](http://tombewley.com/images/gamification_banner.jpg)
 
