@@ -2,7 +2,7 @@
 title: "PechaKucha: Explainable AI and Social Responsibility"
 collection: talks
 type: "Talk"
-permalink: /talks/2019-10-03-explainability-pecha-kucka
+permalink: /talks/2019-10-03-explainability-pecha-kucha
 venue: "The Watershed"
 date: 2019-10-03
 location: "Bristol, UK"
