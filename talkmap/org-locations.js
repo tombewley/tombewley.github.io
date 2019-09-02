@@ -1,6 +1,6 @@
 var addressPoints = [
   [
-    "Bristol, UK<br/><a href='https://google.com' target='_blank'>TEST</a>",
+    "Bristol, UK<br/><a href='https://google.com' target='_top'>TEST</a>",
     51.4538022,
     -2.5972985
   ]
