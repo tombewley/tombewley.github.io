@@ -51,7 +51,7 @@ for file in g:
         permalink = lines_trim[:loc_end]
 
         link = "<br/><a href='https://tombewley.com/"+permalink+"' target='_top'>"+title+"</a>"
-        date = "<br/>"+dup.parse(date).strftime("%d %B %Y")
+        date = "<br/>"+dup.parse(date).strftime("%B %d, %Y")
 
         location_dict[location+link+date] = geocoder.geocode(location)
         print(location+link+date, "\n", location_dict[location+link+date])
