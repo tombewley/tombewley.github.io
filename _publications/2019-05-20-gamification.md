@@ -3,7 +3,7 @@ title: "On the Combination of Gamiﬁcation and Crowd Computation in Industrial 
 collection: publications
 permalink: /publication/gamification
 excerpt: 'A theoretical framework for embedding robotics problems into video games, enabling distributed control by a crowd of players.'
-date: 2019-20-05
+date: 2019-05-20
 venue: '2019 International Conference on Robotics and Automation (ICRA)'
 paperurl: 'http://tombewley.com/files/gamification.pdf'
 citation: 'Bewley, Tom, and Minas Liarokapis. &quot;On the Combination of Gamification and Crowd Computation in Industrial Automation and Robotics Applications.&quot; <i>2019 International Conference on Robotics and Automation (ICRA)</i>. IEEE, 2019.'
