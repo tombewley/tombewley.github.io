@@ -11,11 +11,12 @@ redirect_from:
 
 ### Conference Papers
 
+  <ul style="list-style: none;">
   {% for post in site.publications %}
     {% if post.pubtype == "conference" %}
        {% include archive-single-cv.html %}
     {% endif %}
-  {% endfor %}
+  {% endfor %}</ul>
 
 ### Abstracts and Workshops
 *Coming soon…*
