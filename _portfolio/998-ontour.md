@@ -1,7 +1,7 @@
 ---
 title: "MSc Project: On Tour"
 permalink: /portfolio/ontour/
-excerpt: "Harnessing Social Data for Travel Recommendation<br/><img src='/images/ontour_500_300.png'>"
+excerpt: "Harnessing Social Data for Travel Recommendation<br/><img src='/images/ontour_1500_300.png'>"
 collection: portfolio
 ---
 
