@@ -1,6 +1,5 @@
 ---
 title: "TEST"
-pubtype: "thesis"
 collection: publications
 permalink: /publication/msc
 excerpt: 'Exerpt.'

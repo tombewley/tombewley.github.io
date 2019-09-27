@@ -10,10 +10,11 @@ redirect_from:
 {% include base_path %}
 
 # Conference Papers
+
+pubtype: "conference"
+
   <ul>{% for post in site.publications %}
-     {% if post.pubtype == "conference" %}
     {% include archive-single-cv.html %}
-      {% endif %}
   {% endfor %}</ul>
 
 Abstracts and Workshops
@@ -22,9 +23,11 @@ Abstracts and Workshops
 
 Theses
 ======
+
+pubtype: "thesis"
+
   <ul>{% for post in site.publications %}
-     {% if post.pubtype == "thesis" %}
+     {% if post.title == "TEST" %}
     {% include archive-single-cv.html %}
       {% endif %}
   {% endfor %}</ul>
-
