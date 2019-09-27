@@ -1,7 +1,7 @@
 ---
-title: "On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
+title: "MSc Project: On Tour"
 permalink: /portfolio/ontour/
-excerpt: "<br/><img src='/images/ontour_500_300.png'>"
+excerpt: "Harnessing Social Data for Travel Recommendation<br/><img src='/images/ontour_500_300.png'>"
 collection: portfolio
 ---
 
