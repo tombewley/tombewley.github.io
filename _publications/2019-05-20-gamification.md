@@ -1,5 +1,6 @@
 ---
 title: "On the Combination of Gamiﬁcation and Crowd Computation in Industrial Automation and Robotics Applications"
+pubtype: "conference"
 collection: publications
 permalink: /publication/gamification
 excerpt: 'A theoretical framework for embedding robotics problems into video games, enabling distributed control by a crowd of players.'
