@@ -15,6 +15,7 @@ redirect_from:
   {% for post in site.publications %}
     {% if post.pubtype == "conference" %}
        {% include archive-single-cv.html %}
+    {% endif %}
   {% endfor %}</ul>
 
 ### Abstracts and Workshops
@@ -26,5 +27,6 @@ redirect_from:
   {% for post in site.publications %}
     {% if post.pubtype == "thesis" %}
        {% include archive-single-cv.html %}
+    {% endif %}
   {% endfor %}</ul>
 
