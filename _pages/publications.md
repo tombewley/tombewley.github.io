@@ -27,6 +27,8 @@ Theses
 pubtype: "thesis"
 
   <ul>{% for post in site.publications %}
+     {% if post.title == "TEST" %}
     {% include archive-single-cv.html %}
+      {% endif %}
   {% endfor %}</ul>
 
