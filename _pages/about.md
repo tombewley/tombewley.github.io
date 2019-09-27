@@ -19,3 +19,4 @@ Check out this [blog post](https://www.anthtechconf.co.uk/pechakucha/tom-bewley)
 I want to help to solve our species' greatest problems, in a manner which ensures the resultant reformulation of society is overwhelmingly happy, healthy, ambitious and resilient, rather than fractured and unequal, and incurs the minimum possible negative environmental impact.
 
 None of these goals will be attainable without a greatly enhanced ability to cultivate and safely deploy intelligence, be it human or artificial.
+

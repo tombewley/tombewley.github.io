@@ -1,5 +1,6 @@
 ---
 title: "On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
+permalink: /portfolio/ontour/
 excerpt: "<br/><img src='/images/ontour_500_300.png'>"
 collection: portfolio
 ---
