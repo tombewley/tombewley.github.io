@@ -3,7 +3,7 @@ title: 'Weekly Readings #1'
 date: 2019-10-13
 permalink: /posts/2019/10/weekly-readings-1/
 tags:
-  - research
+  - weekly-readings
 ---
 
 As it stands I'm precisely 13 days into my PhD, which means a lot of reading, and I thought I'd kick this blog off with a weekly rolling 'diary' of things I read, watch and otherwise consume which may have some influence on my [PhD topic](https://tombewley.com/start ). Most of the papers have words pertaining to explanation in there, and that's because I did a massive scrape of papers with that keyword. I figured that would be a reasonable start.
@@ -100,34 +100,23 @@ All of AI can be thought of working out the details of how to behave rationally,
 
 ### Singer, P. (2011). *Practical Ethics*. Cambridge University Press; 2nd Edition.
 
-This has been an ongoing read for the past few weeks. 
+This has been an ongoing read for the past few weeks. At the time of writing, Singer was a *preference* utilitarian, which means he prioritised the maximal satisfaction of preferences (he has since moved towards *hedonistic* utilitarianism: maximising the surplus of happiness over suffering). Some key points so far are as follows:
 
+- There is nothing special about our species. Since we have no direct evidence to suggest that other mammals have a less developed capacity to suffer than humans (both behavioural observation and our understanding of biology points to great similarity) we should consider their interests equally. This does not necessarily lead us away from meat consumption or animal testing in all cases; only those when the benefit to human interests does not exceed the cost to animals. 
+- Killing is wrong if and only if it violates the preferences of the individual, or those of others, for continued existence. Beings without a sense of their continuing self cannot have these preferences; this includes unborn babies alongside most animals. However, we might opt to consider the *retroactive* preferences of the surviving individual, such as a human adult, who most certainly would have the survival preference. Whether or not we choose to do this is fundamental to the abortion debate.
 
+- In relation to questions about future beings, there are two general approaches in utilitarianism. In the *total view* we consider the interests/experience of these hypothetical beings the same as extant ones, while in the *prior existence view* we do not assign weight to them at all. The latter aligns more with most people's intuitions but leads to far more contradictions. In preference utilitarianism, an equivalent discussion can be had about the creation of new preferences. Should we assign moral weight to the satisfaction of preferences that are not yet held?
 
-An action is *ethical* if the actor can provide a justification that is grounded in something other than their own self interests. Many believe further that it must be based in some kind of universal principal. There are good reasons for taking utilitarianism as our starting point for an ethical framework, and accepting changes only where good reasons exist. There are two broad kinds of utilitarianism: hedonistic (max. pleasure, min. pain) and preference (max. stated preferences). Both have their weaknesses, but here we adopt a broadly preference utilitarian viewpoint.
+## 🗝️  Key Insights
 
-- Singer has since moved towards hedonistic utilitarianism.
+*This is my first attempt at this kind of über-consolidation exercise, so bear with…*
 
-------
+- The meaning of a message is not intrinsic, but is a function of the mental states it induces in 'speaker' and 'listener' agents. The similarity of meanings can be quantified in terms of belief functions, and this in turn provides a route towards translation.
+- There are several useful kinds of explanation, and more still that are not useful. We are led to extremely wrong conclusions if we define explanation at the wrong level of abstraction.
+- When seeking explanation, we may wish to know why *don't* or *can't* happen in addition to the converse. It seems that answering any of these queries in an agent-based system requires some kind of predictive model. In addition to answers to specific queries, a concise record of decisions and actions is an important general component of explainable systems.
+- Perhaps seeking 'explanation' is the wrong approach where the stakes are high, because all explanations are simplified models of decision making, and all models are wrong. We should focus on developing inherently interpretable models, and we may not even have to sacrifice performance for doing so, but it'll probably be hard work. Behavioural cloning of human policies or complex black-box models, using decision trees, is a promising direction for interpretability research.
+- Saliency maps can be applied in RL contexts where the input has a spatial or visual form. They provide some insight, that may be useful for closing the feedback loop during model development, but are a long way from complete explanations of an agent's behaviour.
+- Gradient-based learning can be applied to the task of learning causal models (given the necessary structural assumptions), which in turn are useful for problem solving. Causal models provide the only rigorous framework for answering interventional and counterfactual questions, which form the backbone of most theories of explanation.  
+- Rationality and intelligence are essentially one and the same; both are defined relative to the available information, and to a stated goal or utility function. Only if this aligns consistently with human interests should we expect an intelligent agent to be beneficial.   
 
-In preference utilitarianism we prioritise equal consideration of interests. Since we have no direct evidence to suggest that other mammals have a less developed capacity to suffer than humans (both behavioural observation and our understanding of biology points to great similarity) we must consider their interests equally.
-
-Note that this does not necessarily lead us away from meat consumption or animal testing in all cases; only when the benefit to human interests outweighs the cost to animals. Included in this consideration should be the fact that normally-functioning adults have a greater capacity for 'indirect' suffering through anticipation and remorse than animals.
-
-- Note the qualification though: how should we think about orphaned children, or the mentally disabled? Many introduce a 'slippery slope' argument here, suggesting that we are implying experimentation on the mentally disabled is tolerable. This is not true at all; the aim is to elevate the position of animals rather than suppress the position of certain humans.
-
-------
-
-What about killing? As a preference utilitarian, Singer says killing is wrong if and only if it violates the preferences of the individual, or those of others, for continued existence. Beings without a sense of their continuing self cannot have these preferences; this includes unborn babies alongside most animals. However, we might opt to consider the *retroactive* preferences of the surviving individual, such as a human adult, who most certainly would have the survival preference. Whether or not we choose to do this is fundamental to the abortion debate.
-
-In relation to questions about future beings, there are two general approaches in utilitarianism. In the *total view* we consider the interests/experience of these hypothetical beings the same as extant ones, while in the *prior existence view* we do not assign weight to them at all. The latter aligns more with most people's intuitions but leads to far more contradictions.
-
-- In preference utilitarianism, an equivalent discussion can be had about the creation of new preferences. Should we assign moral weight to the satisfaction of preferences that are not yet held?
-
-We previously said how "most" animals have no senses of self, other or time, but experiments suggest that this is by no means "all": various primates as well as dolphins and pigs have demonstrated behaviour suggesting these properties are present. Hence, *there is nothing special about our species*.
-
-
-
-
-
-## 🗝️  Key Points
+- Utilitarianism, whether of the preference or hedonistic variety, resonates nicely with the scientific viewpoint. It leads to conclusions that are objectionable to some, but it does so in a way that is justified and can easily be queried.
