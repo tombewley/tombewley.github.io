@@ -1,6 +1,6 @@
 ---
 title: 'Weekly Readings #1'
-date: 2019-10-01
+date: 2019-10-13
 permalink: /posts/2019/10/weekly-readings-1/
 tags:
   - research
@@ -10,7 +10,7 @@ As it stands I'm precisely 13 days into my PhD, which means a lot of reading, an
 
 I'm going to try to summarise what I took from each piece of content in just a few lines, which is obviously a daft and brazen thing to do, but hopefully useful nonetheless.
 
-## 📝Papers
+## 📝 Papers
 
 **Andreas, Jacob, Anca Dragan, and Dan Klein. “Translating Neuralese.” *ArXiv:1704.06960 [Cs]*, 2018.**
 
@@ -40,7 +40,7 @@ Others have posited an additional category: so-called *deep explanation*. This u
 
 
 
-## 📚 Books
+## 📚  Books
 
 **Pearl, J. (2009). *Causality*. Cambridge University Press; 2nd Edition.**
 
@@ -50,4 +50,4 @@ Just starting this one off.
 
 **Singer, P. (2011). *Practical Ethics*. Cambridge University Press; 2nd Edition.**
 
-## Summary
+## 🗝️ Key Points
