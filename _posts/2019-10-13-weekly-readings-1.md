@@ -42,11 +42,10 @@ Here, the focus is on actor-critic models, and saliency maps are constructed for
 $$
 \mathcal{S}_{\pi}(t, i, j)=\frac{1}{2}\left\|\pi_{u}\left(I_{1: t}\right)-\pi_{u}\left(I_{1: t}^{\prime}\right)\right\|^{2}
 $$
-
+where
 $$
-\text { where } \quad I_{1: k}^{\prime}=\left\{\begin{array}{ll}{\Phi\left(I_{k}, i, j\right)} & {\text { if } k=t} \\ {I_{k}} & {\text { otherwise }}\end{array}\right.
+I_{1: k}^{\prime}=\left\{\begin{array}{ll}{\Phi\left(I_{k}, i, j\right)} & {\text { if } k=t} \\ {I_{k}} & {\text { otherwise }}\end{array}\right.
 $$
-
 A map is constructed by computing the saliency for a range of $i$ and $j$ values. [My concern: when interpreting their saliency maps, the authors do appear a little prone to confirmation bias. This technique seems to have some value, but can certainly not be relied upon in isolation.]
 
 ### Klein, Gary. “Explaining Explanation, Part 3: The Causal Landscape.” *IEEE Intelligent Systems* 33, no. 2 (2018): 83–88.
@@ -63,7 +62,7 @@ Communication must be done in a language that uses human concepts such as belief
 
 ### Nair, Suraj, Yuke Zhu, Silvio Savarese, and Li Fei-Fei. “Causal Induction from Visual Observations for Goal Directed Tasks.” *ArXiv:1910.01751 [Cs, Stat]*, 2019.
 
-The lack of causal modelling is a possible cause of poor generalisation in deep learning systems. Here, a learning-based agent is endowed with causal reasoning. It performs two kinds of operation: (1) causal *induction*, the discovery of cause and effect relations via performing actions and observing their outcomes; and (2) causal *inference*, the use of the acquired causal relations to guide action selection in the servie of a goal. The causal model $\hat{C}$ is explicitly encoded as an $N\times N$ DAG expressing the cause-effect relationships between $N$ actions and $N$ state variables. The system is intended to generalise to various environments with the same state and action spaces, but different transition dynamics (i.e. $p(s_{t+1}|a_t,s_t))$. The specific state space considered in experiments is that of vision: high-dimensional RGB pixel values
+The lack of causal modelling is a possible cause of poor generalisation in deep learning systems. Here, a learning-based agent is endowed with causal reasoning. It performs two kinds of operation: (1) causal *induction*, the discovery of cause and effect relations via performing actions and observing their outcomes; and (2) causal *inference*, the use of the acquired causal relations to guide action selection in the servie of a goal. The causal model $\hat{C}$ is explicitly encoded as an $N\times N$ DAG expressing the cause-effect relationships between $N$ actions and $N$ state variables. The system is intended to generalise to various environments with the same state and action spaces, but different transition dynamics (i.e. $p(s_{t+1}\vert a_t,s_t))$. The specific state space considered in experiments is that of vision: high-dimensional RGB pixel values
 
 During causal induction, an image is encoded into a lower-dimensional state $s$ and the state residual $R$ – the difference in $s$ from the previous timestep – is computed. $R$ is concatenated with the corresponding action $a$ and fed into an edge decoder whose output is an update to the edge weights $\Delta\hat{C}$. This update has the form of a $1\times N$ vector of edge weight changes $\Delta e$ and a $1\times N$ soft *attention* vector $\alpha$ which weights which nodes in the causal graph the update should be applied to.
 
@@ -89,7 +88,7 @@ I'm just starting this one this week. So far, we've had an introduction to Bayes
 
 A functional causal model consists of a set of equations each of the form $X_i=f_i(PA_i,U_i)$, where $U_i$ represent errors or uncertainties due to omitted factors. If we augment a causal Bayesian network with a functional causal model, we can answer *counterfactual* questions. Given a causal model $M$ and observed evidence $e$, we apply the following steps to compute the probability of $Y=y$ under a hypothetical condition $X=x$: 
 
-- **Abduction**: update the probability $P(u)$ using the available evidence to obtain $P(u|e)$: the probability distribution over the error variables in the actually-observed scenario captured by $e$. 
+- **Abduction**: update the probability $P(u)$ using the available evidence to obtain $P(u\vert e)$: the probability distribution over the error variables in the actually-observed scenario captured by $e$. 
 - **Intervention**: replace the equations corresponding to variables in $X$ by the equations $X=x$.  
 - **Prediction**: use the modified model and abduced error variable distributions to compute $P(Y=y)$.
 
