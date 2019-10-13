@@ -1,11 +1,12 @@
 ---
-title: 'Start here'
+title: 'Start Here'
 date: 2019-10-01
 permalink: /posts/2019/10/start-here/
 tags:
-  - musings
-redirect_from: 
+  - research
+redirect_from:
   - /start
 ---
 
-*Some initial thoughts on my PhD topic inbound*.
+PhD topic introduction.
+
