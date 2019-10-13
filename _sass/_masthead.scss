@@ -15,7 +15,7 @@
     @include container;
     @include clearfix;
     padding: 1em 1em 1em;
-    font-family: $global-font-family;
+    font-family: $header-font-family;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
