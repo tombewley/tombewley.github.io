@@ -8,5 +8,4 @@ redirect_from:
   - /start
 ---
 
-PhD topic introduction.
-
+*PhD topic introduction coming soon...*
