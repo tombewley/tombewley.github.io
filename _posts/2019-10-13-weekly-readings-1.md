@@ -43,12 +43,7 @@ $$
 \mathcal{S}_{\pi}(t, i, j)=\frac{1}{2}\left\|\pi_{u}\left(I_{1: t}\right)-\pi_{u}\left(I_{1: t}^{\prime}\right)\right\|^{2}
 $$
 
-where
-
-$$
-I_{1: k}'=\left\{\begin{array}{ll}{\Phi\left(I_{k}, i, j\right)} & {\text { if } k=t} \\ {I_{k}} & {\text { otherwise }}\end{array}\right.
-$$
-A map is constructed by computing the saliency for a range of $i$ and $j$ values. [My concern: when interpreting their saliency maps, the authors do appear a little prone to confirmation bias. This technique seems to have some value, but can certainly not be relied upon in isolation.]
+where $I'_k=$ the doctored image if $k=t$ and $I'_k=I_k$ otherwise. A map is constructed by computing the saliency for a range of $i$ and $j$ values. [My concern: when interpreting their saliency maps, the authors do appear a little prone to confirmation bias. This technique seems to have some value, but can certainly not be relied upon in isolation.]
 
 ### Klein, Gary. “Explaining Explanation, Part 3: The Causal Landscape.” *IEEE Intelligent Systems* 33, no. 2 (2018): 83–88.
 
