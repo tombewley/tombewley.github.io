@@ -8,11 +8,11 @@ redirect_from:
   - /start
 ---
 
+A Go player makes a weak move that loses her the game. A company’s hiring policy appears to show gender biases. A person crashes their car. Our immediate question in each case is *why?* Our social norms, laws and fundamental ethical principles rely on the assumption that decisions and actions have **explanations**, that give insight into their **context**, **causes** and **consequences**. 
+
 ![]( https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80 )
 
 ## ❓  Why?
-
-A Go player makes a weak move that loses her the game. A company’s hiring policy appears to show gender biases. A person crashes their car. Our immediate question in each case is *why?* Our social norms, laws and fundamental ethical principles rely on the assumption that decisions and actions have **explanations**, that give insight into their **context**, **causes** and **consequences**. 
 
 Explanation enables trust and understanding. It’s how we learn about the world and communicate our knowledge to others. It’s also how we diagnose flaws in any social or technical system to change it for the better. But 'context, causes and consequences' is a very broad scope, and our current understanding of what makes a *good* explanation is limited.
 
