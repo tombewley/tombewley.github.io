@@ -26,7 +26,7 @@ A clear exception is the content recommender systems on social networks. It seem
 
 And we can look forward to many more ambitious uses of AI than this, far more integrated with our social fabric, as part of our legal system for example, or with the physical world through robotic embodiment. In these inevitable future applications, human welfare, and even human lives, are regularly at stake, and **transparency**, **trust** and **verifiable safety** are essential.
 
-### 🎓  My Research
+## 🎓  My Research
 
 My PhD research will explore what it means to obtain genuine explanation and understanding from artificial intelligence deployed in safety-critical environments, specifically in the form of **multi-agent systems**. These consist of multiple actors interacting in a common environment, each working towards a goal that may be individual, shared or adversarial. Examples include fleets of vehicles (cars, trains, ships, drones…), human-robot teams collaborating on a factory floor, and stock market trading algorithms. 
 
