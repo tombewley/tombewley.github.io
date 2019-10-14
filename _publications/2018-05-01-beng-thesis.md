@@ -1,11 +1,12 @@
 ---
-title: "[BEng] Use of Machine Vision and Intelligent Data Processing Algorithms to Monitor and Predict Crop Growth in Vertical Farms"
+title: "Use of Machine Vision and Intelligent Data Processing Algorithms to Monitor and Predict Crop Growth in Vertical Farms"
 pubtype: "thesis"
 collection: publications
 permalink: /publication/beng
 excerpt: 'Exerpt.'
 date: 2018-05-01
 paperurl: 'https://bit.ly/2MHrhWb'
+citation: 'Bewley, Tom. &quot;Use of Machine Vision and Intelligent Data Processing Algorithms to Monitor and Predict Crop Growth in Vertical Farms.&quot; BEng Thesis, University of Bristol, 2018.'
 redirect_from: 
   - /beng
 ---

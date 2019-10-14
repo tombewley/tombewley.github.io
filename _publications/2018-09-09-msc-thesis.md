@@ -1,11 +1,12 @@
 ---
-title: "[MSc] On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
+title: "On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
 pubtype: "thesis"
 collection: publications
 permalink: /publication/msc
 excerpt: 'Exerpt.'
 date: 2018-05-01
 paperurl: '[COMING SOON]'
+citation: 'Bewley, Tom. &quot;On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation.&quot; MSc Thesis, University of Bristol, 2019.'
 redirect_from: 
   - /msc
 ---
@@ -16,4 +17,3 @@ See [here](https://github.com/tombewley/OnTour-TourismRecommendation) for the Gi
 
 
 
- 
