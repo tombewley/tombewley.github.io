@@ -68,13 +68,13 @@ A common kind of local explanation question is "why is this instance classified 
 
 The aim here is to enable explainees to anticipate robot behaviour in novel situations, by providing insight into its objective function. The specific example used is that of an autonomous driving in realistic scenarios. 
 
-We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi^{\theta^\ast}_{E_{1:n}}$ in environments $E_{1:n}$. Our goal is to determine the best $E_{1:n}$. The update process is modeled by Bayesian inference:
+We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi^{\theta^\ast}_{E_{1..n}}$ in environments $E_{1..n}$. Our goal is to determine the best $E_{1..n}$. The update process is modeled by Bayesian inference:
 
 $$
 P(\theta | \xi_{E_{1: n}}^{\theta^{*}}) \propto P(\xi_{E_{1: n}}^{\theta^{*}} | \theta) P(\theta)=P(\theta) \prod_{i=1}^{n} P(\xi_{E_{i}}^{\theta^{*}} | \theta)
 $$
 
-Assuming we know $P(\theta)$, the problem reduces to modeling $P(\xi|\theta)$. If inference were exact, the explainee would assign probability $0$ to any trajectory that is not perfectly optimal given $\theta$, which in turn would give that $\theta$ a probability of $0$ and permanently eliminate it from the belief. A positive constant belief (e.g. $1$) would be assigned to all optimal trajectories observed. Assuming a uniform $P(\theta)$, the resulting distribution would be uniform across all remaining $\theta$s, and this set would progressively reduce in size with more observations. Clearly humans cannot perfectly evaluate optimality, so we can relax the assumption in one of two ways:
+Assuming we know $P(\theta)$, the problem reduces to modeling $P(\xi\vert\theta)$. If inference were exact, the explainee would assign probability $0$ to any trajectory that is not perfectly optimal given $\theta$, which in turn would give that $\theta$ a probability of $0$ and permanently eliminate it from the belief. A positive constant belief (e.g. $1$) would be assigned to all optimal trajectories observed. Assuming a uniform $P(\theta)$, the resulting distribution would be uniform across all remaining $\theta$s, and this set would progressively reduce in size with more observations. Clearly humans cannot perfectly evaluate optimality, so we can relax the assumption in one of two ways:
 
 - Being more **conservative** about which $\theta$s are eliminated. This can be done by defining a *distance metric* $d$ between trajectories, and assigning probability $0$ only if the distance to the optimal trajectory exceeds some value $\tau$.
 - Letting trajectories have a **probabilistic** effect on beliefs about $\theta$: instead of setting probabilities to zero, they are progressively decremented. Again the distance metric $d$ is used, and we can set $P(\xi_{E}^{\theta^\ast} \vert \theta) \propto e^{-\lambda \cdot d(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast})}$.
@@ -83,7 +83,7 @@ The distance metric can be defined in terms of either the reward with respect to
 
 - **Reward-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=\theta^{\top} \phi\left(\xi_{E}^{\theta}\right)-\theta^{\top} \phi\left(\xi_{E}^{\theta^\ast}\right)$ where $\phi$ are features derived from trajectories.
 - **Euclidean-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=\frac{1}{T} \sum_{t=1}^{T}\left\|s_{E, t}^{\theta}-s_{E, t}^{\theta^\ast}\right\|_{2}$ (state dimensions should be normalised).
-- **Strategy-based**: cluster trajectories into a number of *strategies*, and set $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=0$ if $\xi_{E}^{\theta}$ and $\xi_{E}^{\theta^\ast}$ are in the same strategy cluster, and $\infin$ otherwise.
+- **Strategy-based**: cluster trajectories into a number of *strategies*, and set $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=0$ if $\xi_{E}^{\theta}$ and $\xi_{E}^{\theta^\ast}$ are in the same strategy cluster, and $\infty$ otherwise.
 
 This means that we have six possible approximate inference models in addition to the exact one. When testing with the exact inference model, found that the choice of trajectories does not matter. With the approximate models, the Euclidean distance metric produces the most robust results.
 
@@ -138,19 +138,19 @@ Previously proposed an algorithm for learning linguistic decision trees (LDTs). 
 The underlying theory for LDTs is that of *label semantics*. Given a variable $X\in \mathcal{X}$, a specific value of that variable $x$, and a set of linguistic labels $LA$, we imagine an individual $I$ identifying a subset of labels $D_x^I$ that describe $X=x$. If we then allow $I$ to vary across a population $V$, then $D_x^I$ will also vary and generate a random set into the power set of $LA$, denoted $D_x$. The frequency of occurrence of a particular subset of labels $S\in LA$ in $D_x$ can be used to compute a mass assignment:
 
 $$
-\forall S\sube LA,\ \ \ m_x(S)=\frac{|\{I\in V:S\in D_x^I\}|}{|V|}
+\forall S\subseteq LA,\ \ \ m_x(S)=\frac{|\{I\in V:S\in D_x^I\}|}{|V|}
 $$
 
 These label semantics are *taken as given* by an LDT. Assuming they have been defined, we can compute the *appropriateness degree* of each label $L$ at a particular $x$, denoted $\mu_L(x)$, as follows:
 
 $$
-\forall x\in\mathcal{X},\forall L\in LA,\ \ \ \mu_L(x)=\sum_{S\sube LA:L\in S}m_x(S)
+\forall x\in\mathcal{X},\forall L\in LA,\ \ \ \mu_L(x)=\sum_{S\subseteq LA:L\in S}m_x(S)
 $$
 
 Our final definition is that of a *focal set* for a value $x$: the set of subsets of $LA$ with non-zero mass:
 
 $$
-\mathcal{F}=\{S\sube LA:\exist x\in\mathcal{X},m_x(S)>0\}
+\mathcal{F}=\{S\subseteq LA:\exists x\in\mathcal{X},m_x(S)>0\}
 $$
 
 Now consider $n$ input variables for a $k$-class classification problem. Each branch of an LDT is defined by a list of $n$ focal sets, one for each variable, and a probability for each class. For example, one branch $B$ in an LDT with $n=k=2$ may look like this:
@@ -201,7 +201,7 @@ $$
 \hat{y}=\sum_uP(\mathcal{F}_y^u\vert\textbf{x})\mathbb{E}(y\vert\mathcal{F}_y^u)
 $$
 
-where $\mathbb{E}(y|\mathcal{F}_y^u)$ is calculated through a process of *defuzzification* as follows:
+where $\mathbb{E}(y\vert\mathcal{F}_y^u)$ is calculated through a process of *defuzzification* as follows:
 
 $$
 E\left(y\vert\mathcal{F}_y^u\right)=\frac{\int_\mathcal{Y}y\cdot m_{y}\left(\mathcal{F}_y^u\right) dy}{\int_\mathcal{Y} m_y\left(\mathcal{F}_y^u\right) dy}
