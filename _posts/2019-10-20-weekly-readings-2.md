@@ -68,20 +68,22 @@ A common kind of local explanation question is "why is this instance classified 
 
 The aim here is to enable explainees to anticipate robot behaviour in novel situations, by providing insight into its objective function. The specific example used is that of an autonomous driving in realistic scenarios. 
 
-We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi^{\theta^*}_{E_{1:n}}$ in environments $E_{1:n}$. Our goal is to determine the best $E_{1:n}$. The update process is modeled by Bayesian inference:
+We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi^{\theta^\ast}_{E_{1:n}}$ in environments $E_{1:n}$. Our goal is to determine the best $E_{1:n}$. The update process is modeled by Bayesian inference:
+
 $$
 P(\theta | \xi_{E_{1: n}}^{\theta^{*}}) \propto P(\xi_{E_{1: n}}^{\theta^{*}} | \theta) P(\theta)=P(\theta) \prod_{i=1}^{n} P(\xi_{E_{i}}^{\theta^{*}} | \theta)
 $$
+
 Assuming we know $P(\theta)$, the problem reduces to modeling $P(\xi|\theta)$. If inference were exact, the explainee would assign probability $0$ to any trajectory that is not perfectly optimal given $\theta$, which in turn would give that $\theta$ a probability of $0$ and permanently eliminate it from the belief. A positive constant belief (e.g. $1$) would be assigned to all optimal trajectories observed. Assuming a uniform $P(\theta)$, the resulting distribution would be uniform across all remaining $\theta$s, and this set would progressively reduce in size with more observations. Clearly humans cannot perfectly evaluate optimality, so we can relax the assumption in one of two ways:
 
 - Being more **conservative** about which $\theta$s are eliminated. This can be done by defining a *distance metric* $d$ between trajectories, and assigning probability $0$ only if the distance to the optimal trajectory exceeds some value $\tau$.
-- Letting trajectories have a **probabilistic** effect on beliefs about $\theta$: instead of setting probabilities to zero, they are progressively decremented. Again the distance metric $d$ is used, and we can set $P(\xi_{E}^{\theta^{*}} \vert \theta) \propto e^{-\lambda \cdot d(\xi_{E}^{\theta}, \xi_{E}^{\theta^{*}})}$.
+- Letting trajectories have a **probabilistic** effect on beliefs about $\theta$: instead of setting probabilities to zero, they are progressively decremented. Again the distance metric $d$ is used, and we can set $P(\xi_{E}^{\theta^\ast} \vert \theta) \propto e^{-\lambda \cdot d(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast})}$.
 
 The distance metric can be defined in terms of either the reward with respect to $\theta$, or the trajectories themselves:
 
-- **Reward-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^{*}}\right)=\theta^{\top} \phi\left(\xi_{E}^{\theta}\right)-\theta^{\top} \phi\left(\xi_{E}^{\theta^{*}}\right)$ where $\phi$ are features derived from trajectories.
-- **Euclidean-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^{*}}\right)=\frac{1}{T} \sum_{t=1}^{T}\left\|s_{E, t}^{\theta}-s_{E, t}^{\theta^{*}}\right\|_{2}$ (state dimensions should be normalised).
-- **Strategy-based**: cluster trajectories into a number of *strategies*, and set $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^{*}}\right)=0$ if $\xi_{E}^{\theta}$ and $\xi_{E}^{\theta^{*}}$ are in the same strategy cluster, and $\infin$ otherwise.
+- **Reward-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=\theta^{\top} \phi\left(\xi_{E}^{\theta}\right)-\theta^{\top} \phi\left(\xi_{E}^{\theta^\ast}\right)$ where $\phi$ are features derived from trajectories.
+- **Euclidean-based**: $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=\frac{1}{T} \sum_{t=1}^{T}\left\|s_{E, t}^{\theta}-s_{E, t}^{\theta^\ast}\right\|_{2}$ (state dimensions should be normalised).
+- **Strategy-based**: cluster trajectories into a number of *strategies*, and set $d\left(\xi_{E}^{\theta}, \xi_{E}^{\theta^\ast}\right)=0$ if $\xi_{E}^{\theta}$ and $\xi_{E}^{\theta^\ast}$ are in the same strategy cluster, and $\infin$ otherwise.
 
 This means that we have six possible approximate inference models in addition to the exact one. When testing with the exact inference model, found that the choice of trajectories does not matter. With the approximate models, the Euclidean distance metric produces the most robust results.
 
@@ -134,52 +136,73 @@ It is claimed that QS agents are more transparent than RL agents because they ha
 Previously proposed an algorithm for learning linguistic decision trees (LDTs). Here, the method is extended to regression problems. 
 
 The underlying theory for LDTs is that of *label semantics*. Given a variable $X\in \mathcal{X}$, a specific value of that variable $x$, and a set of linguistic labels $LA$, we imagine an individual $I$ identifying a subset of labels $D_x^I$ that describe $X=x$. If we then allow $I$ to vary across a population $V$, then $D_x^I$ will also vary and generate a random set into the power set of $LA$, denoted $D_x$. The frequency of occurrence of a particular subset of labels $S\in LA$ in $D_x$ can be used to compute a mass assignment:
+
 $$
 \forall S\sube LA,\ \ \ m_x(S)=\frac{|\{I\in V:S\in D_x^I\}|}{|V|}
 $$
+
 These label semantics are *taken as given* by an LDT. Assuming they have been defined, we can compute the *appropriateness degree* of each label $L$ at a particular $x$, denoted $\mu_L(x)$, as follows:
+
 $$
 \forall x\in\mathcal{X},\forall L\in LA,\ \ \ \mu_L(x)=\sum_{S\sube LA:L\in S}m_x(S)
 $$
+
 Our final definition is that of a *focal set* for a value $x$: the set of subsets of $LA$ with non-zero mass:
+
 $$
 \mathcal{F}=\{S\sube LA:\exist x\in\mathcal{X},m_x(S)>0\}
 $$
 
 Now consider $n$ input variables for a $k$-class classification problem. Each branch of an LDT is defined by a list of $n$ focal sets, one for each variable, and a probability for each class. For example, one branch $B$ in an LDT with $n=k=2$ may look like this:
+
 $$
 B=(\ [\mathcal{F}^B_1:\{small\},\ \mathcal{F}^B_2:\{orange,red\}],\ 0.3,0.7\ )
 $$
+
 Suppose we have training data $\mathcal{D}$ with $N$ instances: $\mathcal{D}=\{(\textbf{x}_1,c_1),...,(\textbf{x}_N,c_N)\}$ which has been used to train an LDT with $s$ branches. For a given test datapoint $\textbf{x}$, the probability of a branch $B_b$ for $b\in\{1..s\}$ can be computed as
+
 $$
 P(B_b\vert\textbf{x})=\prod_{i=1}^n m_{x_i}(\mathcal{F_i^{B_b}})
 $$
+
 The probability of class $C=c$ given $B$ can then be evaluated by 
+
 $$
 P(c\vert B_b)=\frac{\sum_{j\in T}P(B_b\vert\textbf{x}_j)}{\sum_{j=1}^NP(B_b\vert\textbf{x}_j)}
 $$
+
 where $T$ is the subset of instances in $\mathcal{D}$ with class $c$. According to Jeffrey's rule, the probability of class $c$ given $\textbf{x}$ is therefore
+
 $$
 P(c\vert\textbf{x})=\sum_{b=1}^sP(c|B_b)P(B_b\vert\textbf{x})
 $$
 
 We now move on to considering a continuous target attribute $Y\in \mathcal{Y}$ instead of a class $C$, which has its own set of focal elements $\mathcal{F}_y$. We can start by considering each focal element as a class label, although this introduces a problem since focal elements overlap. This can be rectified by factoring the membership of $Y=y$ for a particular focal element $\mathcal{F}_y^u$, which can be measured as 
+
 $$
 \xi_y^u=m_y(\mathcal{F}_y^u)
 $$
+
 The probability of $\mathcal{F}_y^u$ given a branch $B$ is therefore
+
 $$
 P(\mathcal{F}_y^u|B_b)=\frac{\sum_{j\in T}\xi_y^uP(B_b|\textbf{x}_j)}{\sum_{j=1}^NP(B_b|\textbf{x}_j)}
 $$
+
 and in turn
+
 $$
 P(\mathcal{F}_y^u\vert\textbf{x})=\sum_{b=1}^sP(\mathcal{F}_y^u\vert B_b)P(B_b|\textbf{x})
 $$
+
 To predict $\hat{y}$ for a given unlabeled $\textbf{x}$, we first obtain the probabilities of focal elements as above, then compute
+
 $$
 \hat{y}=\sum_uP(\mathcal{F}_y^u\vert\textbf{x})\mathbb{E}(y\vert\mathcal{F}_y^u)
 $$
+
 where $\mathbb{E}(y|\mathcal{F}_y^u)$ is calculated through a process of *defuzzification* as follows:
+
 $$
 E\left(y\vert\mathcal{F}_y^u\right)=\frac{\int_\mathcal{Y}y\cdot m_{y}\left(\mathcal{F}_y^u\right) dy}{\int_\mathcal{Y} m_y\left(\mathcal{F}_y^u\right) dy}
 $$
@@ -190,10 +213,12 @@ In experiments, an LDT is shown to match the performance of more black box regre
 
 Propose a form of distributed model predictive control (DMPC) in which agents make decisions locally and cooperation is promoted by local consideration of a greater portion of the system-wide objective and the simulated design of plans for others. Robustness is guaranteed by only allowing one agent $p$ to replan per timestep. The main point is that **$p$ determines its own plan by considering what others may be able to achieve**.
 
-In addition to its own plan of actions $\textbf{u}_p$, $p$, devises a *hypothetical* plan $\hat{\textbf{u}}_q$ for each other agent $q$ in some cooperating set $\mathcal{N}_p$. The optimisation problem here is
+In addition to its own plan of actions $\textbf{u}_p$, the planning agent devises a *hypothetical* plan $\hat{\textbf{u}}_q$ for each other agent $q$ in some cooperating set $\mathcal{N}_p$. The optimisation problem here is
+
 $$
 \min_{\{\textbf{u}_p(k),\hat{\textbf{u}}_{\mathcal{N}_p}(k)\}} J_p(\textbf{u}_p)+\sum_{q\in \mathcal{N}_p}\alpha_{pq}J_p(\hat{\textbf{u}}_q)
 $$
+
 where the cost function $J_p$ is defined by various constraints and objectives. The cooperating set and weightings $\alpha_{pq}$ are essentially tuning parameters for the level of cooperation. Following the optimisation, $p$ then communicates information about *only its own optimised plan* $\textbf{u}^*_q(k)$ to some of the other agents. Another agent is chosen to optimise on the next timestep.
 
 In the paper it is proved that this approach has the properties of robust constraint satisfaction and stability. As with any distributed control method, the advantage over centralised control is an increased robustness to agent failure or communication breakdown. In numerical and simulation experiments, showed that as the set of cooperating agents increases in size, the overall solution cost decreases.
