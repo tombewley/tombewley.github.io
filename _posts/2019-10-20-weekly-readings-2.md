@@ -68,10 +68,10 @@ A common kind of local explanation question is "why is this instance classified 
 
 The aim here is to enable explainees to anticipate robot behaviour in novel situations, by providing insight into its objective function. The specific example used is that of an autonomous driving in realistic scenarios. 
 
-We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi^{\theta^\ast}_{E_{1..n}}$ in environments $E_{1..n}$. Our goal is to determine the best $E_{1..n}$. The update process is modeled by Bayesian inference:
+We assume that the agent's reward function is parameterised by $\theta^\ast$. The explainee has a prior belief $P(\theta)$ which is updated as they observe a set of *optimal* trajectories $\xi_{E_{1..n}}^{\theta^\ast}$ in environments $E_{1..n}$. Our goal is to determine the best $E_{1..n}$. The update process is modeled by Bayesian inference:
 
 $$
-P(\theta | \xi_{E_{1: n}}^{\theta^{*}}) \propto P(\xi_{E_{1: n}}^{\theta^{*}} | \theta) P(\theta)=P(\theta) \prod_{i=1}^{n} P(\xi_{E_{i}}^{\theta^{*}} | \theta)
+P(\theta | \xi_{E_{1..n}}^{\theta^\ast) \propto P(\xi_{E_{1..n}}^{\theta^\ast} | \theta) P(\theta)=P(\theta) \prod_{i=1}^{n} P(\xi_{E_{i}}^{\theta^\ast} | \theta)
 $$
 
 Assuming we know $P(\theta)$, the problem reduces to modeling $P(\xi\vert\theta)$. If inference were exact, the explainee would assign probability $0$ to any trajectory that is not perfectly optimal given $\theta$, which in turn would give that $\theta$ a probability of $0$ and permanently eliminate it from the belief. A positive constant belief (e.g. $1$) would be assigned to all optimal trajectories observed. Assuming a uniform $P(\theta)$, the resulting distribution would be uniform across all remaining $\theta$s, and this set would progressively reduce in size with more observations. Clearly humans cannot perfectly evaluate optimality, so we can relax the assumption in one of two ways:
