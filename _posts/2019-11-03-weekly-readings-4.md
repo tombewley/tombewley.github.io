@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-xxx
+Decision trees for state space segmentation; lightweight manual labelling as a 'seed' for interpretability;  the dangerous of homogenous distributed control; AI and the climate crisis.
 
 ## 📝 Papers
 
