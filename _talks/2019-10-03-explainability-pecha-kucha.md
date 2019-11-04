@@ -8,4 +8,12 @@ date: 2019-10-03
 location: "Bristol, UK"
 ---
 
-Upcoming PechaKucha talk introducing the motivation behind my PhD topic, as part of a [one-day conference](https://www.anthtechconf.co.uk/) on socially-responsible AI. 
+PechaKucha talk introducing the motivation behind my PhD topic, as part of a [one-day conference](https://www.anthtechconf.co.uk/) on socially-responsible AI. 
+
+```
+{% include video id="XsxDH4HcOWA" provider="youtube" %}
+```
+
+
+ 
+
