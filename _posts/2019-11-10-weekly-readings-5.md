@@ -66,12 +66,12 @@ A theory of explanation is a theory of why-questions. Attempts have been made to
 
 Consider the following question and responses:
 
-*Can you get to Victoria both by ferry and by plane? 
-	(a) Yes. 
-	(b) You can get to Victoria both by ferry and by plane. 
-	(c) You can get to Victoria by ferry. 
-	(d) You can get to Victoria both by ferry and by plane, but the ferry ride is not to be missed. 
-	(e) You can certainly get to Victoria by ferry, and that is something not to be missed.* 
+Can you get to Victoria both by ferry and by plane? 
+	`(a)` Yes. 
+	`(b)` You can get to Victoria both by ferry and by plane. 
+	`(c)` You can get to Victoria by ferry. 
+	`(d)` You can get to Victoria both by ferry and by plane, but the ferry ride is not to be missed. 
+	`(e)` You can certainly get to Victoria by ferry, and that is something not to be missed. 
 
 `(b)` is the purest form of answer here – a *direct* answer – and `(a)` is a *code* for this same answer. `(c)` is a *partial* answer since it is implied by `(b)` but not vice versa. `(d)` is a *complete* answer since it implies `(b)`, and it also says more besides. Note that nothing in this theory is concerned with whether or not a given answer is true. There is a set of direct answers to any question, and much larger sets of partial and complete ones.
 
