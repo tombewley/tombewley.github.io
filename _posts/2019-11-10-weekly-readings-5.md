@@ -29,7 +29,7 @@ $$
 In general, if $\text{woe}(h:e\vert c)>0$ then $h$ is more likely under $e$ than marginally, i.e. the evidence speaks in favour of it. We can also calculate the WoE for $h$ in contrast to a specific alternative $h'$ as follows:
 
 $$
-\text{woe}(h/h':e)=\text{woe}(h:e\vert h\wedge h')=\log\frac{P(e\vert h,h\wedge h')}{P(e\vert h,h\wedge h')}
+\text{woe}(h/h':e)=\text{woe}(h:e\vert h\lor h')=\log\frac{P(e\vert h,h\lor h')}{P(e\vert h',h\lor h')}
 $$
 
 Note how this definition already satisfies the first three desiderata. It is contrastive (1), normalised by base rates since it is conditioned on $h\wedge h'$ (3), and can also be shown to be compositional (2) in that
@@ -87,11 +87,11 @@ A *contrast class* $X=\{P_1,...,P_k,...,P_n\}$ is a set of propositions which in
 
 In addition, there is the rather vague notion of *explanatory relevance*, which determines which propositions count (e.g. prior events, causal mechanism descriptors) as explanatory factors for differentiating $P_k$ from the rest of $X$. The explanatory relevance relation $R$ must also usually be inferred. 
 
-Therefore, the proposition $A$ is a direct answer to a why-question $Q=(P_k,X,R)$ if it has the relevance relation $R$, and $A\implies P_k\and(\forall i\neq k:\neg P_i)$. 
+Therefore, the proposition $A$ is a direct answer to a why-question $Q=(P_k,X,R)$ if it has the relevance relation $R$, and $A\implies P_k\wedge(\forall i\neq k:\neg P_i)$. 
 
 #### Evaluating Explanations
 
-Given a certain body $K$ of accepted background theory, a why-question is said to *arise* if $K$ implies the central presupposition $P_k\and(\forall i\neq k:\neg P_i)$.
+Given a certain body $K$ of accepted background theory, a why-question is said to *arise* if $K$ implies the central presupposition $P_k\wedge(\forall i\neq k:\neg P_i)$.
 
 Suppose we have a why-question $Q=(P_k,X,R)$ that arises from $K$, and a set of candidate answers $A=\{A_1,...,A_m\}$. How good is each answer $A_i$? There are several factors here:
 
@@ -107,7 +107,7 @@ Here the idea is to represent RL policies using a high-level, domain-specific pr
 
 The POMDP formalism is used, whereby an observation-action history $h=(o_0,a_0,…,o_{k-1},a_{k-1},o_k)$ is mapped to an action $a_k$ via a policy $\pi$, with the aim of the maximising time-discounted sum of reward $R(\pi)$. In this framework, $h$ is the input for both the deep RL agent and the programmatic RL agent.
 
-The learned programmatic policy is restricted by defining a prior syntactic skeleton called a *sketch* $S$, which permits a set of programs $\vert\vertS\vert\vert$. The goal is to find the program $e^*\in$\vert\vertS\vert\vert$ which maximises reward. 
+The learned programmatic policy is restricted by defining a prior syntactic skeleton called a *sketch* $S$, which permits a set of programs $\vert\vert S\vert\vert$. The goal is to find the program $e^*\in\vert\vert S\vert\vert$ which maximises reward. 
 
 During program search, a distance measure between the oracle policy $\pi_o$ and the programmatic policy $\pi_p(=e)$ is computed on a set of 'interesting' histories $\mathcal{H}$. A difficulty is that the programmatic policy may encounter histories that are never seen under $\pi_o$. These, which are very likely to be the cases where the most help is needed, would be ignored in the distance measure. The challenge is addressed by gradually augmenting $\mathcal{H}$ with sampled histories from the current $\pi_p$ (e.g. the DAGGER algorithm).
 
