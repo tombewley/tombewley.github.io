@@ -26,13 +26,13 @@ $$
 \text{woe}(h:e\vert c)=\log\frac{P(e\vert h,c)}{P(e\vert\neg h,c)}
 $$
 
-In general, if $\text{woe}(h:e|c)>0$ then $h$ is more likely under $e$ than marginally, i.e. the evidence speaks in favour of it. We can also calculate the WoE for $h$ in contrast to a specific alternative $h'$ as follows:
+In general, if $\text{woe}(h:e\vert c)>0$ then $h$ is more likely under $e$ than marginally, i.e. the evidence speaks in favour of it. We can also calculate the WoE for $h$ in contrast to a specific alternative $h'$ as follows:
 
 $$
-\text{woe}(h/h':e)=\text{woe}(h:e|h\or h')=\log\frac{P(e\vert h,h\or h')}{P(e\vert h,h\or h')}
+\text{woe}(h/h':e)=\text{woe}(h:e\vert h\wedge h')=\log\frac{P(e\vert h,h\wedge h')}{P(e\vert h,h\wedge h')}
 $$
 
-Note how this definition already satisfies the first three desiderata. It is contrastive (1), normalised by base rates since it is conditioned on $h\or h'$ (3), and can also be shown to be compositional (2) in that
+Note how this definition already satisfies the first three desiderata. It is contrastive (1), normalised by base rates since it is conditioned on $h\wedge h'$ (3), and can also be shown to be compositional (2) in that
 
 $$
 \text{woe}\left(h / h^{\prime}: e_{1} \wedge e_{2} \wedge \cdots \wedge e_{n}\right)=\sum_{i=1}^{n} \log \frac{P\left(e_{i} \vert e_{i-1}, \ldots, e_{1}, h\right)}{P\left(e_{i} \vert e_{i-1}, \ldots, e_{1}, h^{\prime}\right)}
@@ -109,7 +109,7 @@ Here the idea is to represent RL policies using a high-level, domain-specific pr
 
 The POMDP formalism is used, whereby an observation-action history $h=(o_0,a_0,…,o_{k-1},a_{k-1},o_k)$ is mapped to an action $a_k$ via a policy $\pi$, with the aim of the maximising time-discounted sum of reward $R(\pi)$. In this framework, $h$ is the input for both the deep RL agent and the programmatic RL agent.
 
-The learned programmatic policy is restricted by defining a prior syntactic skeleton called a *sketch* $S$, which permits a set of programs $||S||$. The goal is to find the program $e^*\in||S||$ which maximises reward. 
+The learned programmatic policy is restricted by defining a prior syntactic skeleton called a *sketch* $S$, which permits a set of programs $\vert\vertS\vert\vert$. The goal is to find the program $e^*\in$\vert\vertS\vert\vert$ which maximises reward. 
 
 During program search, a distance measure between the oracle policy $\pi_o$ and the programmatic policy $\pi_p(=e)$ is computed on a set of 'interesting' histories $\mathcal{H}$. A difficulty is that the programmatic policy may encounter histories that are never seen under $\pi_o$. These, which are very likely to be the cases where the most help is needed, would be ignored in the distance measure. The challenge is addressed by gradually augmenting $\mathcal{H}$ with sampled histories from the current $\pi_p$ (e.g. the DAGGER algorithm).
 
