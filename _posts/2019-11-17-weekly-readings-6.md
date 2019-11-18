@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-Modelling other agents; DAGGER; evaluating feature importance visualisations; self, soul and circular ethics.
+Modelling other agents; `DAGGER`; evaluating feature importance visualisations; self, soul and circular ethics.
 
 ## 📝 Papers
 
@@ -14,7 +14,7 @@ Modelling other agents; DAGGER; evaluating feature importance visualisations; se
 
 This is a survey of approaches to modelling other agents as a function of the observed interaction history. Models can be used to predict future behaviour and inform action selection. The following notation is used throughout. $H=(o_1,…,o_t)$ is a history of observations up to time $t$, and $P(a_j\vert H)$ is the conditional probability that the modelled agent $j$ will select action $a_j$ at time $t$.
 
-- **Policy reconstruction**: Explicitly modelling the agent's policy, usually by fitting the parameters of a fixed model architecture to best reflect the historic distribution of $P(a_j|f(H))$, where $f(H)$ is some representation of the history. Choosing $f$ is tricky, and doing it by hand requires strong assumptions. Attempts have been made to automatically choosing the best representation through some kind of entropy measurement.
+- **Policy reconstruction**: Explicitly modelling the agent's policy, usually by fitting the parameters of a fixed model architecture to best reflect the historic distribution of $P(a_j\vert f(H))$, where $f(H)$ is some representation of the history. Choosing $f$ is tricky, and doing it by hand requires strong assumptions. Attempts have been made to automatically choosing the best representation through some kind of entropy measurement.
 
 - **Type-based reasoning**: The inverse learning of policies from scratch generally requires a lot of data, but if we have some prior knowledge about the kinds of behaviour exhibited, the problem can be reduced to that of selecting from a small set of fixed policy models called *types*, or finding a mixture of several types. Types themselves may be hand-crafted or learned from data. 
 
@@ -44,7 +44,7 @@ $$
 \hat{\pi}=\arg\min_{\pi\in\Pi}\mathbb{E}_{s\sim d_\pi}[\mathcal{L(s,\pi,\pi^*)}]
 $$
 
-Traditional approaches to imitation learning instead train a policy to perform well under the distribution encountered by $\pi^*$, $d_{\pi^*}$. Poor performance can result. A naïve solution would be to iterative train a new policy for each timestep $t$, on the distribution of states induced by all previously-trained policies, but this is extremely computationally intensive.  
+Traditional approaches to imitation learning instead train a policy to perform well under the distribution encountered by $\pi^\ast$, $d_{\pi^\ast}$. Poor performance can result. A naïve solution would be to iterative train a new policy for each timestep $t$, on the distribution of states induced by all previously-trained policies, but this is extremely computationally intensive.  
 
 The generic `DAGGER` proceeds as follows:
 
@@ -55,7 +55,7 @@ The generic `DAGGER` proceeds as follows:
   - For all new trajectories get the corresponding actions from $\pi^*$, and append these to $\mathcal{D}$.
   - Train $\hat{\pi}_{i+1}$ on the augmented dataset.
 
-Starting with $\beta_1=1$ is typically useful because it means we don't have to specify an initial policy $\hat\pi_1$. The only requirement for the evolution of $\beta_i$ is that the average value across all iterations $\rightarrow0$ as $i\rightarrow\infin$.
+Starting with $\beta_1=1$ is typically useful because it means we don't have to specify an initial policy $\hat\pi_1$. The only requirement for the evolution of $\beta_i$ is that the average value across all iterations $\rightarrow0$ as $i\rightarrow\infty$.
 
 - In practice, **the best approach seems to be to set $\beta_1=1$ and $\beta_i=0\ \forall i>1$**.
 
