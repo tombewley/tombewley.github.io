@@ -88,8 +88,13 @@ State representation learning (SRL) is a special case of representation learning
 
 SRL uses a nomenclature very similar to that of reinforcement learning. A time $t$, the environment has a true state $\tilde{s}_t$ but we / the agent only have access to an observation $o_t$. The agent's action is $a_t$. We aim to learn a mapping $\phi$ such that $s_t=\phi(o_t)$ captures the salient properties of $\tilde{s}_t$. This paper introduces four formulations of the SRL problem.
 1. **Reconstructing the observation**. Here the problem is framed in terms of minimising a distance measure between $\hat{o}_t$ and $o_t$ where $\hat{o}_t=\phi^{-1}(s_t)=\phi^{-1}(\phi(o_t))$, subject to constraints on $s_t$ such as sparsity, dimensionality and independence. This approach can be implemented with an autoencoder architecture.
-2. **Learning a forward model**. Here we have a two-step model: the mapping $\phi$ from $o_t$ to $s_t$, and a transition model $f$ from $s_t$ (and $a_t$) to $s_{t+1}$. The idea here is that we cannot compute any error on $s_t$, but we can compute one between $\hat{s}_{t+1}=\phi(o_{t+1})$ and $s_{t+1}=f(\phi(o_t),a_t)$. The error is back-propagated through both $f$ and $\phi$. An advantage of this method is that we can impose structural constraints on $f$ if these are known (linear dynamics are commonly assumed).
+2. **Learning a forward model**. Here we have a two-step model: the mapping $\phi$ from $o_t$ to $s_t$, and a transition model $f$ from $s_t$ (and $a_t$) to $s_{t+1}$. The idea here is that we cannot compute any error on $s_t$, but we can compute one between 
 
+   $$
+   \hat{s}_{t+1}=\phi(o_{t+1})$\ \ \ \text{and}\ \ \ $s_{t+1}=f(\phi(o_t),a_t)
+   $$
+
+   The error is back-propagated through both $f$ and $\phi$. An advantage of this method is that we can impose structural constraints on $f$ if these are known (linear dynamics are commonly assumed).
 3. **Learning an inverse model**. This model is also a two-step one; the mapping $\phi$ from $o_t$ to $s_t$, an inverse model to recover $a_t$ given $s_t$ and $s_{t+1}$. The error is computed between $a_t$ and the true action $\hat{a}_t$ and back-propagated. It has been argued that this formulation may be easier than the forward one, since actions are likely to be more low-dimensional than states.
 4. **Using prior knowledge to constrain the state space**. This approach involves constraining the representation space using priors about properties such as temporal smoothness (consecutive states should be similar) and repeatability (the same action in similar states should produce similar results). Priors are defined as loss functions to be minimised over a dataset of observations.
 
