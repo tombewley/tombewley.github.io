@@ -41,7 +41,7 @@ We assume Markov observations, and thus the problem of learning an observation-s
 5. **Repeatability**: the task-relevant properties, together with the action, are enough to determine the resulting change in these properties, thus the same action in similar states produces similar effects. This is quantified as 
 
    $$
-   L_r(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[\text{sim}(s_{t_1},s_{t_2})\cdot\vert\vert (s_{t_2+1}-s_{t_2})-(s_{t_1+1}-s_{t_1})\vert\vert^{2}\ \vert\ a_{t_{1}}=a_{t_{2}}\right]$
+   L_r(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[\text{sim}(s_{t_1},s_{t_2})\cdot\vert\vert (s_{t_2+1}-s_{t_2})-(s_{t_1+1}-s_{t_1})\vert\vert^{2}\ \vert\ a_{t_{1}}=a_{t_{2}}\right]
    $$
 
    where again the squared exponential similarity measure is used.
@@ -91,7 +91,7 @@ SRL uses a nomenclature very similar to that of reinforcement learning. A time $
 2. **Learning a forward model**. Here we have a two-step model: the mapping $\phi$ from $o_t$ to $s_t$, and a transition model $f$ from $s_t$ (and $a_t$) to $s_{t+1}$. The idea here is that we cannot compute any error on $s_t$, but we can compute one between 
 
    $$
-   \hat{s}_{t+1}=\phi(o_{t+1})$\ \ \ \text{and}\ \ \ $s_{t+1}=f(\phi(o_t),a_t)
+   \hat{s}_{t+1}=\phi(o_{t+1})\ \ \ \text{and}\ \ \ s_{t+1}=f(\phi(o_t),a_t)
    $$
 
    The error is back-propagated through both $f$ and $\phi$. An advantage of this method is that we can impose structural constraints on $f$ if these are known (linear dynamics are commonly assumed).
