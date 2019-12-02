@@ -19,25 +19,31 @@ We assume Markov observations, and thus the problem of learning an observation-s
 1. **Simplicity**: for a given task, only a small number of world properties are relevant (approx. Occam's Razor). This is implemented by enforcing the state representation to be of fixed low dimensionality.
 
 2. **Temporal coherence**: task-relevant properties of the world change gradually over time (approx. Newton's 1st law). For a dataset $\mathcal{D}$, this is quantified as
+
    $$
    L_t(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[\vert\vert s_{t+1}-s_t\vert\vert^2\right]
    $$
 
 3. **Proportionality**: the amount of change in task-relevant properties resulting from an action is proportional to the magnitude of the action (approx. Newton's 2nd law). This is quantified as 
+
    $$
    L_p(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[(\vert\vert s_{t_2+1}-s_{t_2}\vert\vert-\vert\vert s_{t_1+1}-s_{t_1}\vert\vert)^2\ \vert\ a_{t_1}=a_{t_2}\right]
    $$
 
 4. **Causality**: the task-relevant properties, together with the action, are enough to determine the resulting reward, thus different rewards given the same action imply dissimilar states. This is quantified as
+
    $$
    L_p(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[\text{sim}(s_{t_1},s_{t_2})\ \vert\ a_{t_1}=a_{t_2},\ r_{t_1+1}\neq r_{t_2+1}\right]
    $$
+
    where $\text{sim}$ is any differentiable similarity function. Here, the squared exponential is used: $\text{sim}(s_{t_1},s_{t_2})=e^{-\vert\vert s_{t_2}-s_{t_1}\vert\vert^2}$.
 
 5. **Repeatability**: the task-relevant properties, together with the action, are enough to determine the resulting change in these properties, thus the same action in similar states produces similar effects. This is quantified as 
+
    $$
    L_r(\mathcal{D},\phi)=\mathbb{E}_{t\in1:\vert\mathcal{D}\vert-1}\left[\text{sim}(s_{t_1},s_{t_2})\cdot\vert\vert (s_{t_2+1}-s_{t_2})-(s_{t_1+1}-s_{t_1})\vert\vert^{2}\ \vert\ a_{t_{1}}=a_{t_{2}}\right]$
    $$
+
    where again the squared exponential similarity measure is used.
 
 Crucially, while generally useful, each of these priors is regularly contradicted in real experiments. The proposed method is robust to these counterexamples, since all priors (apart from 1) are implemented as soft targets rather than hard constraints. They are combined linearly into a single loss function $L(\phi,D)$ using weights $\omega$, hand-chosen so that the terms provide appropriate gradients.
@@ -45,9 +51,11 @@ Crucially, while generally useful, each of these priors is regularly contradicte
 - Note: since the causality prior directly opposes the other three, its gradient should be as large as the other three combined.
 
 The proposed method learns a **linear observation-state mapping** $s_t=\phi(o_t)=W(o_t-\mu_o)$ where $\mu_o$ is the mean of all observations in $\mathcal{D}$. The weight matrix $W$ is adapted by performing gradient descent on a regularised loss function:
+
 $$
 W^*=\arg \min_W\left[L(\mathcal{D},\phi)+\lambda l_1(W)\right]
 $$
+
 where $l_1(W)=\sum_{i,j}\vert W_{i,j}\vert$ is the regularisation term.
 
 In experiments (simulated and real-world robot navigation tasks), the learned state representation is fed into a standard Q-learning RL agent. The representation and policy are learned semi-concurrently: after each step of the representation learning process, the Q-learning agent is run for $20$ episodes. 
@@ -79,9 +87,9 @@ The diagram can be used to predict behavioural trends, and particularly feedback
 State representation learning (SRL) is a special case of representation learning in which the features to learn evolve through time, influenced by actions or interactions. Given an *observation* representation $O$, the objective of SRL is to reconstruct a *state* representation $S$ that serves as a useful and efficient input for a control policy. Active learning through exploration, as well as prior knowledge of physical and mechanistic properties, can aid the reconstruction process. It is often desirable for the state representation to be Markovian, low-dimensional and generalisable, and for its features to have non-overlapping semantic meanings.
 
 SRL uses a nomenclature very similar to that of reinforcement learning. A time $t$, the environment has a true state $\tilde{s}_t$ but we / the agent only have access to an observation $o_t$. The agent's action is $a_t$. We aim to learn a mapping $\phi$ such that $s_t=\phi(o_t)$ captures the salient properties of $\tilde{s}_t$. This paper introduces four formulations of the SRL problem.
-
 1. **Reconstructing the observation**. Here the problem is framed in terms of minimising a distance measure between $\hat{o}_t$ and $o_t$ where $\hat{o}_t=\phi^{-1}(s_t)=\phi^{-1}(\phi(o_t))$, subject to constraints on $s_t$ such as sparsity, dimensionality and independence. This approach can be implemented with an autoencoder architecture.
 2. **Learning a forward model**. Here we have a two-step model: the mapping $\phi$ from $o_t$ to $s_t$, and a transition model $f$ from $s_t$ (and $a_t$) to $s_{t+1}$. The idea here is that we cannot compute any error on $s_t$, but we can compute one between $\hat{s}_{t+1}=\phi(o_{t+1})$ and $s_{t+1}=f(\phi(o_t),a_t)$. The error is back-propagated through both $f$ and $\phi$. An advantage of this method is that we can impose structural constraints on $f$ if these are known (linear dynamics are commonly assumed).
+
 3. **Learning an inverse model**. This model is also a two-step one; the mapping $\phi$ from $o_t$ to $s_t$, an inverse model to recover $a_t$ given $s_t$ and $s_{t+1}$. The error is computed between $a_t$ and the true action $\hat{a}_t$ and back-propagated. It has been argued that this formulation may be easier than the forward one, since actions are likely to be more low-dimensional than states.
 4. **Using prior knowledge to constrain the state space**. This approach involves constraining the representation space using priors about properties such as temporal smoothness (consecutive states should be similar) and repeatability (the same action in similar states should produce similar results). Priors are defined as loss functions to be minimised over a dataset of observations.
 
@@ -97,7 +105,7 @@ Argues that many of the hard open problems in ML and AI are related to causality
 
 Almost all progress in ML has been on problems which are i.i.d. For such problems, statistical learning theory can provide strong convergence guarantees. Machines tend to perform poorly on non-i.i.d. problems, even those that seem trivial to humans. In particular, the i.i.d. assumption is violated when we *intervene* on a system rather than passively observe it. If we are given observations alone, we cannot meaningfully predict the effect of an intervention without making additional assumptions.
 
-The conceptual basis of statistical learning is a joint distribution $p(X_1,...,X_n)$, where one or more of the $X_i$ is considered a *response* variable and denoted $Y$. Causal learning seeks to exploit the fact that the joint distribution possesses a unique latent causal factorisation, whereby each variable is conditionally independent of all others given a set of parents: $p(X_i|\textbf{PA}_i)$. By further pursuing structural equation modelling, we attempt to learn a functional description of the dependencies, which includes independent noise terms to account for ignorance or inherent randomness.
+The conceptual basis of statistical learning is a joint distribution $p(X_1,...,X_n)$, where one or more of the $X_i$ is considered a *response* variable and denoted $Y$. Causal learning seeks to exploit the fact that the joint distribution possesses a unique latent causal factorisation, whereby each variable is conditionally independent of all others given a set of parents: $p(X_i\vert\textbf{PA}_i)$. By further pursuing structural equation modelling, we attempt to learn a functional description of the dependencies, which includes independent noise terms to account for ignorance or inherent randomness.
 
 If we are able to obtain the correct causal factorisation, we can make use of all manner of invariances (e.g. the distribution of a cause variable is independent of the mechanism producing its effect variable). With the wrong factorisation, no such properties exist.
 
