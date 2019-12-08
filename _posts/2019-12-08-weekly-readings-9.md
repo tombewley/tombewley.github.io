@@ -52,12 +52,12 @@ The tasks used in these experiments are relatively simple. For more sophisticate
 
 In this work, the aim is to learn a low-dimensional state representation from high-dimensional observations of an existing policy with access to the ground-truth state. By providing demonstrations for a range of policies and task setups, the hope is that the inferred state representation is generalisable and complete. This approach differs from most work in SRL in that it is entirely off-policy: the representation is learned from demonstration alone and not from direct interaction with the environment.
 
-For a given task $T^i$ and target policy $\pi^i_{target}$, we can observe trajectories and store them in a dataset $\mathcal{D}^i$ where each element of $\mathcal{D}^i$ is a triple $(I_{t-1},I_{t},\mathbf{a}_{t}^{i})$. $I_{t-1}$ and $I_t$ are consecutive high-dimensional observations and $\mathbf{a}_{t}^{i}$ is a vector corresponding to the action taken at time $t$.  
+For a given task $T^i$ and target policy $\pi^i_{target}$, we can observe trajectories and store them in a dataset $\mathcal{D}^i$ where each element of $\mathcal{D}^i$ is a triple $(I_{t-1},I_{t},a_{t}^{i})$. $I_{t-1}$ and $I_t$ are consecutive high-dimensional observations and $a_{t}^{i}$ is a vector corresponding to the action taken at time $t$.  
 
 Given a *set* of $K$ tasks and associated policies, the aim is to learn a *single* mapping $\varphi(I_t^i)=\varphi_t^i$, implemented as a neural network. The final state representation used is $(\varphi^i_t,\Delta\varphi^i_t)$ where $\Delta\varphi^i_t=\varphi^i_t-\varphi^i_{t-1}$, since this is deemed likely to be useful for a dynamical system which is described by differential equations. This common representation is then used by $K$ independent *head* networks $\psi^{1:K}$ which aim to mimic the $K$ policies. We end up with $K$ optimisation problems:
 
 $$
-\arg \min _{\theta^{i}} \mathbb{E}_{\mathcal{D}^{i}}\left[\left\|\psi^{i}\left(\varphi_{t}^{i}, \Delta \varphi_{t}^{i}\right)-\mathbf{a}_{t}^{i}\right\|_{2}^{2}\right]
+\arg \min _{\theta^{i}} \mathbb{E}_{\mathcal{D}^{i}}\left[\left\|\psi^{i}\left(\varphi_{t}^{i}, \Delta \varphi_{t}^{i}\right)-a_{t}^{i}\right\|_{2}^{2}\right]
 $$
 
 for $i\in\{1,…,K\}$, where $\theta_i$ are the parameters in *both* $\varphi$ and $\psi^i$ that contribute to the output of $\psi^i$. Of course, the optimisation problems are not independent because parameters are shared.
@@ -73,7 +73,7 @@ The experimental task is that of moving a 2D robotic arm to a goal location. Obs
 
 A *genetic programming* (GP) toolkit called *GPSys* is used to synthesise nonlinear attributes using the arithmetic operators ($+,-,\div,\times$) and a set of original features for a decision tree learner, deployed on five classification problems. Various fitness functions are examined, mostly based on Gini coefficient, information gain or a combination of the two. The evolved attributes enable better performance, and significantly more compact trees, compared with using the original features. A couple of examples are given of intuitively-useful attributes being discovered automatically. 
 
-One one of the datasets, this hybrid approach of GP and decision tree is shown to be more effective than simply using a GP alone to evolve a rule set from the original features. It is suggested that this is because rule evolution requires useful features to be synthesised separately for each use, whereas the hybrid allows them to be easily reused in multiple parts of the decision logic.
+On one of the datasets, this hybrid approach of GP and decision tree is shown to be more effective than simply using a GP alone to evolve a rule set from the original features. It is suggested that this is because rule evolution requires useful features to be synthesised separately for each use, whereas the hybrid allows them to be easily reused in multiple parts of the decision logic.
 
 ### Stone, Peter, and Manuela Veloso. “Multiagent Systems: A Survey from a Machine Learning Perspective:” Fort Belvoir, VA: Defense Technical Information Center, December 4, 1997.
 
