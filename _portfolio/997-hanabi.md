@@ -1,6 +1,6 @@
 ---
 title: "Minimal Hanabi Emulator"
-permalink: /portfolio/ontour/
+permalink: 'https://github.com/tombewley/Hanabi'
 excerpt: "A minimal Hanabi emulator, written in pure Python.<br/><img src='https://images-na.ssl-images-amazon.com/images/I/51tQM1c%2BTHL.jpg'>"
 collection: portfolio
 ---
