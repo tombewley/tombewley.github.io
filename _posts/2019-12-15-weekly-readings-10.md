@@ -1,5 +1,5 @@
 ---
-title: 'Weekly Readings #10
+title: 'Weekly Readings #10'
 date: 2019-12-14
 permalink: /posts/2019/12/weekly-readings-10/
 tags:
