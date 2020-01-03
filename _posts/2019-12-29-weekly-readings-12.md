@@ -6,15 +6,15 @@ tags:
   - weekly-readings
 ---
 
-xxx; xxx; xxx
+Goal hierarchies as rule sets; mutual information and auxiliary tasks for representation learning; model-based understanding.
 
 ## 📝 Papers
 
 ### Bain, Michael, and Claude Sammut. “A Framework for Behavioural Cloning,” 2001.
 
-Describes experiments in automatically cloning reactive agents from human demonstration for the task of flying a simulated aircraft along a specified flight plan. $10$ episodes of demonstration are recorded from each of $3$ human pilots, each with around $1000$ control action datapoints. For each datapoint, the state of the system is recorded, as described by a set of relevant state variables (e.g. aircraft heading, speed, distance to runway…)
+This relatively early paper describes experiments in automatically cloning reactive agents from human demonstration for the task of flying a simulated aircraft along a specified flight plan. $10$ episodes of demonstration are recorded from each of $3$ human pilots, each with around $1000$ control action datapoints. For each datapoint, the state of the system is recorded, as described by a set of relevant state variables (e.g. aircraft heading, speed, distance to runway…)
 
-Quinlan's C4.5 decision tree induction algorithm is used to fit rule sets to data from each pilot *individually*, since different flying styles are possible. Furthermore, the flight plan is divided into seven sub-tasks corresponding to the instructions given to the participants. Finally, since there are four control dimensions – elevator, rollers, thrust, flaps – a decision tree is fit to each (with actions discretised into bins of equal frequency on a per-pilot basis). Hence in total, $3\times7\times4=84$ trees are induced. Post-pruning is performed to yield more readable, noise-tolerant trees.
+Quinlan's *C4.5* decision tree induction algorithm is used to fit rule sets to data from each pilot *individually*, since different flying styles are possible. Furthermore, the flight plan is divided into seven sub-tasks corresponding to the instructions given to the participants. Finally, since there are four control dimensions – elevator, rollers, thrust, flaps – a decision tree is fit to each (with actions discretised into bins of equal frequency on a per-pilot basis). Hence in total, $3\times7\times4=84$ trees are induced. Post-pruning is performed to yield more readable, noise-tolerant trees.
 
 Even though trees are learned on a per-dimension basis, they are found to yield smooth and well-coordinated action. But despite the trees being induced for each subtask, the nature of these tasks is not explicitly represented, which is surely a missed opportunity.
 
@@ -73,7 +73,7 @@ Given a trained CIGAN model, goal-directed planning is performed as follows:
 
 1. Given a pair of observations $o_{start}$ and $o_{goal}$, encode them into a pair of abstract states $s_{start}$ and $s_{goal}$. The encoding is optimised by a "search over the latent space", though another approach could be to modify the GAN to include an explicit encoder-decoder architecture.
 
-2. Using a model of abstract state transition probabilities learned from data (the form of this depends on whether the representation is one-hot, binary or continuous; see paper for details), and an appropriate planning algorithm, construct a feasible trajectories of states from $s_{start}$  to $s_{goal}$. 
+2. Using a model of abstract state transition probabilities learned from data (the form of this depends on whether the representation is one-hot, binary or continuous), and an appropriate planning algorithm, construct a feasible trajectories of states from $s_{start}$  to $s_{goal}$. 
 3. Decode the trajectory to a sequence of observations, by passing it through the GAN generator.
 
 The technique is deployed to generate obstacle-avoiding trajectories in a 2D environment, and sequences of images of a strand of rope representing a feasible interpolation between start and end configurations.
@@ -113,14 +113,13 @@ A *forward model* $\phi$ is then trained to predict the embeddings of the slice 
 
 Given a trained embedding network $\psi$ and forward model $\phi$ capable of multi-step prediction, [experiments](https://sites.google.com/view/learn-embedding-for-slicing/) show how a simple planning algorithm can devise an execute a cutting plan to move between initial and goal images (i.e. cut several slices of various thicknesses).
 
-## 📚  Books
-
-### Dennett, D. & Hofstadter, D. (2001). *The Minds' I: Fantasies and Reflections on Self and Soul*. Basic Books.
-
-#### Section
-
 ## 🗝️  Key Insights
 
-- x
-- x
-- x
+- The GRAIL paper presents an interesting idea for learning multi-subtask learning, based on the use of two decision trees: one to select and represent a subtask, and one to map a subtask to an action.
+
+- Most definitions of semantics in AI are rather muddled. The approach of defining the meaning of a representation in terms of its contextual effect on an actor seems to be a pragmatic one.
+- The fact that theoretical measures of semantic content such as mutual information are even vaguely successful should give us great hope that a learning-based solution to grounded or causal reasoning is possible.
+- While presented under various guises, the idea of using an auxiliary task to provide feedback for learning generally-applicable representational spaces appears to be a fashionable one.
+- Where post-hoc explanation is the aim, the BDI paradigm is a very natural one. However, the precise structure (often arbitrary) of a BDI tree has a chaotic effect on the final explanation.
+- However, "explanation" is weakly-defined and perhaps shouldn't actually be our aim. Instead, we should focus on understanding, and science tells us that the best path towards this is to build mechanistic models while remaining aware of their inaccuracies. 
+
