@@ -78,7 +78,7 @@ Given a trained CIGAN model, goal-directed planning is performed as follows:
 
 The technique is deployed to generate obstacle-avoiding trajectories in a 2D environment, and sequences of images of a strand of rope representing a feasible interpolation between start and end configurations.
 
-## Lyre, Holger. “Concerning the State Space of Artificial Intelligence,” 2019, 27.
+### Lyre, Holger. “Concerning the State Space of Artificial Intelligence,” 2019, 27.
 
 Not too much novel in here, but the author takes a stab at mapping the space within which the many possible approaches to artificial intelligence lie. 
 
