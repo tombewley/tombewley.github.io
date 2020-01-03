@@ -78,24 +78,6 @@ Given a trained CIGAN model, goal-directed planning is performed as follows:
 
 The technique is deployed to generate obstacle-avoiding trajectories in a 2D environment, and sequences of images of a strand of rope representing a feasible interpolation between start and end configurations.
 
-### Lyre, Holger. “Concerning the State Space of Artificial Intelligence,” 2019, 27.
-
-Not too much novel in here, but the author takes a stab at mapping the space within which the many possible approaches to artificial intelligence lie. 
-
-This space is obviously very high-dimensional, but three primary 'classes' of dimension are proposed:
-
-1. Generalisation (vs narrowness).
-2. Grounding (i.e. semantic properties).
-3. Self-$x$-ness, where $x$ could stand for:
-   - Learning
-   - Repairing
-   - Replicating
-   - Explanatory
-   - Conscious
-   - …
-
-It is imagined that human-level intelligence is a point (or compact region) in this space. 
-
 ### Páez, Andrés. “The Pragmatic Turn in Explainable Artificial Intelligence (XAI).” *Minds and Machines* 29, no. 3 (September 2019): 441–59. 
 
 Argues that the goal of XAI is not well-defined and should be reformulated in terms of a coherent model of human *understanding*, informed by results from psychology and philosophy. 
