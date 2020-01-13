@@ -89,7 +89,7 @@ This analysis reveals how a pre-trained network can be used to model basic induc
 
 - If a novel feature $m$ is newly ascribed to a familiar item $i$ (by adjusting *only* the weights from the hidden layer to the novel feature so as to activate it appropriately), the effect is to also ascribed to another item $j$ by an amount proportional to similarity of the two hidden states $\textbf{h}_i$ and $\textbf{h}_j$ (computed by scalar projection). 
 - Similarly, if a novel item $i$ is introduced with a familiar feature $m$ (by adjusting *only* the item-to-hidden weights), it will also be assigned another feature $n$ by an amount proportional to the similarity of the features' hidden representations. 
-  - These cannot be obtained directly, but at time $t$ the $\alpha\text{th}$ component of $\textbf{h}_n$ can be computed as $\textbf{h}^\alpha_n=\textbf{u}^\alpha_n\sqrt{a_\alpha(t)}$.
+  - These cannot be obtained directly, but at time $t$ the $\alpha$th component of $\mathbf{h}_n$ can be computed as $\mathbf{h}^\alpha_n=\mathbf{u}^\alpha_n\sqrt{a_\alpha(t)}$.
 
 Thus the hidden layer of a deep network acts as a common representational space in which both features and items can be placed.
 
