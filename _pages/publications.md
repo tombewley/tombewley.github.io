@@ -18,9 +18,6 @@ redirect_from:
     {% endif %}
   {% endfor %}</ul>
 
-### Abstracts and Workshops
-*Coming soon…*
-
 ### Theses
 
   <ul style="list-style: none;">
