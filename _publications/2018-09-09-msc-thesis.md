@@ -1,5 +1,5 @@
 ---
-title: "Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
+title: "On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
 pubtype: "thesis"
 collection: publications
 permalink: /publication/msc
