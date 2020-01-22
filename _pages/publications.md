@@ -12,7 +12,7 @@ redirect_from:
 ### Conference Papers
 
   <ul style="list-style: none;">
-  {% for post in site.publications %}
+  {% for post in site.publications reversed %}
     {% if post.pubtype == "conference" %}
        {% include archive-single-cv.html %}
     {% endif %}
@@ -21,7 +21,7 @@ redirect_from:
 ### Theses
 
   <ul style="list-style: none;">
-  {% for post in site.publications %}
+  {% for post in site.publications reversed %}
     {% if post.pubtype == "thesis" %}
        {% include archive-single-cv.html %}
     {% endif %}
