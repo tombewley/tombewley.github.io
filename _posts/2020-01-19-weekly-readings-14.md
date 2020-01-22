@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-xxx; xxx; xxx.
+Integrating knowledge and machine learning; folk psychology and intentionality; soft decision trees; conceptual spaces.
 
 ## 📝 Papers
 
@@ -46,27 +46,35 @@ It is essential that we primarily use human judgement to evaluate proposed expla
 Explicitly motivated by explainability, the authors propose distilling a neural network into a *soft decision tree* with minimal loss of performance. Rather than relying on hierarchical features, as in a neural network, a soft decision tree works using hierarchical decisions about the unmodified input features, thus (it is claimed) is more interpretable. 
 
 In a soft decision tree, each decision node $i$ performs a linear mapping of the input vector $\textbf{x}$ to the probability of taking the rightmost child branch: 
+
 $$
 p_i(\textbf{x})=\sigma(\beta\cdot(\textbf{xw}_i+b_i))
 $$
+
 where $\sigma$ is the logistic function and $\beta$ is an inverse temperature parameter that moderates the degree of stochasticity in the tree. As $\beta\rightarrow\infty$ it becomes increasingly deterministic, which makes explanations easier at the cost of slightly reduced performance.
 
 Each leaf node $\mathcal{l}$ learns a softmax distribution $Q^\ell$ over the output classes, such that for each class $k$, the probability of outputting that class is
+
 $$
 Q^\ell_k=\frac{\exp(\phi^\ell_k)}{\sum_{k'}\exp(\phi^\ell_{k'})}
 $$
+
 where $\phi^\ell_k$ is a learned parameter. 
 
 The loss function used during training seeks to minimise the cross entropy between each leaf $\ell$ (weighted by its path probability) and the target distribution. For a single input vector $\textbf{x}$ and target distribution $T$, the loss is
+
 $$
 \mathrm{L}(\mathrm{x})=-\log \left(\sum_{\ell} P^{\ell}(\mathrm{x}) \sum_{k} T_{k} \log Q_{k}^{\ell}\right)
 $$
+
 where $P^\ell(\textbf{x})$ is the probability of getting to $\ell$ from the root node given $\textbf{x}$.
 
 A regularisation term is added to encourage each decision node to make equal use of both left and right subtrees. This avoids getting stuck in plateaus in which a decision node assigns almost full probability to one of its subtrees, meaning the gradient of the logistic for this decision is always very close to zero. The regularisation cost is calculated as
+
 $$
 C=-\lambda\sum_i2^{-d_i}\left[0.5\cdot\log(\alpha_i)+0.5\cdot\log(1-\alpha_i)\right]\ \ \ \text{where}\ \ \ \alpha_{i}=\frac{\sum_{\mathbf{x}} P^{i}(\mathbf{x}) p_{i}(\mathbf{x})}{\sum_{\mathbf{x}} P^{i}(\mathbf{x})}
 $$
+
 and $d_i$ is the depth of node $i$, which is used to exponentially decay the penalty for deeper nodes, where probabilities are computed with less data (and thus less certainty). $\lambda$ determines the overall strength of regularisation. In addition, a moving average of the probabilities is used rather than the per-batch values. The window size for the moving average is exponentially *increased* with node depth. 
 
 Unlike most decision tree induction algorithms, the tree topology is fixed, and the parameters $\textbf{w}$, $b$ and $\phi$ are updated by batch gradient descent. 
