@@ -1,11 +1,11 @@
 ---
-title: "On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
+title: "Harnessing Social Tourism Data for City and Point-of-Interest Recommendation"
 pubtype: "thesis"
 collection: publications
 permalink: /publication/msc
 excerpt: 'Exerpt.'
 date: 2019-09-09
-paperurl: 'http://tombewley.com/files/msc-thesis.pdf'
+paperurl: '/files/msc-thesis.pdf'
 citation: 'Bewley, Tom. &quot;On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation.&quot; MSc Thesis, University of Bristol, 2019.'
 redirect_from: 
   - /msc
