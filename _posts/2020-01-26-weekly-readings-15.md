@@ -173,7 +173,7 @@ $$
 L_{\Theta_{2}}=L_{C_{2}}+D_{K L}\left(\boldsymbol{p}_{1} \| \boldsymbol{p}_{2}\right)
 $$
 
-where $L_{C_2}$ is a conventional cross-entropy error and $D_{K L}\left(\boldsymbol{p}_{1} \vert\vert \boldsymbol{p}_{2}\right)$ is the KL distance between the softmax output distributions of the two models. The models can be optimised concurrently with stochastic gradient descent. 
+where $L_{C_2}$ is a conventional cross-entropy error and $D_{KL}(\textbf{p}_1 \| \textbf{p}_2)$ is the KL distance between the softmax output distributions of the two models. The models can be optimised concurrently with stochastic gradient descent. 
 
 Experiments with popular datasets indicate mutual learning significantly outperforms both independent learning and distillation [though the latter comparison is a little unfair as an equally-small network is used as the teacher]. This approach can easily be generalised to larger cohorts by using the mean KL distance in the loss function, and some additional experiments suggest that we get a (sublinear) increase in performance with cohort size.
 
