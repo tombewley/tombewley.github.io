@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-xxx; xxx.
+Confident execution framework; explananda as differences; online decision tree induction; hybrid AI design patterns.
 
 ## 📝 Papers
 
@@ -45,7 +45,7 @@ This paper reviews the most impactful online tree induction algorithms:
 
 2. **ID5R** (1989): here we do a little better, by restructuring rather than discarding inaccurate subtrees. The restructuring step, called a "pull-up", rearranges a subtree so that the desired test attribute is at the root. Unfortunately the paper offers little more detail than this. ID5R is guaranteed to build the same tree as the basic ID3 algorithm, given the same instances.
 
-3. **ID5R version 2, ITI **(1997): this paper does a better job of explaining ID5R, while introducing some minor revisions. When a new instance arrives we pass it to a leaf node. If it matches the majority class, happy days. If not, we consider this to be a 'vote' to split the node and attempt to do so (recursively). Once this is done, we traverse the tree to check that the best attribute is tested at each node. If not, we recursively transpose the tests in each two-level subtree until the best test is at the node [what if the test doesn't exist in the subtree?] If the best attribute is used, but the wrong cut-point is chosen, we adjust it, but then must be careful to redistribute all instances in the subtree to their correct leaves. We then proceed further down the tree and make more adjustments if required. Experiments in the paper show that the computational cost of these revisions is generally much lower than rebuilding from scratch.
+3. **ID5R version 2, ITI** (1997): this paper does a better job of explaining ID5R, while introducing some minor revisions. When a new instance arrives we pass it to a leaf node. If it matches the majority class, happy days. If not, we consider this to be a 'vote' to split the node and attempt to do so (recursively). Once this is done, we traverse the tree to check that the best attribute is tested at each node. If not, we recursively transpose the tests in each two-level subtree until the best test is at the node [what if the test doesn't exist in the subtree?] If the best attribute is used, but the wrong cut-point is chosen, we adjust it, but then must be careful to redistribute all instances in the subtree to their correct leaves. We then proceed further down the tree and make more adjustments if required. Experiments in the paper show that the computational cost of these revisions is generally much lower than rebuilding from scratch.
 
 4. **Very Fast Decision Tree, VFDT** (2000): Here each new instance triggers an attempt to split the node it reaches, as long as a statistical test based on the *Hoeffding bound* (later replaced with something called the multivariate delta method) is passed. A pruning mechanism is also incorporated. The result is an extremely efficient algorithm that is claimed to outperform batch learners.
 
@@ -59,31 +59,31 @@ Finally notes that ID5R should be seen as the de facto standard for online tree 
 
 This paper attempts to structure the debate around hybrid AI through a set of *design patterns* that summarise all previously-proposed integrations. In the notation used, `(ML)` refers to a machine learning system, `(KR)` is a knowledge representation system, `[sym]` is 'model-based' (symbolic / relational) knowledge and `[data]` is 'model-free' data. The patterns are:
 
-1. Learning with symbolic input and output (e.g. inductive logic programming, Markov logic networks).
+- Learning with symbolic input and output (e.g. inductive logic programming, Markov logic networks).
 
 ```
 [sym]-->(ML)-->[sym]
 ```
 
-2. From symbols to data and back again (e.g. ML systems that use knowledge graphs as inputs and outputs).
+- From symbols to data and back again (e.g. ML systems that use knowledge graphs as inputs and outputs).
 
 ```
 [sym]-->(ML)-->[data]-->(ML)-->[sym]
 ```
 
-3. Learning from data with symbolic output (e.g. ontology learning from text).
+- Learning from data with symbolic output (e.g. ontology learning from text).
 
 ```
 [data]-->(ML)-->[sym]
 ```
 
-4. Explainable learning systems.
+- Explainable learning systems.
 
 ```
 [data]-->(ML)-->[sym]-->(KR)-->[sym]
 ```
 
-5. Explainable learning systems with background knowledge.
+- Explainable learning systems with background knowledge.
 
 ```
 					   [sym]
@@ -92,7 +92,7 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
 [data]-->(ML)-->[sym]-->(KR)-->[sym]
 ```
 
-6. Explainable learning systems through inspection (cloning).
+- Explainable learning systems through inspection (cloning).
 
 ```
 [data]-->(ML)-->[data]
@@ -103,19 +103,19 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
   [sym (explanation)]
 ```
 
-7. Learning an intermediate abstraction for learning (representation learning).
+- Learning an intermediate abstraction for learning (representation learning).
 
 ```
 [data]-->(ML)-->[sym]-->(ML)-->[data]
 ```
 
-8. Learning an intermediate abstraction for reasoning (e.g. AlphaGo RL + MCTS).
+- Learning an intermediate abstraction for reasoning (e.g. AlphaGo RL + MCTS).
 
 ```[data]-->(ML)-->[sym]-->(ML)-->[data]
 [data]-->(ML)-->[sym]-->(KR)-->[sym]
 ```
 
-9. Deriving an intermediate abstraction for learning (representation construction).
+- Deriving an intermediate abstraction for learning (representation construction).
 
 ```
 		[sym]
@@ -124,7 +124,7 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
 [data]-->(KR)-->[sym]-->(ML)-->[data]
 ```
 
-10. Learning with symbolic information as a prior (e.g. logic tensor networks).
+- Learning with symbolic information as a prior (e.g. logic tensor networks).
 
 ```
 		[sym]
@@ -133,7 +133,7 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
 [data]-->(ML)-->[data]
 ```
 
-11. Learning with derived symbolic information as a prior.
+- Learning with derived symbolic information as a prior.
 
 ```
 [sym]-->(KR)-->[sym]
@@ -142,7 +142,7 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
        [data]-->(ML)-->[data]
 ```
 
-12. Meta-reasoning for control (`(KR)` maintains a symbolic representation of an `(ML)` system).
+- Meta-reasoning for control (`(KR)` maintains a symbolic representation of an `(ML)` system).
 
 ```
 ..............................
@@ -152,7 +152,7 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
 ..............................
 ```
 
-13. Learning to reason (observing `(KR)` enables `(ML)` to mimic its behaviour).
+- Learning to reason (observing `(KR)` enables `(ML)` to mimic its behaviour).
 
 ```
                                  [sym (query)]
@@ -168,10 +168,12 @@ This paper attempts to structure the debate around hybrid AI through a set of *d
 Small neural networks often have the same representational capacity as large ones, but are more difficult to optimise. Model distillation (large $\rightarrow$ small model via soft class probabilities and/or feature representation) is often able to achieve superior performance compared with direct learning, because it conveys additional information beyond raw class labels. Here the authors propose an alternative to distillation called *mutual learning*, in which a cohort of initially-untrained student models simultaneously learn to solve a task while sharing some representational information in their loss functions.
 
 In this paper we consider a two-model cohort, and classification problems. The loss function for network $\Theta_2$ is
+
 $$
 L_{\Theta_{2}}=L_{C_{2}}+D_{K L}\left(\boldsymbol{p}_{1} \| \boldsymbol{p}_{2}\right)
 $$
-where $L_{C_2}$ is a conventional cross-entropy error and $D_{K L}\left(\boldsymbol{p}_{1} \| \boldsymbol{p}_{2}\right)$ is the KL distance between the softmax output distributions of the two models. The models can be optimised concurrently with stochastic gradient descent. 
+
+where $L_{C_2}$ is a conventional cross-entropy error and $D_{K L}\left(\boldsymbol{p}_{1} \vert\vert \boldsymbol{p}_{2}\right)$ is the KL distance between the softmax output distributions of the two models. The models can be optimised concurrently with stochastic gradient descent. 
 
 Experiments with popular datasets indicate mutual learning significantly outperforms both independent learning and distillation [though the latter comparison is a little unfair as an equally-small network is used as the teacher]. This approach can easily be generalised to larger cohorts by using the mean KL distance in the loss function, and some additional experiments suggest that we get a (sublinear) increase in performance with cohort size.
 
@@ -179,6 +181,7 @@ Why does mutual learning work at all? The suggestion is that the pooling of info
 
 ## 🗝️  Key Insights
 
-- x
-- x
-- x
+- The confident execution is a simple and well-explained demonstration of how interactive policy learning can be beneficial in terms of data efficiency, even if it doesn't provide much performance benefit.
+- Hesslow's elegant reframing of the causal selection problem is a useful thing to bear in mind, though I'm not sure we can do away entirely with the Bayesian-style uncertainty and requirement to model the explainee's knowledge state.
+- The range and variety of incremental decision tree induction algorithms is remarkably small, and very little has been done in over 15 years. I feel there's an opportunity here for interpretable cloning of dynamic systems to drive some more innovation.
+- There is a relatively small set of patterns that captures most historic interactions between symbolic and ML systems. This may be a useful insight for taxonomising and understanding any future approaches.
