@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-xxx; xxx.
+Imitation by coaching; GAIL; human-centric vs robot-centric; DeepMimic.
 
 ## 📝 Papers
 
@@ -102,6 +102,10 @@ Robustness experiments show that the learned policies can survive equal-or-large
 
 ## 🗝️  Key Insights
 
-- x
-- x
-- x
+*Everything's been focused on various approaches to imitation learning this week.* 
+
+- The use of an intermediate 'coach' layer between the teacher and student policies is an interesting idea and one approach to delivering tailored, active learning. It operates very simply in the paper here, but there are plenty of refinements that could be made (e.g. being adaptive to the student's uncertainty).
+- The GAIL paper provides a compelling argument for reducing inverse reinforcement learning to an generative adversarial learning problem. InfoGAIL (read previously) attempts to enforce more interpretable representations during this process, but is there a way to make it *far* more interpretable (e.g. by using decision trees?)
+
+- Most previous investigations of the topic suggest student-led demonstrations provide more sample-efficient learning than teacher-led ones (avoids covariate shift). While the "Comparing…" paper provides some arguments in the opposite direction, I don't believe most of these are relevant to the context of imitation learning for black box interpretability.
+- DeepMimic illustrates the potential of a halfway house between imitation learning and reinforcement learning, which balances fidelity with respect to the teacher against expected reward.
