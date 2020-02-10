@@ -15,9 +15,11 @@ xxx
 The motivation of this paper is to learn agent policies whose safety, stability and robustness can be formally verified. To achieve this, a modified DAgger process is completed to distill a pretrained DNN policy $\pi^*$ into a decision tree. The process, which the authors call *VIPER* (Verifiability via Iterative Policy ExtRaction), makes additional use of the targets policy's $Q^{(\pi^*)}$ function, which yields far more compact trees than conventional imitation learning or DAgger.
 
 It is first suggested that we modify DAgger to use the following convex loss 
+
 $$
 \tilde{\ell}(s)=V^{\left(\pi^{*}\right)}(s)-\min _{a \in A} Q^{\left(\pi^{*}\right)}(s, a)
 $$
+
 Rather than directly modifying the loss optimised by the decision tree inducer (here, CART), the same effect can produced in expectation by modifying how instances in the aggregated DAgger dataset are sampled for training. Specifically,  we just need to sample each $(s,a)$ pair with a probability weighted by $\tilde{\ell}(s)$. A new tree is trained from scratch on each iteration.
 
 Trees resulting from the VIPER process are demonstrated to be smaller and higher-performing than ones from DAgger (cartpole and Pong environments), and are then subjected to a variety of verification analyses which prove stability and performance guarantees. Such analyses could not be applied directly to a DNN policy.
@@ -39,13 +41,17 @@ Suárez and Lutsko [see paper below] developed the *differentiable decision tree
 This paper marks the first exploration of using a DDT for end-to-end RL. Theoretical analysis with an extremely simple 4-state MDP, and a DDT with just one decision node, provides evidence that the policy gradient paradigm will be more stable than Q-learning.
 
 After this, a couple of simple modifications are made to Suárez and Lutsko's model, to service the goal of interpretability. Firstly, a regularisation term is added to the policy gradient loss which encourages sparsity in the weights $\textbf{w}_n\forall n$ and thus for a single feature to be used at each node:
+
 $$
 \vert\vert \text { nonmax }\left(\textbf{w}_n\right) \vert\vert_{1}-\vert\max \left(\textbf{w}_n\right)\vert
 $$
+
 To ensure that the 'chosen' weight $\max (\textbf{w}_n)$ remains nicely bounded, a softmax operator is then applied to $\textbf{w}_n$. Another modification is to uniformly initialise the weights, because random initialisation is found to introduce bias. Finally, a method for extracting a conventional, discretised decision tree is introduced: simply finding the index of the 'chosen' feature $\text{argmax} _{j}(\textbf{w}_n^j)$ and taking the rightmost child node when
+
 $$
 x_{\text{argmax}_j(\textbf{w}_n^j)} \geq t_n
 $$
+
 Evaluations in OpenAI Gym environments demonstrate that DDTs learned by RL exhibit comparable performance to neural network function approximators with the same or more parameters, and that the extracted discretised trees only suffer a marginal performance hit.
 
 ### Sokol, Kacper, and Peter Flach. “One Explanation Does Not Fit All: The Promise of Interactive Explanations for Machine Learning Transparency.” *ArXiv:2001.09734 [Cs, Stat]*, January 27, 2020.
@@ -69,71 +75,99 @@ Other issues that need more focus include explainees' tendencies to over-general
 This paper introduces a kind of fuzzy decision tree which has since come to be known as a *differentiable* decision tree. It augments the general CART framework with the core idea of fuzzy set theory: that of partial membership of a set. 
 
 The conventional crisp test used at a decision node $n$ is 
+
 $$
 \text{if}\ \ \textbf{x}^{(j_n)}_i>t_n\rightarrow\mu^\text{right}_n(\textbf{x}_i)=1, \ \text{otherwise}\rightarrow\mu^\text{right}_n(\textbf{x}_i)=0
 $$
+
 with $\mu^\text{left}_n(\textbf{x}_i)=1-\mu^\text{right}_n(\textbf{x}_i)$. Here, $j_n$ is the index of the selected feature, $t_n$ is the threshold and $\mu^\text{child}_n(\textbf{x})$ indicates the membership of the input vector in each child node (currently $\in\{0,1\}$). This can be thought of as a special case of a test concerning the weighted sum of all features
+
 $$
 \text{if}\ \ \textbf{w}_n\cdot\textbf{x}_i>t_n\rightarrow\mu^\text{right}_n(\textbf{x}_i)=1, \ \text{otherwise}\rightarrow\mu^\text{right}_n(\textbf{x}_i)=0
 $$
+
 which, for regression problems, can be fuzzified using a logistic activation function and continuous membership values $\in[0,1]$:
+
 $$
 \mu^\text{right}_n(\textbf{x}_i)=\frac{1}{1+\exp[b_n(\textbf{w}_n\cdot\textbf{x}_i-t_n)]}
 $$
+
 where $b_n$ is a width parameter. For regression, the defuzzified prediction $\bar{y}(\textbf{x})$ for a given input vector $\textbf{x}$ is computed as a membership-weighted sum of predicted values across all leaf nodes. Note that the predicted value of a leaf node $l$, denoted $d_l$, is itself a parameter to be learned. 
 
-In addition to being more expressive than a crisp, axis-aligned decision tree (can represent continuous functions), a fuzzy regression tree has a structure of continuous parameters $((b_n,\textbf{w}_n,t_n)\forall n,\ d_l\forall l)$ . This means it is amenable to global optimisation, specifically by backpropagation of loss gradients. For a training dataset $\mathcal{D}$, the gradient of the mean squared loss $\mathcal{L}_\mathcal{D}$ with respect to each $d_l$ is
+In addition to being more expressive than a crisp, axis-aligned decision tree (can represent continuous functions), a fuzzy regression tree has a structure of continuous parameters. This means it is amenable to global optimisation, specifically by backpropagation of loss gradients. For a training dataset $\mathcal{D}$, the gradient of the mean squared loss $\mathcal{L}_\mathcal{D}$ with respect to each $d_l$ is
+
 $$
 \frac{\partial\mathcal{L}_\mathcal{D}}{\partial d_l}=\sum_{i=1}^{\vert\mathcal{D}\vert}(y_i-\bar{y}({\textbf{x}_i}))\cdot\mu_l(\textbf{x}_i)
 $$
+
 and the gradient with respect to the parameter vector of a decision node $\xi_n=[-b_nt_n,b_n\textbf{w}_n]$ is
+
 $$
 \frac{\partial\mathcal{L}_\mathcal{D}}{\partial \xi_n}=\sum_{i=1}^{\vert\mathcal{D}\vert}(y_i-\bar{y}({\textbf{x}_i}))\cdot\mu_n(\textbf{x}_i)\cdot(\bar{y}^\text{left}_n(\textbf{x}_i)-\bar{y}^\text{right}_n(\textbf{x}_i))\cdot\frac{\partial\mu^{\text{left}}_n(\textbf{x}_i)}{\partial\xi_n}
 $$
+
 where $\bar{y}_n^\text{child}(\textbf{x})$ is the partial estimate of $\bar{y}(\textbf{x})$ that can be computed from the subtree rooted at the child node, and 
+
 $$
 \frac{\partial \mu_n^{\text{left}}(\mathbf{x}_i)}{\partial \xi_{n}}=\tilde{\mathbf{x}} \mu_n^{\text{left}}(\mathbf{x}_i)\mu_n^{\text{right}}(\mathbf{x}_i)
 $$
+
 where $\tilde{\textbf{x}}=[1,\textbf{x}^{(1)},\textbf{x}^{(2)},...]$.
 
 It is important to note that this optimisation scheme *assumes a fixed tree topology*. In experiments, the authors first train a crisp regression tree using CART, then use it to initialise a fuzzy tree which is subjected to gradient-based optimisation. The proposed initialisation method for each decision node is to copy the threshold $t_n$ exactly, set the weights $\textbf{w}_n$ to a one-hot vector encoding the selected feature $j_n$ [I think], and  choose the width parameter $b_n$ via a rather complicated function of the range of $j_n$ across the training dataset, and impurity reduction effect of the node [see paper for details].
 
 So far we have assumed that the fuzzy tree is being used for a regression problem. For classification, the scheme is quite a bit hackier. First, we need to introduce normalisation as follows [why?]:
+
 $$
 \mu^\text{right}_n(\textbf{x}_i)=\frac{1}{1+\exp[b_n(\frac{1}{\vert\textbf{w}_n\vert}\textbf{w}_n\cdot\textbf{x}_i-\tilde{t}_n)]}
 $$
+
 where $\tilde{t}_n=t_n/\vert\textbf{w}_n\vert$. In addition, class labels are assigned to leaf nodes by the majority rule (so unlike in regression, they are not parameters), and the defuzzified prediction $\bar{y}(\textbf{x})$ is the class with the greatest sum of membership across all leaf nodes. 
 
 The global Gini impurity $\mathcal{G}_\mathcal{D}$ is chosen as the loss metric to optimise for classification. The loss gradient with respect to a decision node parameter $\alpha_n$ is 
+
 $$
 \frac{\partial\mathcal{G}_\mathcal{D}}{\partial\alpha_n}=\sum_{i=1}^{\vert\mathcal{D}\vert}\mu_n(\textbf{x}_i)\cdot(\Psi_n^\text{left}(\textbf{x}_i,y_i)-\Psi_n^\text{right}(\textbf{x}_i,y_i))\cdot\frac{\partial\mu^{\text{left}}_n(\textbf{x}_i)}{\partial\alpha_n}
 $$
+
 where for leaf nodes
+
 $$
 \Psi_{l}\left(\_,y_{i}\right)=-\sum_{k=1}^{K} \frac{N_{l}^{(k)}}{N_{l}^{2}}\left[(2 N_{l}\cdot \mathbb{I}_{y_{i}=k})-N_{l}^{(k)}\right]
 $$
+
 (with $k=1..K$ being the classes), and for decision nodes
+
 $$
 \Psi_{n}\left(\mathbf{x}_{i}, y_{i}\right)=\mu_n^{\text{left}}\left(\mathbf{x}_{i}\right) \cdot\Psi_{n}^\text{left}\left(\mathbf{x}_{i}, y_{i}\right)+\mu_n^{\text{right}}\left(\mathbf{x}_{i}\right) \cdot\Psi_{n}^\text{right}\left(\mathbf{x}_{i}, y_{i}\right)
 $$
+
 which is computed by backward recursion from the leaves. $\alpha_n$ can stand for either $\textbf{w}_n$ or $\tilde{t}_n$, with
+
 $$
 \frac{\partial\mu^{\text{left}}_n(\textbf{x}_i)}{\partial\textbf{w}_n}=-\frac{b_n}{\vert \textbf{w}_n\vert}\Bigg(\textbf{x}-\frac{\textbf{w}_n\cdot\textbf{x}}{\vert\textbf{w}_n\vert^2}\textbf{w}_n\Bigg)\mu_n^\text{left}(\textbf{x}_i)\cdot\mu_n^\text{left}(\textbf{x}_i)
 $$
+
 and
+
 $$
 \frac{\partial\mu_n^\text{left}(\textbf{x}_i)}{\partial\tilde{t}_n}=b_n\cdot\mu_n^\text{left}(\textbf{x}_i)\cdot\mu_n^\text{right}(\textbf{x}_i)
 $$
+
 The width parameters $b_n$ are not optimised directly. Instead, a range of widths are tried and the best-performing one is chosen.
 
 The accuracy gain attained by using a fuzzy classification tree is less clear-cut than with regression, but we get an additional advantage, namely a measure of the proximity of a given example $\textbf{x}_i$ to a decision boundary (which is a good indicator of its probability of misclassification). This measure is the *fuzzy entropy*, calculated as follows:
+
 $$
 S_\text{fuzzy}(\text{x}_i)=-\sum_{k=1}^K\mu^{(k)}(\mathbf{x}_i)\cdot(1-\mu^{(k)}(\mathbf{x}_i))
 $$
+
 where
+
 $$
 \mu^{(k)}(\mathbf{x}_i)=\sum_{l} \mu_{l}(\mathbf{x}_i)\cdot\mathbb{I}_{\bar{y}_{l}=k}
 $$
+
 This measure can easily be calculated concurrently with the classification of the example.
 
 ## 📚  Books
