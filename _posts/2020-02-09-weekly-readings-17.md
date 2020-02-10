@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-xxx
+Using $Q$ for imitation; differentiable decision trees and their application to RL;  
 
 ## 📝 Papers
 
@@ -22,7 +22,7 @@ $$
 
 Rather than directly modifying the loss optimised by the decision tree inducer (here, CART), the same effect can produced in expectation by modifying how instances in the aggregated DAgger dataset are sampled for training. Specifically,  we just need to sample each $(s,a)$ pair with a probability weighted by $\tilde{\ell}(s)$. A new tree is trained from scratch on each iteration.
 
-Trees resulting from the VIPER process are demonstrated to be smaller and higher-performing than ones from DAgger (cartpole and Pong environments), and are then subjected to a variety of verification analyses which prove stability and performance guarantees. Such analyses could not be applied directly to a DNN policy.
+Trees resulting from the VIPER process are demonstrated to be smaller and higher-performing than ones from DAgger (CartPole and Pong environments), and are then subjected to a variety of verification analyses which prove stability and performance guarantees. Such analyses could not be applied directly to a DNN policy.
 
 ### Löckel, Stefan, Jan Peters, and Peter van Vliet. “A Probabilistic Framework for Imitating Human Race Driver Behavior.” *ArXiv:2001.08255 [Cs, Stat]*, January 22, 2020.
 
@@ -170,13 +170,10 @@ $$
 
 This measure can easily be calculated concurrently with the classification of the example.
 
-## 📚  Books
-
-### Gärdenfors, Peter. *Conceptual spaces: The geometry of thought*. MIT Press, 2004.
-
-
-
 ## 🗝️  Key Insights
 
-xxx
+- A couple of pieces of evidence of how additional information to enrich the imitation learning process can improve its performance. The two examples were the use of the target policy's state-action value function $Q$, and the division of the imitation problem into stages using domain konwledge.
 
+- Differentiable / fuzzy decision trees appear to be an immensely flexible model architecture, especially for regression, that have been criminally under-explored in the RL context where their online learning potential is extra valuable.
+
+- Sokol and Flach's work on Glass-Box demonstrates the dual nature of the XAI problem: it needs both theoretical and algorithmic developments, and careful design of interaction protocols. We must be aware of which is our focus and strength, otherwise we risk wasting a lot of time creating suboptimal results!
