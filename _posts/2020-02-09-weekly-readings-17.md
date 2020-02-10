@@ -12,7 +12,7 @@ xxx
 
 ### Bastani, Osbert, Yewen Pu, and Armando Solar-Lezama. “Verifiable Reinforcement Learning via Policy Extraction.” In *Advances in Neural Information Processing Systems 31*, edited by S. Bengio, H. Wallach, H. Larochelle, K. Grauman, N. Cesa-Bianchi, and R. Garnett, 2494–2504. Curran Associates, Inc., 2018.
 
-The motivation of this paper is to learn agent policies whose safety, stability and robustness can be formally verified. To achieve this, a modified DAgger process is completed to distill a pretrained DNN policy $\pi^*$ into a decision tree. The process, which the authors call *VIPER* (Verifiability via Iterative Policy ExtRaction), makes additional use of the targets policy's $Q^{(\pi^*)}$ function, which yields far more compact trees than conventional imitation learning or DAgger.
+The motivation of this paper is to learn agent policies whose safety, stability and robustness can be formally verified. To achieve this, a modified DAgger process is completed to distill a pretrained DNN policy $\pi^\ast$ into a decision tree. The process, which the authors call *VIPER* (Verifiability via Iterative Policy ExtRaction), makes additional use of the targets policy's $Q^{(\pi^\ast)}$ function, which yields far more compact trees than conventional imitation learning or DAgger.
 
 It is first suggested that we modify DAgger to use the following convex loss 
 
