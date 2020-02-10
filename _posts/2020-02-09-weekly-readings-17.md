@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-Using $Q$ for imitation; differentiable decision trees and their application to RL;  
+Using $Q$ for imitation; differentiable decision trees and their application to RL; interactive explanations with Glass-Box. 
 
 ## 📝 Papers
 
