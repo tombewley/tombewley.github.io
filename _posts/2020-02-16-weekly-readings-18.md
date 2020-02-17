@@ -39,9 +39,11 @@ Performance is shown to be better than using the original $600$ features (even a
 Here the problem of explanation is framed as that of *demonstrating that an action is optimal*. This is done by exploiting an alternative representation of $V^\pi(s)$, different from the Bellman equation. In this representation, the value of a state $s$ under $\pi$ and with start state $s_0$ is the product of its expected visitation frequency $\lambda_{s_0}^\pi(s)$ and its reward value $r(s)$. This product is denoted $t_{s_0}^\pi(s)$. 
 
 We construct a *minimal sufficient explanation* (MSE) of the optimality of action $a$ in state $s_0$ by computing all $t$ values for the scenario of taking $a$, and following the optimal policy* $\pi^\ast$ *thereafter. We order these $t$ values by magnitude, and pick the top $k$ such that the following relationship holds:
+
 $$
 \Bigg(\sum_{i\leq k}t_{s_0}^{\pi^\ast}(s_i)-\sum_{j>k}\lambda_{s_0}^{\pi^\ast}(s_j)\bar{r}\Bigg)>Q^{\pi^\ast}(s_0,a')\ \ \ \forall a'\neq a
 $$
+
 where $\bar{r}$ is the minimum possible reward in the environment, i.e. even if all other states gave the minimum reward, this selection of $t$ values is sufficient for us to beat the state-action value of taking any other action.
 
 The MSE has the following form:
