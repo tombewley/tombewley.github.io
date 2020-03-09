@@ -1,10 +1,10 @@
 ---
-title: "Current Views on Philosophy and Ethics"
+title: 'Current Views on Philosophy and Ethics'
 collection: blog
 date: 2019-12-22
 permalink: /philosophy-ethics
 tags:
-	- updates
+	- essays
 ---
 
 ![](https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80)
