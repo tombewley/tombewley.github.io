@@ -193,10 +193,10 @@ collections:
 
 # Defaults
 defaults:
-  # _posts
+  # _readings
   - scope:
       path: ""
-      type: posts
+      type: readings
     values:
       layout: single
       author_profile: true
@@ -246,12 +246,12 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-  # _notes
+  # _blog
   - scope:
       path: ""
-      type: notes
+      type: blog
     values:
-      layout: talk
+      layout: single
       author_profile: true
       share: true
 

@@ -6,14 +6,14 @@ main:
   - title: "Projects"
     url: /projects/   
 
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "Weekly Readings"
+    url: /weekly-readings/
 
   - title: "Talks"
     url: /talks/  
 
-  - title: "Notes"
-    url: /notes/
+  - title: "Blog"
+    url: /blog/
 
   - title: "Teaching"
     url: /teaching/    

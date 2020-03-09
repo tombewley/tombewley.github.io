@@ -1,11 +1,10 @@
 ---
 title: "Current Views on Philosophy and Ethics"
-collection: notes
-type: "Details here"
-permalink: /philosophy-ethics
-excerpt: <br/><img src='https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80'>
+collection: blog
 date: 2019-12-22
-location: "Bristol, UK"
+permalink: /philosophy-ethics
+tags:
+	- updates
 ---
 
 ![](https://images.unsplash.com/photo-1547737694-af7c0238463b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80)

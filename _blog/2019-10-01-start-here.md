@@ -1,7 +1,8 @@
 ---
 title: 'Start Here'
+collection: blog
 date: 2019-10-01
-permalink: /posts/2019/10/start-here/
+permalink: /start-here
 tags:
   - updates
 redirect_from:
