@@ -39,17 +39,23 @@ These basic concepts are the earliest meanings that the mind represents, and can
 A DDPG agent is trained to perform vehicle-following behaviour, based on three features: distance to the vehicle in front, relative speed, and the applied acceleration at the previous timestep. The output is also an acceleration. The results are competitive with two classic following models including the *intelligent driver model* (IDM).
 
 This agent is cloned into a *first-order Takagi-Sugeno fuzzy rule-based system*. This model comprises a set of $R$ rules, where the $i$th rule has the form of 
+
 $$
 \textbf{if}\ \ x_1\sim\mathcal{N}(\mu_1^{(i)},\sigma_1^{(i)})\ \ \textbf{and}\ \ ...\ \ \textbf{if}\ \ x_n\sim\mathcal{N}(\mu_n^{(i)},\sigma_n^{(i)})\ \ \textbf{then}\ \ y^{(i)}=\alpha_0^{(i)}+\alpha_1^{(i)}x_1+...+\alpha_n^{(i)}x_n
 $$
+
 where $x$ is the input vector and each $\alpha$ is a coefficient. The firing level of this rule is
+
 $$
 \tau_{i}=p(x_{1}\vert\mu_1^{(i)},\sigma_1^{(i)}) \times ...\times p(x_n\vert\mu_n^{(i)},\sigma_n^{(i)})
 $$
+
 i.e. the product of the probability densities for each feature value within the corresponding normal distribution. The overall output of the model is 
+
 $$
 y=\frac{\sum_{i=1}^{R} \tau_{i}y_i}{\sum_{i=1}^{R} \tau_i}
 $$
+
 Fitting this model to demonstration data from the DDPG policy consists of two separate steps: (1) learning the focal points of each rule; (2) learning the coefficients of each linear sub-model. The *evolving Takagi-Sugeno* (ETS) method [reference 5] is used to solve this problem.
 
 The resultant model imitates the DDPG controller's behaviour almost exactly, and can be completely written out in about half a page of text. 
