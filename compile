@@ -1,6 +1,7 @@
 #!/bin/bash
 
-date >> _pages/test.md
+
+echo -e "\n$(date)" >> _pages/test.md
 git add .
 git commit
 git push
