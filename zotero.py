@@ -55,4 +55,7 @@ with open('_readings/{}.md'.format(fname), 'ab') as f:
         f.write(bytes('\n', 'utf-8'))
         f.write(notes[i])
 
-# ## 🗝️  Key Insights
+with open('_readings/{}.md'.format(fname), 'a') as f:
+    # Add key insights section at the bottom.
+    f.write('\n## 🗝️  Key Insights')
+    for i in order: f.write('\n- ') # One bullet point per paper.
