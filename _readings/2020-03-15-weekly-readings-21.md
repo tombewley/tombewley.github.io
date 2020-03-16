@@ -43,7 +43,7 @@ $$
 \mathcal{L}_\text{exp}=\vert\vert s_{t+1}-\widehat{s}_{t+1}\vert\vert^{2}\ \ \ \text{where}\ \ \ \hat{s}_{t+1}=\sum_{z} \pi_{\omega}(z \vert s_{t}) \cdot G_{\theta}(E_{p}(s_{t}), z)
 $$
 
-On each training step, $\mathcal{L}_\text{min}$ is first used to update $\theta$, then these parameters are held constant while $\mathcal{L}_\text{exp}$ is used to update $\omega$.
+On each training step, $\mathcal{L}_{min}$ is first used to update $\theta$, then these parameters are held constant while $\mathcal{L}_\text{exp}$ is used to update $\omega$.
 
 The second stage is action remapping, which involves learning a function $\pi_{\xi}(a_t \vert z, E_{a}(s_{t}))$ where $E_a$ is another concurrently-trained embedding. This is done by collecting a relatively small history of $(s_t,a_t,s_{t+1})$ triples and using the pre-trained $G_\theta$ to find the action $z$ that produces the next-state whose embedding is *most similar* to $E_p(s_{t+1})$ by L2-distance. Training $\pi_\xi$ is then treated as a straightforward classification problem using cross-entropy loss.
 
@@ -95,7 +95,7 @@ The overall learning algorithm is:
   - Use $q$ to disentangle $\mathcal{D}_\text{train}$ into roles.
   - Perform imitation learning on the role-ordered dataset.
   - Roll out the updated policies $\pi_1..\pi_K$ to obtain a role-ordered trajectory set $\mathcal{D}_\text{roll}$.
-  - Update the role assignment model **using $\mathcal{D}_\text{roll}$ (not $\mathcal{D}_\text{train}$)**, effectively disregarding the current ordering. *As learning progresses the ordering should begin to converge*.
+  - Update the role assignment model **using $\mathcal{D}_{roll}$ (not $\mathcal{D}_{train}$)**, effectively disregarding the current ordering. *As learning progresses the ordering should begin to converge*.
 
 The approach is implemented in a predator-prey grid world (predators must surround prey from all sides) and on tracking data from a real professional football game. A fascinating result from the latter implementation is that the learned HMM has Gaussian components centred around the positions for a 4-4-2 formation ($x,y$ positions on the pitch are two state variables).
 
