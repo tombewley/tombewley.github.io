@@ -17,6 +17,15 @@ redirect_from:
        {% include archive-single-cv.html %}
     {% endif %}
   {% endfor %}</ul>
+  
+### Preprints
+
+  <ul style="list-style: none;">
+  {% for post in site.publications reversed %}
+    {% if post.pubtype == "preprint" %}
+       {% include archive-single-cv.html %}
+    {% endif %}
+  {% endfor %}</ul>
 
 ### Theses
 
