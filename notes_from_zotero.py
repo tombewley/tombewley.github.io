@@ -11,7 +11,8 @@ TIMEFRAME = timedelta(days=7)
 
 # Create the template Markdown file to write into.
 time_now = datetime.now(timezone(timedelta(hours=0)))
-YYYY_MM_DD = time_now.strftime('%Y-%m-%d')
+time_last_sunday = time_now - timedelta(days=(time_now.weekday()+1) % 7) # Blogs 'go out' on a Sunday.
+YYYY_MM_DD = time_last_sunday.strftime('%Y-%m-%d')
 num = int([f for f in sorted(os.listdir('_readings')) if 'weekly-readings-' in f][-1].split('.')[0].split('-')[-1]) + 1
 fname = '{}-weekly-readings-{}'.format(YYYY_MM_DD, num)
 with open('_readings/_TEMPLATE.md', 'r') as f_template:
@@ -37,16 +38,19 @@ notes = []
 first_author_surnames = []
 for item in items:
     # Find Markdown files.
-    if item['data']['itemType'] == 'attachment' and item['data']['contentType'] == 'text/plain':
-        time_since_created = time_now - dup.parse(item['data']['dateAdded'])
+    if item['data']['itemType'] == 'attachment' and item['data']['contentType'] in ('text/plain','text/markdown'):
+        time_since_created = time_last_sunday - dup.parse(item['data']['dateAdded'])
         if time_since_created >= TIMEFRAME: break # Stop if the file is older than the timeframe.
+
+        print(item['data']['title'])
 
         # Get the first author's surname from the parent item.
         parent = zot.item(item['data']['parentItem'])
         first_author_surnames.append(parent['data']['creators'][0]['lastName'])
 
         # Store the notes.
-        notes.append(zot.file(item['key']))
+        try: notes.append(zot.file(item['key']))
+        except: notes.append(bytes('[FAILED TO READ MARKDOWN FILE]', 'utf-8'))
 
 # Write the notes in surname order.
 order = sorted(range(len(first_author_surnames)), key=lambda ix: first_author_surnames[ix])
