@@ -2,6 +2,7 @@
 title: 'Weekly Readings #22'
 date: 2020-03-22
 permalink: /posts/2020/03/weekly-readings-22/
+excerpt: 'Explanation-based tuning; saliency maps for vision-based policies; RL with differentiable decision trees.'
 tags:
   - weekly-readings
 ---
@@ -25,7 +26,7 @@ The approach is tested in the context of a paper recommendation service called S
 
 ### Shi, Wenjie, Zhuoyuan Wang, Shiji Song, and Gao Huang. ‘Self-Supervised Discovering of Causal Features: Towards Interpretable Reinforcement Learning’. *ArXiv:2003.07069 [Cs]*, 16 March 2020.
 
-This paper concerns the interpretability of a vision-based RL policy $\pi$. The approach is to train a model $f_\theta$, (parameterised by $\theta$) which outputs a saliency-filtered image $\bar{s}_t=f_\theta(s_t)\odot s_t$ highlighting task-relevant information in the input $s_t$. This can be thought of as a kind of soft attention to show where $\pi$ "looks" to make its decision. $\theta$ is optimised to satisfy two desiderata:
+This paper concerns the interpretability of a vision-based RL policy $\pi$. The approach is to train a model $f_\theta$, (parameterised by $\theta$) which outputs a saliency-filtered image $\bar{s_t}=f_\theta(s_t)\odot s_t$ highlighting task-relevant information in the input $s_t$. This can be thought of as a kind of soft attention to show where $\pi$ "looks" to make its decision. $\theta$ is optimised to satisfy two desiderata:
 
 - **Maximum behaviour resemblance**: $\underset{\theta}{\min}\vert\vert\pi(\bar{s}_t)-\pi(s_t)\vert\vert_2^2$. Applying the filter to the state has a minimal effect on behaviour.
 - **Minimum region retaining**: $\underset{\theta}{\min}\vert\vert f_\theta(s_t)\vert\vert_1$. The filter keeps a minimal part of the image.
@@ -61,7 +62,7 @@ $$
 Q_\theta(s,a)=\mu_\text{left}(s)\cdot q^{\text{left}}_a+(1-\mu_\text{left}(s))\cdot q^{\text{right}}_a\ \ \ \text{where}\ \ \ \mu_{\eta}(s):=\frac{1}{1+e^{-\left(a_{\eta}\left(\beta_{\eta}^{\top} s-\phi_{\eta}\right)\right)}}
 $$
 
-Here the learnable parameters are $\theta=(q^{\text{left}}_a,q^{\text{right}}_a,\alpha_\text{left},\beta_\text{left},\phi_\text{left})$, for which the partial derivatives can be found pretty easily to plug into the update rule. For example:
+Here the partial derivatives for the learnable parameters can be found pretty easily to plug into the update rule. For example:
 
 $$
 \frac{\partial Q_\theta(s,a)}{\partial q^{\text{left}}_a}=\mu_\text{left}(s)\ \ \ ;\ \ \ \frac{\partial Q_\theta(s,a)}{\partial \alpha_{\text{left}}}=(\partial q^{\text{left}}_a-\partial q^{\text{right}}_a)\cdot \mu_\text{left}(s)\cdot (1-\mu_\text{left}(s))\cdot (\beta_\text{left}^{\top} s-\phi_\text{left})

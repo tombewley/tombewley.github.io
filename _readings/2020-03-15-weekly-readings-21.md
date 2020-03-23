@@ -2,6 +2,7 @@
 title: 'Weekly Readings #21'
 date: 2020-03-15
 permalink: /posts/2020/03/weekly-readings-21/
+excerpt: 'Constraining embeddings with side information; latent actions; RL with abstract representations and models; fuzzy state prototypes; index-free imitation.'
 tags:
   - weekly-readings
 ---
@@ -44,7 +45,7 @@ $$
 \mathcal{L}_\text{exp}=\vert\vert s_{t+1}-\widehat{s}_{t+1}\vert\vert^{2}\ \ \ \text{where}\ \ \ \hat{s}_{t+1}=\sum_{z} \pi_{\omega}(z \vert s_{t}) \cdot G_{\theta}(E_{p}(s_{t}), z)
 $$
 
-On each training step, $\mathcal{L}_{min}$ is first used to update $\theta$, then these parameters are held constant while $\mathcal{L}_\text{exp}$ is used to update $\omega$.
+On each training step, the first loss is used to update $\theta$, then these parameters are held constant while the second loss is used to update $\omega$.
 
 The second stage is action remapping, which involves learning a function $\pi_{\xi}(a_t \vert z, E_{a}(s_{t}))$ where $E_a$ is another concurrently-trained embedding. This is done by collecting a relatively small history of $(s_t,a_t,s_{t+1})$ triples and using the pre-trained $G_\theta$ to find the action $z$ that produces the next-state whose embedding is *most similar* to $E_p(s_{t+1})$ by L2-distance. Training $\pi_\xi$ is then treated as a straightforward classification problem using cross-entropy loss.
 
@@ -55,7 +56,7 @@ This is an ambitious combination of model-free and model-based methods for reinf
 
 - An auto-encoder is not used here; it is suggested that the requirement for reconstruction of $s_t$ is too strong of a constraint and incentivises the capture of details that are not task-relevant. 
 
-The model-free component of learning is *double DQN*, which has an associated loss $\mathcal{L}_mf$ based on the error in $Q$-value prediction. The model-based component has three additional losses: one for learning the reward $\mathcal{L}_\rho$, one for the state transition $\mathcal{L}_\tau$ and one for the discount factor $\mathcal{L}_g$ [not sure why the last one is needed]. There are additional regularising losses that encourage $e$ to have high entropy (i.e. different states get different representations) and representation feature values to remain within the unit sphere. These are collectively called the representation loss $\mathcal{L}_d$. Finally, an *interpretability loss* $\mathcal{L}_interpr$ encourages each action to have a consistent effect in the representation space by measuring the cosine similarity between the transition vector from $x_t$ to $x_{t+1}$ and a hand-crafted embedding vector $v(a_t)$.  
+The model-free component of learning is *double DQN*, which has an associated loss $\text{mf}$ based on the error in $Q$-value prediction. The model-based component has three additional losses: one for learning the reward $\rho$, one for the state transition $\tau$ and one for the discount factor $\text{g}$ [not sure why the last one is needed]. There are additional regularising losses that encourage $e$ to have high entropy (i.e. different states get different representations) and representation feature values to remain within the unit sphere. These are collectively called the representation loss $\text{d}$. Finally, an *interpretability loss* $\text{interpr}$ encourages each action to have a consistent effect in the representation space by measuring the cosine similarity between the transition vector from $x_t$ to $x_{t+1}$ and a hand-crafted embedding vector $v(a_t)$.  
 
 At each iteration, each term in the following sum of these losses is minimised using batch gradient descent:
 
