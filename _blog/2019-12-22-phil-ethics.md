@@ -3,6 +3,7 @@ title: 'Current Views on Philosophy and Ethics'
 collection: blog
 date: 2019-12-22
 permalink: /philosophy-ethics
+excerpt: ''
 tags:
   - essays
 ---
