@@ -8,6 +8,7 @@ tags:
 
 Constraining embeddings with side information; latent actions; RL with abstract representations and models; fuzzy state prototypes; index-free imitation.
 
+
 ## 📝 Papers
 
 ### T. Adel, Z. Ghahramani, and A. Weller, “Discovering Interpretable Representations for Both Deep Generative and Discriminative Models,” in *Proceedings of the 35th International Conference on Machine Learning*, 2018.
@@ -99,8 +100,8 @@ The overall learning algorithm is:
 
 The approach is implemented in a predator-prey grid world (predators must surround prey from all sides) and on tracking data from a real professional football game. A fascinating result from the latter implementation is that the learned HMM has Gaussian components centred around the positions for a 4-4-2 formation ($x,y$ positions on the pitch are two state variables).
 
-
 ## 🗝️  Key Insights
+
 - The papers by Adel et al and François-Lavet et al cover very different approaches to representation learning. The *reversibility* of the functions used in the former is extremely helpful, as it allows us to do both generative and discriminative reasoning. It also shows how significant value can be squeezed out of a small amount of manual annotation. The latter is a more standard piece of state representation learning work: chain together a lot of different losses, and try to perform both forward modelling in addition to action selection. The way planning is enabled by the forward model is very interesting. 
 - Edwards et al make a strong case that it may not be reasonable to know the underlying action taken by an agent being imitated, in which case we must learn from states alone. The use of intermediate latent actions does appear effective, though isn't great for interpretability. A forward dynamics model is again a central component; it seems to be popular to predict transitions rather than next states (more compact distribution?)
 
