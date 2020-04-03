@@ -3,6 +3,7 @@ title: 'Start Here'
 collection: blog
 date: 2019-10-01
 permalink: /start-here
+excerpt: ''
 tags:
   - updates
 redirect_from:
