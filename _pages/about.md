@@ -8,15 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-Currently starting out on a PhD with [Jonathan Lawry](https://research-information.bristol.ac.uk/en/persons/jonathan-lawry(3aac8b8f-816c-4203-ba4b-b091bf4ddef4).html) and [Arthur Richards](https://research-information.bristol.ac.uk/en/persons/arthur-g-richards%28d4aa20a8-75fa-4b1a-8400-b2387ed04fe5%29.html) at the University of Bristol, entitled *Explainable AI for Interacting Autonomous Agents*. I am a graduate of the UK's top-ranked general engineering [degree](http://www.bristol.ac.uk/engineering/interdisciplinary/engineering-design/), holder of an [MSc](http://www.bristol.ac.uk/study/postgraduate/2018/eng/msc-adv-computing-machine-learning/) in Machine Learning, and recipient of an RAEng Engineering Leaders [Scholarship](https://www.raeng.org.uk/grants-and-prizes/schemes-for-students/engineering-leaders-scholarship). 
+First-year PhD student in the department of Engineering Mathematics at the University Bristol, supervised by [Jonathan Lawry](https://research-information.bristol.ac.uk/en/persons/jonathan-lawry(3aac8b8f-816c-4203-ba4b-b091bf4ddef4).html) and [Arthur Richards](https://research-information.bristol.ac.uk/en/persons/arthur-g-richards%28d4aa20a8-75fa-4b1a-8400-b2387ed04fe5%29.html) and supported by [Thales](https://www.thalesgroup.com/en). My project is tentatively entitled *Explainable AI for Interacting Autonomous Agents*. I am a graduate of the UK's top-ranked general engineering [degree](http://www.bristol.ac.uk/engineering/interdisciplinary/engineering-design/), holder of an [MSc](http://www.bristol.ac.uk/study/postgraduate/2018/eng/msc-adv-computing-machine-learning/) in Machine Learning, and recipient of an RAEng Engineering Leaders [Scholarship](https://www.raeng.org.uk/grants-and-prizes/schemes-for-students/engineering-leaders-scholarship). 
 
-My PhD research will explore what it means to offer an explanation in the context of multi-agent systems, investigate the putative trade-off between comprehensibility and performance in autonomous intelligent agents, and develop practical tools for revealing the patterns and flaws in complex decision-making models.
+My PhD research explores how we might begin to understand and explain the policies of black-box autonomous agents, whose internal mechanisms and representations may be very different from our own, with a particular view to revealing the biases and flaws in their decision-making. Critical to this question are the putative trade-off between comprehensibility and performance of machine learning models, and the thorny relationship between correlation and causation in observed data whose generative origins are unknown.
 
-Check out this [blog post](https://www.anthtechconf.co.uk/pechakucha/tom-bewley) I wrote for my preliminary thoughts on this topic, and this [interview](https://www.anthtechconf.co.uk/news/meet-our-delegates-tom-bewley) for more about my background.
-
----
-
-I want to help to solve our species' greatest problems, in a manner which ensures the resultant reformulation of society is overwhelmingly happy, healthy, ambitious and resilient, rather than fractured and unequal, and incurs the minimum possible negative environmental impact.
-
-None of these goals will be attainable without a greatly enhanced ability to cultivate and safely deploy intelligence, be it human or artificial.
-
+I'm currently looking at using decision trees to 'clone' black-box policies and offer factual, counterfactual and narrative explanations of their behaviour. Check out [this pre-print](https://www.researchgate.net/publication/340051129_Modelling_Agent_Policies_with_Interpretable_Imitation_Learning) for some early thoughts and results. 

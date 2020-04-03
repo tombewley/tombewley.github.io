@@ -14,11 +14,11 @@ main:
   - title: "Weekly Readings"
     url: /weekly-readings/
 
-  - title: "Teaching"
-    url: /teaching/    
+  # - title: "Teaching"
+  #   url: /teaching/    
 
-  - title: "Test Page"
-    url: /test/
+  # - title: "Test Page"
+  #   url: /test/
 
   - title: "Engenius"
     url: /Engenius/
