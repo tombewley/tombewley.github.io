@@ -54,7 +54,13 @@ The final set of mechanisms relate to computing hardware.
 
 Some prior attempts have been made to bring value information into imitation learning, but they lack theoretical bases or guarantees. The authors propose that unification of imitation learning and (policy gradient) reinforcement learning is possible through the framework of *mirror descent*, with the difference being in the direction of the update. 
 
-For policy gradient, the loss is derived from an *advantage* estimate $$A_\pi(s,a)=Q_\pi(s,a)-V_\pi(s)$$, and for imitation learning, the loss comes from an estimate of *proximity* (e.g. MSE, MAE, KL divergence...) to an oracle policy $$\pi^\ast$$. Policy gradient yields a monotonically-improving policy sequence, while imitation gradient generates a policy sequence that improves on average.
+For policy gradient, the loss is derived from an *advantage* estimate 
+
+$$
+A_\pi(s,a)=Q_\pi(s,a)-V_\pi(s)
+$$
+
+and for imitation learning, the loss comes from an estimate of *proximity* (e.g. MSE, MAE, KL divergence...) to an oracle policy $$\pi^\ast$$. Policy gradient yields a monotonically-improving policy sequence, while imitation gradient generates a policy sequence that improves on average.
 
 The `LOKI` algorithm combines the two: first perform $$k$$ steps of mirror descent with an imitation gradient, then switch to policy gradient for the rest of the steps. This is shown to have a similar effect to running policy gradient directly from the oracle policy $$\pi^\ast$$. 
 
@@ -78,10 +84,12 @@ STD induction comprises three stages:
 
 - **Tuning**: this stage refines the parameters. Two approaches are considered:
 
-  - **Re-fitting**, which optimises the leaf labels only. This problem can be solved by matrix inversion ($$\bold{q}^\ast$$ is the vector of leaf labels, $$M$$ is the matrix of leaf memberships for a pruning dataset, $$\bold{y}$$ is the vector of sample labels):
+  - **Re-fitting**, which optimises the leaf labels only. This problem can be solved by matrix inversion ($$\textbf{q}^\ast$$ is the vector of leaf labels, $$M$$ is the matrix of leaf memberships for a pruning dataset, $$\textbf{y}$$ is the vector of sample labels):
+
     $$
-    \bold{q}^\ast=(M^\text{T} M)^{-1}M^{\text{T}}\bold{y}
+    \textbf{q}^\ast=(M^\text{T} M)^{-1}M^{\text{T}}\bold{y}
     $$
+    
     **Back-fitting**, which optimises all free parameters. The model is linear in its leaf prediction parameters (hence the matrix technique above) but nonlinear (piecewise linear) in the decision node parameters $$\alpha$$ and $$\beta$$. Loss gradients for these are obtained by backpropagation, and the loss is minimised using the *Levenberg-Marquardt* optimisation technique.
 
 ### Pérez-Dattari, Rodrigo, Carlos Celemin, Giovanni Franzese, Javier Ruiz-del-Solar, and Jens Kober. ‘Interactive Learning of Temporal Features for Control’, 2020, 12.
