@@ -87,7 +87,7 @@ STD induction comprises three stages:
   - **Re-fitting**, which optimises the leaf labels only. This problem can be solved by matrix inversion ($$\textbf{q}^\ast$$ is the vector of leaf labels, $$M$$ is the matrix of leaf memberships for a pruning dataset, $$\textbf{y}$$ is the vector of sample labels):
 
     $$
-    \textbf{q}^\ast=(M^\text{T} M)^{-1}M^{\text{T}}\bold{y}
+    \textbf{q}^\ast=(M^\text{T} M)^{-1}M^{\text{T}}\textbf{y}
     $$
     
     **Back-fitting**, which optimises all free parameters. The model is linear in its leaf prediction parameters (hence the matrix technique above) but nonlinear (piecewise linear) in the decision node parameters $$\alpha$$ and $$\beta$$. Loss gradients for these are obtained by backpropagation, and the loss is minimised using the *Levenberg-Marquardt* optimisation technique.
