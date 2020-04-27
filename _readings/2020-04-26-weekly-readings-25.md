@@ -1,8 +1,8 @@
 ---
-title: 'Weekly Readings #25
+title: 'Weekly Readings #25'
 date: 2020-04-26
 permalink: /posts/2020/04/weekly-readings-25/
-excerpt: Imitation learning using value or reward
+excerpt: 'Imitation learning using value or reward.'
 tags:
   - weekly-readings
 ---
