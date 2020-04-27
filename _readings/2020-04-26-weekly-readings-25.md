@@ -13,7 +13,7 @@ tags:
 
 In IRL, we observe a target policy $$\pi_E$$ demonstrating a task, imagine it as trying to maximise a *linear* reward function $$R^\ast$$ of known state-derived features $$\phi:S\rightarrow[0,1]^k$$, estimate that latent function as $$R$$, and output a policy $$\tilde{\pi}$$ that attains performance close to $$\pi_E$$ on $$R$$.
 
-Assume there is some true reward function $$R^\ast(s)=w^\ast\cdot\phi(s)$$, where $$||w^\ast||_1\leq1$$ keeps rewards bounded by $$1$$. The value of a policy $$\pi$$ is
+Assume there is some true reward function $$R^\ast(s)=w^\ast\cdot\phi(s)$$, where $$\vert\vert w^\ast\vert\vert_1\leq1$$ keeps rewards bounded by $$1$$. The value of a policy $$\pi$$ is
 
 $$
 \mathbb{E}_{s_0\sim D}[V_{\pi}(s_0)]=w^\ast\cdot\mathbb{E}\left[\sum_{t=0}^\infty\gamma^t\phi(s_t)\ \Big\vert\ \pi\right]=w^\ast\cdot\mu(\pi)
