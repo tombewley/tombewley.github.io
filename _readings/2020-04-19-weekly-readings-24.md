@@ -1,7 +1,7 @@
 ---
 title: 'Weekly Readings #24'
 date: 2020-04-19
-permalink: /posts/2020/03/weekly-readings-24/
+permalink: /posts/2020/04/weekly-readings-24/
 excerpt: 'Trustworthy AI; unifying imitation and policy gradient; soft decision trees; SRL with dimension specialisation.'
 tags:
   - weekly-readings
@@ -72,9 +72,9 @@ Experiments show that `LOKI` initially follows the quick imitation learning path
 
 ### Olaru, Cristina, and Louis Wehenkel. ‘A Complete Fuzzy Decision Tree Technique’. *Fuzzy Sets and Systems* 138, no. 2 (September 2003): 221–54.
 
-This paper proposes a new fuzzy decision tree method called *soft decision trees* (STD). It includes growing and pruning process. The stated motivation for using fuzzy decision trees is the increased parameter-level stability compared with crisp trees.
+This paper proposes a new fuzzy decision tree method called *soft decision trees* (SDT). It includes growing and pruning process. The stated motivation for using fuzzy decision trees is the increased parameter-level stability compared with crisp trees.
 
-In a fuzzy decision tree, both classification and regression problems can be framed in terms of prediction of membership. For multi-class problems, the authors propose a forest of STDs, with one per class.
+In a fuzzy decision tree, both classification and regression problems can be framed in terms of prediction of membership. For multi-class problems, the authors propose a forest of SDTs, with one per class.
 
 STD induction comprises three stages:
 
