@@ -18,6 +18,15 @@ redirect_from:
     {% endif %}
   {% endfor %}</ul>
   
+### Workshop Papers
+
+  <ul style="list-style: none;">
+  {% for post in site.publications reversed %}
+    {% if post.pubtype == "workshop" %}
+       {% include archive-single-cv.html %}
+    {% endif %}
+  {% endfor %}</ul>
+  
 ### Preprints
 
   <ul style="list-style: none;">
