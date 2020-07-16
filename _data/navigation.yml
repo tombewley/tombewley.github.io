@@ -3,7 +3,7 @@ main:
     url: /publications/
 
   - title: "📕 Logbook"
-    url: http://example.com
+    url: /logbook/
 
   - title: "✍️ Blog"
     url: /blog/
