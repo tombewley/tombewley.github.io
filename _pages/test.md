@@ -1,5 +1,5 @@
 ---
-permalink: /test/
+permalink: /test
 title: "Commit Datetimes"
 modified: 2019-08-28
 ---
