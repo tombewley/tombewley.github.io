@@ -13,3 +13,6 @@ Hi! I’m Tom, a first-year PhD student in the department of Engineering Mathema
 My PhD research explores how we might begin to understand and explain the policies of black box autonomous agents, whose internal mechanisms and representations may be very different from our own, with a particular view to revealing the biases and flaws in their decision-making. Critical to this question are the putative trade-off between comprehensibility and performance of machine learning models, and the thorny relationship between correlation and causation in observed data whose generative origins are unknown.
 
 You can find all my proper publications in the [**📃 Publications**](http://tombewley.com/publications) tab, but I’m also exploring using a super-open [**🗂️ Research Repo**](http://tombewley.com/repo) to publicly catalogue my research journey. I’m not quite sure how this little experiment will pan out, but head over there if you’re intrigued.
+
+{::options parse_block_html="false" /}
+<a class="twitter-timeline" href="https://twitter.com/tom_bewley?ref_src=twsrc%5Etfw">Tweets by tom_bewley</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
