@@ -6,7 +6,7 @@ permalink: /publication/fidelity_vs_performance
 excerpt: 'Describing the various ways of training and evaluating white box approximations of black box policies, and how these can be in conflict.'
 date: 2020-07-02
 venue: 'arXiv'
-paperurl: 'https://128.84.21.199/pdf/2007.01187.pdf'
+paperurl: 'https://arxiv.org/abs/2007.01187'
 citation: 'Bewley, Tom. &quot;Am I Building a White Box Agent or Interpreting a Black Box Agent?&quot; <i>arXiv preprint 2007.01187</i>. 2020.'
 redirect_from: 
   - /fidelity_vs_performance

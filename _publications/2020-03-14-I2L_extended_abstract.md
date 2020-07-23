@@ -6,7 +6,7 @@ permalink: /publication/I2L_abstract
 excerpt: 'Introducing I2L and preliminary results.'
 date: 2020-09-04
 venue: '1st TAILOR Workshop at ECAI'
-paperurl: 'https://arxiv.org/pdf/2006.11309.pdf'
+paperurl: 'https://arxiv.org/abs/2006.11309'
 citation: 'Bewley, Tom and Lawry, Jonathan and Richards, Arthur. &quot;Modelling Agent Policies with Interpretable Imitation Learning.&quot; <i>1st TAILOR Workshop at ECAI</i>. 2020.'
 redirect_from: 
   - /I2L_abstract
