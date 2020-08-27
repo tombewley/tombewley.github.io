@@ -14,7 +14,7 @@ My PhD research explores how we might begin to understand and explain the polici
 
 You can find all my proper publications in the [📃 Publications](http://tombewley.com/publications) tab, but I’m also exploring using a super-open [🗂️ Research Repo](http://tombewley.com/repo) to publicly catalogue my research journey. I’m not quite sure how this little experiment will pan out, but head over there if you’re intrigued.
 
-### 🐦 Twitter Feed
+<!-- ### 🐦 Twitter Feed
 
 {::options parse_block_html="false" /}
-<a class="twitter-timeline" data-width="500" data-theme="light" href="https://twitter.com/tom_bewley?ref_src=twsrc%5Etfw">tom_bewley</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" data-width="500" data-theme="light" href="https://twitter.com/tom_bewley?ref_src=twsrc%5Etfw">tom_bewley</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
