@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Tom Bewley"
   avatar           : "profile.png"
-  bio              : "PhD student in artificial intelligence at the <a style='color: black;' href='http://bristol.ac.uk/'>University of Bristol</a>. Trying to understand and explain the behaviour of black-box agents."
+  bio              : "PhD student in artificial intelligence at the <a style='color: black;' href='http://bristol.ac.uk/'>University of Bristol</a>. Trying to understand and explain the behaviour of black box agents."
   location         : "Bristol, UK"
   employer         :
   googlescholar    : "https://scholar.google.co.uk/citations?user=OqPzZ08AAAAJ&hl=en"

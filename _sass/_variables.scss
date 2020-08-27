@@ -28,9 +28,30 @@ $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
-$global-font-family         : $helvetica;
-$header-font-family         : $serif;
-$caption-font-family        : $serif;
+/* ETBembo */
+@font-face {
+   font-family: "ETBembo";
+   src: url("../assets/fonts/ETBookOT-Roman.otf") format("opentype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "ETBembo";
+   src: url("../assets/fonts/ETBookOT-Bold.otf") format("opentype");
+   font-weight: bold;
+   font-style: normal;
+}
+@font-face {
+   font-family: "ETBembo";
+   src: url("../assets/fonts/ETBookOT-Italic.otf") format("opentype");
+   font-weight: normal;
+   font-style: italic;
+}
+$et-bembo                    : "ETBembo", serif;
+
+$global-font-family         : $et-bembo; // $helvetica;
+$header-font-family         : $et-bembo; // $serif;
+$caption-font-family        : $et-bembo; // $serif;
 
 /* type scale */
 $type-size-1                : 2.441em;  // ~39.056px
@@ -47,10 +68,10 @@ $type-size-8                : 0.625em;  // ~10px
    Colors
    ========================================================================== */
 
-$black						          : #000;
-$white						          : #fff;
+$black						    : #000;
+$white						    : #fff;
 $gray                       : #808080;
-$orange						          : #fe5d02;
+$orange						    : #fe5d02;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
