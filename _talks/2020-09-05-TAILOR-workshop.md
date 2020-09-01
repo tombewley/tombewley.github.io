@@ -8,4 +8,9 @@ date: 2020-09-05
 location: "Santiago de Compostela, Spain"
 ---
 
-Short presentation of my paper of the same name, which can be found [here](https://tombewley.com/publication/I2L_abstract).
+Presentation of my paper of the same name, which can be found [here](https://tombewley.com/publication/I2L_abstract).
+
+Long version:
+
+<iframe height="400" src="https://www.youtube.com/embed/mM_a8k4250Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
