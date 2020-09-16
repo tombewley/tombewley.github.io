@@ -7,7 +7,7 @@ excerpt: 'Introducing a new decision tree model of black box agent behaviour, wh
 date: 2020-09-10
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2009.04743'
-citation: Bewley, Tom and Lawry, Jonathan. &quot;TripleTree: A Versatile Interpretable Representation of Black Box Agents and their Environments&quot; <i>arXiv preprint 2009.04743</i>. 2020.'
+citation: 'Bewley, Tom and Lawry, Jonathan. &quot;TripleTree: A Versatile Interpretable Representation of Black Box Agents and their Environments&quot; <i>arXiv preprint 2009.04743</i>. 2020.'
 redirect_from: 
   - /tripletree
 ---
