@@ -5,6 +5,9 @@ main:
   - title: "📃 Publications"
     url: /publications
 
+  - title: "📊 Visualisation"
+    url: /visual  
+
   - title: "✍️ Blog"
     url: /blog
   
