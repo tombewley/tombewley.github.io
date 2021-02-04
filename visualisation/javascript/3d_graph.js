@@ -5,7 +5,7 @@ const load = function(graph, fname) {
 		// .onEngineStop(() => graph.zoomToFit(400))
 		.nodeLabel("id")
 		.linkLabel("value")
-		.nodeAutoColorBy("group")
+		// .nodeAutoColorBy("group")
 		.nodeThreeObject(node => {
 			const sprite = new SpriteText(node.id);
 			sprite.color = node.color;
@@ -15,10 +15,12 @@ const load = function(graph, fname) {
 		// .forceEngine("d3-force-3d") // Either d3-force-3d or ngraph
 		.nodeOpacity(1)
 		.linkOpacity(1)
+		.linkColor(() => "#black")
 		.linkWidth("1px")
 		// .linkDirectionalArrowLength(5)
 		// .linkDirectionalArrowRelPos(1)
 		.linkDirectionalParticles(2)
+		.linkDirectionalParticleWidth(3)
 		.linkCurvature(0.25)
 		.jsonUrl(fname);
 };
@@ -26,7 +28,7 @@ const load = function(graph, fname) {
 // From https://github.com/vasturiano/3d-force-graph
 const graph = ForceGraph3D()(document.getElementById("graph_canvas"))
 graph
-	.backgroundColor("#000")
+	.backgroundColor("white")
 	.showNavInfo(false)
 
 load(graph, "data/test_graph.json");
