@@ -12,7 +12,7 @@ const load = function(graph, fname) {
 			sprite.textHeight = 12;
 			return sprite;
 		  })
-		// .forceEngine("d3-force-3d") // Either d3-force-3d or ngraph
+		.forceEngine("d3-force-3d") // Either d3-force-3d or ngraph
 		.nodeOpacity(1)
 		.linkOpacity(1)
 		.linkColor(() => "#black")
