@@ -1,3 +1,9 @@
+---
+title: "CS 285"
+permalink: /notes/A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
+author_profile: true
+---
+
 [[2011]] [[AISTATS]] #Content/Paper by [[Stéphane Ross]], Geoffrey J Gordon, and [[J Andrew Bagnell]]. 
 
 In [[Imitation Learning]] (among other sequential prediction problems), future observations depend on previous actions, which violates the common i.i.d. assumption made in statistical learning. Ignoring this issue compromises learning: mistakes lead the [[Imitator]] to parts of the state space never encountered by the [[Target]] policy, leading to a compounding of errors. Here an [[Online Learning]] algorithm called `DAgger` is proposed to find a strong policy under these conditions.
