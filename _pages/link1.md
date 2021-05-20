@@ -4,5 +4,4 @@ permalink: /link1
 author_profile: true
 ---
 
-[link2](link2.md)
-[link3](folder/link3.md)
+[CS 285](folder/CS%20285.md)
