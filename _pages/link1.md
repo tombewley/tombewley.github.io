@@ -4,4 +4,4 @@ permalink: /link1
 author_profile: true
 ---
 
-[CS 285](folder/CS%20285.md)
+[CS285](folder/CS285.md)
