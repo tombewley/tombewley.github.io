@@ -281,6 +281,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-relative-links
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -289,6 +290,10 @@ whitelist:
   - jekyll-feed
   - jemoji
 
+# Settings for relative links
+relative_links:
+  enabled:     true
+  collections: false
 
 # Archives
 #  Type
