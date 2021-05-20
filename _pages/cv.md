@@ -13,9 +13,9 @@ Education
 ======
 University of Bristol, United Kingdom
 
-* Ph.D in Engineering Mathematics, 2023 (expected)
-* MSc in Advanced Computing: Machine Learning Data Mining and High Performance Computing, 2019 (Distinction)
-* BEng in Engineering Design, 2018 (1st Class Honours; 82%)
+- Ph.D in Engineering Mathematics, 2023 (expected)
+- MSc in Advanced Computing: Machine Learning Data Mining and High Performance Computing, 2019 (Distinction)
+- BEng in Engineering Design, 2018 (1st Class Honours; 82%)
 
 Work experience
 ======
