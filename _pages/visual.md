@@ -5,7 +5,7 @@ permalink: /visual
 author_profile: true
 ---
 
-Test page for interactive visualisation with the D3 JavaScript library. 
+Test page for demonstrating interactive visualisation with the D3 JavaScript library. 
 
 <iframe src="/visualisation/3d_graph.html" height="400" width="100%" style="border:none;"></iframe>
 
