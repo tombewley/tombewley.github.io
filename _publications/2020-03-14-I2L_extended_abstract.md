@@ -7,7 +7,7 @@ excerpt: 'Introducing I2L and preliminary results.'
 date: 2020-09-04
 venue: 'Trustworthy AI - Integrating Learning, Optimization and Reasoning (also 1st TAILOR Workshop at ECAI 2020)'
 paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-030-73959-1_16'
-citation: 'Bewley T., Lawry J., Richards A. (2021) Modelling Agent Policies with Interpretable Imitation Learning. In: Heintz F., Milano M., O'Sullivan B. (eds) Trustworthy AI - Integrating Learning, Optimization and Reasoning. TAILOR 2020. Lecture Notes in Computer Science, vol 12641. Springer, Cham.'
+citation: "Bewley T., Lawry J., Richards A. (2021) Modelling Agent Policies with Interpretable Imitation Learning. In: Heintz F., Milano M., O'Sullivan B. (eds) Trustworthy AI - Integrating Learning, Optimization and Reasoning. TAILOR 2020. Lecture Notes in Computer Science, vol 12641. Springer, Cham."
 redirect_from: 
   - /I2L_abstract
 ---
