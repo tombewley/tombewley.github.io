@@ -1,5 +1,5 @@
 ---
-title: "CS 285"
+title: "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"
 permalink: /notes/A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
 author_profile: true
 ---
