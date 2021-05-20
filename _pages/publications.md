@@ -29,11 +29,11 @@ redirect_from:
     {% endif %}
   {% endfor %}</ul>
 
-### Workshop Papers
+### Book Chapters
 
   <ul style="list-style: none;">
   {% for post in site.publications reversed %}
-    {% if post.pubtype == "workshop" %}
+    {% if post.pubtype == "chapter" %}
        {% include archive-single-cv.html %}
     {% endif %}
   {% endfor %}</ul>
