@@ -1,6 +1,6 @@
 ---
 title: "Reinforcement Learning"
-permalink: /notes/Reinforcement Learning.md
+permalink: /notes/Reinforcement Learning
 author_profile: true
 ---
 
