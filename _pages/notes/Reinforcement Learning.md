@@ -28,7 +28,7 @@ What’s the optimal behaviour over time? High reward quickly, or evenly spread 
 
 - In practice, the most common approach is called discounted reward - sum for an infinite time, discounting each timestep by the power of its distance from the present state.
 
-In an ideal world, we could compute $p(s(t) \vert s(t-1), a(t))$ and $p(r(t) | s(t-1), s(t))$ and *analytically* find the best strategy but this is not practically possible in most cases, so we have to learn mappings from data through some kind of search.
+In an ideal world, we could compute $p(s(t) \vert s(t-1), a(t))$ and $p(r(t)\vert s(t-1), s(t))$ and *analytically* find the best strategy but this is not practically possible in most cases, so we have to learn mappings from data through some kind of search.
 
 The multi-armed bandit problem is a thought experiment used to understand this problem, where the space of A is small (i.e. which of the k arms to pull) but the space of S is large and unseen.
 
