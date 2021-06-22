@@ -6,7 +6,7 @@ author_profile: true
 
 [https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f](https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f)
 
-We often hear that [Reinforcement Learning](Website/_pages/notes/Reinforcement%20Learning.md) always converges to a unique fixed point. Why is that?
+We often hear that [reinforcement learning](Website/_pages/notes/Reinforcement%20Learning) always converges to a unique fixed point. Why is that?
 
 We are going to prove this using the Banach fixed point theorem by showing that the Bellman optimality operator is a contraction over a complete metric space of real numbers with metric L-infinity norm. For this, we will first discuss the fixed point problem and complete metric spaces with respect to the Cauchy sequence.
 
