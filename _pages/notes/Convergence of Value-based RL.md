@@ -14,7 +14,7 @@ Given a [metric space](Sets%20and%20spaces) $(\mathcal{X}, d)$, the infinite seq
 $$
 d(f(x),f(x'))\leq\gamma d(x,x')
 $$
-The *Banach fixed point theorem* gives a proof of what is intuitively obvious: repeated application of a contraction induces a Cauchy sequence, and thus converges to a unique fixed point $x^*\in\mathcal{X}$.
+The *Banach fixed point theorem* gives a proof of what is intuitively obvious: repeated application of a contraction induces a Cauchy sequence, and thus converges to a unique fixed point $x^\ast\in\mathcal{X}$.
 
 Bellman optimality operator $\mathbb{B}:\mathbb{R}\rightarrow\mathbb{R}$.
 $$
@@ -22,7 +22,7 @@ $$
 $$
 $\mathbb{B}$ recursive can be used to generate a sequence of value functions. 
 
-Now let us use the infinity norm to define a metric space $(\mathbb{R},\lVert\cdot\rVert\infty)$. If we can show that $\mathbb{B}$ is a contractor in $(\mathbb{R},\lVert\cdot\rVert\infty)$, then we can conclude that it will eventually give a unique optimal value function $V^*$ and in turn, a unique optimal policy $\pi^*$. First, let's write out the equation for the infinity norm after applying $\mathbb{B}$ to two value functions $V_1$, $V_2$:
+Now let us use the infinity norm to define a metric space $(\mathbb{R},\lVert\cdot\rVert\infty)$. If we can show that $\mathbb{B}$ is a contractor in $(\mathbb{R},\lVert\cdot\rVert\infty)$, then we can conclude that it will eventually give a unique optimal value function $V^\ast$ and in turn, a unique optimal policy $\pi^\ast$. First, let's write out the equation for the infinity norm after applying $\mathbb{B}$ to two value functions $V_1$, $V_2$:
 $$
 \lVert\mathbb{B}[V_1(s)]-\mathbb{B}[V_2(s)]\rVert_\infty=\lVert\underset{a_1}{\max}(r(s,a_1)+\gamma\sum_{s'}P(s'\vert s,a_1)V_1(s'))-\underset{a_2}{\max}(r(s,a_2)+\gamma\sum_{s'}P(s'\vert s,a_2)V_2(s'))\rVert_\infty
 $$
