@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-</head>
-
-<body style="margin: 0">
-    <script>
-
-        var NUM_TO_SAMPLE = 2;
-
-        $.getJSON("urls.json")
-           .done(function (data) {
+function pairs(num, size) {
+    $.getJSON(num + ".json")
+        .done(function (data) {
             var urls = data;
             // Randomly sample without replacement. https://stackoverflow.com/a/12987776.
             var indices = [];
@@ -20,7 +9,7 @@
                 var randomIndex = Math.floor(Math.random()*indices.length);
                 return indices.splice(randomIndex, 1)[0];
             }
-            for (var i=1;i<=NUM_TO_SAMPLE;i++) { 
+            for (var i=1;i<=size;i++) { 
                 var idx = sample();
                 var uid = urls[idx].split("/")[5].split("_")[0]
 
@@ -28,8 +17,7 @@
 
                 document.write('<img src="' + urls[idx] + '" style="width:500px">')
                 // document.write("<p>" + urls[idx] + "</p>")
-        
+
             }
         });
-    </script>
-</body>
+    }
