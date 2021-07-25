@@ -12,12 +12,11 @@ function pairs(num, size) {
             for (var i=1;i<=size;i++) { 
                 var idx = sample();
                 var uid = urls[idx].split("/")[5].split("_")[0]
-
-                document.write('<h1> Pair ' + i + ": " + uid + '</h1>')
-
-                document.write('<img src="' + urls[idx] + '" style="width:500px">')
-                // document.write("<p>" + urls[idx] + "</p>")
-
+                
+                $('body').append('<h1> Pair ' + i + ": " + uid + '_' + uid + '</h1>');
+                $('body').append('<div class="main_block"><div class="inner_block"><img src="'+urls[idx]+'"></div><div class="inner_block"><img src="'+urls[idx]+'"></div></div>');
             }
         });
     }
+
+    
