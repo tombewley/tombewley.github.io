@@ -1,3 +1,12 @@
+body {
+    margin: 0;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+h1 {
+    text-align:center;
+}
+
 .main_block {
     width: 100%; 
     /* border:2px black solid; */

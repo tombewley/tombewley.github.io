@@ -1,3 +1,5 @@
+var i
+var j
 function pairs(num, size) {
     $.getJSON(num + ".json")
         .done(function (data) {
@@ -9,14 +11,15 @@ function pairs(num, size) {
                 var randomIndex = Math.floor(Math.random()*indices.length);
                 return indices.splice(randomIndex, 1)[0];
             }
-            for (var i=1;i<=size;i++) { 
-                var idx = sample();
-                var uid = urls[idx].split("/")[5].split("_")[0]
+            for (var n=1;n<=size;n++) { 
+                i = sample();
+                j = sample();
+                var uid_i = urls[i].split("/")[5].split("_")[0]
+                var uid_j = urls[j].split("/")[5].split("_")[0]
                 
-                $('body').append('<h1> Pair ' + i + ": " + uid + '_' + uid + '</h1>');
-                $('body').append('<div class="main_block"><div class="inner_block"><img src="'+urls[idx]+'"></div><div class="inner_block"><img src="'+urls[idx]+'"></div></div>');
+                $('body').append('<h1> Pair ' + n + ": " + uid_i + '_' + uid_j + '</h1>');
+                $('body').append('<div class="main_block"><div class="inner_block"><img src="'+urls[i]+'"></div><div class="inner_block"><img src="'+urls[j]+'"></div></div>');
+                $('body').append('<hr>')
             }
         });
     }
-
-    
