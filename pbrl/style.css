@@ -1,5 +1,7 @@
 body {
-    margin: 0;
+    max-width: 1080px; 
+	margin: 0 auto !important; 
+	float: none !important;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
