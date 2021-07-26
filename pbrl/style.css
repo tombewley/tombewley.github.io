@@ -7,15 +7,15 @@ h1 {
     text-align:center;
 }
 
-.main_block {
+.outer {
     width: 100%; 
     /* border:2px black solid; */
 }
-.main_block:before,.main_block:after { overflow:hidden; content:""; display:table; }
-.main_block:after { clear:both; }
-.inner_block {
+.outer:before,.outer:after { overflow:hidden; content:""; display:table; }
+.outer:after { clear:both; }
+.inner {
     display: inline-block;
     float: left;
     width:50%;
 }
-.inner_block img { width:100%; height:auto; vertical-align:middle; }
+.inner img { width:100%; height:auto; vertical-align:middle; }
