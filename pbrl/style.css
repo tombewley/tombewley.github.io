@@ -7,6 +7,11 @@ body {
 
 h1 {
     text-align:center;
+    color: teal;
+}
+h2 {
+    text-align:center;
+    color: #cc4a51;
 }
 
 .outer {
