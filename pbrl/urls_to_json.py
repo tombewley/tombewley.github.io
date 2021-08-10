@@ -1,6 +1,6 @@
 import json
 
-FNAME = "ancient-pine-56"
+FNAME = "frosty-jazz-9"
 
 with open(f"{FNAME}.raw", "r") as f:
     lines = f.read()
