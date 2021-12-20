@@ -6,7 +6,7 @@ tags:
   - weekly-readings
 ---
 
-Meta-learning causal relations; decomposing explanation questions; misleading explanations; the critical influence of metrics.
+Meta learning causal relations; decomposing explanation questions; misleading explanations; the critical influence of metrics.
 
 ## 📝 Papers
 

@@ -15,7 +15,7 @@ The theory of why-questions; fidelity versus accuracy; trees and programs as RL 
 Machine explanations omit several properties that philosophers have claimed are so essential to human explanation. Explanations should:
 
 1. be **contrastive**: explain why the output $y$ is produced instead of an alternative $y'$ rather than merely in absolute terms.
-2. be **modular and compositional**: the ordering of *explanans* (attributes that can be included in the explanation) should not affect the result.
+2. be **modular and compositional**: the ordering of *explanantia* (attributes that can be included in the explanation) should not affect the result.
 3. **not confound base rates** with the influence of the specific input. 
 4. be **exhaustive**: explain with respect to every possible alternative $y'$. 
 5. be **minimal**: all things being equal, the simpler of two explanations should be preferred, and if omission of some details improves intelligibility, then this should be done.
@@ -38,7 +38,7 @@ $$
 \text{woe}\left(h / h^{\prime}: e_{1} \wedge e_{2} \wedge \cdots \wedge e_{n}\right)=\sum_{i=1}^{n} \log \frac{P\left(e_{i} \vert e_{i-1}, \ldots, e_{1}, h\right)}{P\left(e_{i} \vert e_{i-1}, \ldots, e_{1}, h^{\prime}\right)}
 $$
 
-In regression and classification, the obvious choice of hypothesis class is that of model outputs. The choice of explanans is restricted here to subsets of the raw input features $x$, but could be extended in future to higher-level representations of the input or properties of the model itself. The explanation process consists of computing the individual WoE for each attribute $e_i$ (enabled by decomposability). A selection of the only most positively-contributing attributes are identified and presented to the explainee, thereby satisfying the desideratum of minimality (5).
+In regression and classification, the obvious choice of hypothesis class is that of model outputs. The choice of explanantia is restricted here to subsets of the raw input features $x$, but could be extended in future to higher-level representations of the input or properties of the model itself. The explanation process consists of computing the individual WoE for each attribute $e_i$ (enabled by decomposability). A selection of the only most positively-contributing attributes are identified and presented to the explainee, thereby satisfying the desideratum of minimality (5).
 
 Where the number of possible outputs is large or continuous, it does not seem particularly meaningful for $h$ to be the actual prediction, and $h'$ to be the union of all other possibilities. In order to satisfy the desideratum of exhaustiveness (4), it is suggested that we cast explanation in this context as a sequential process, whereby a subset of the possible outcomes is expounded away in each step. For example, we might first explain why it's an animal not a plant, then why it's a bird not a reptile, then why it's a starling not a crow.
 
