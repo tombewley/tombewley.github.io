@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-### Journal Papers
+<!-- ### Journal Papers
 
 *Coming soon...*
 
@@ -18,13 +18,22 @@ redirect_from:
     {% if post.pubtype == "journal" %}
        {% include archive-single-cv.html %}
     {% endif %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
 
 ### Conference Papers
 
   <ul style="list-style: none;">
   {% for post in site.publications reversed %}
     {% if post.pubtype == "conference" %}
+       {% include archive-single-cv.html %}
+    {% endif %}
+  {% endfor %}</ul>
+
+### Workshop Papers
+
+  <ul style="list-style: none;">
+  {% for post in site.publications reversed %}
+    {% if post.pubtype == "workshop" %}
        {% include archive-single-cv.html %}
     {% endif %}
   {% endfor %}</ul>
