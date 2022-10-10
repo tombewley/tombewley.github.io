@@ -1,7 +1,5 @@
 ---
 title: "Reinforcement Learning"
-permalink: /notes/Reinforcement Learning
-author_profile: true
 ---
 
 S = discrete set of environmental states
