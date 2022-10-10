@@ -6,7 +6,7 @@ author_profile: true
 
 #Logbook for #Interaction on 30/06/21.
 
-The canonical form of the conditional transition matrix for an absorbing [Markov Chain](Markov%20Chain.md) with $m$ transient states and $r$ absorbing states is 
+The canonical form of the conditional transition matrix for an absorbing [[Markov Chain]] with $m$ transient states and $r$ absorbing states is 
 
 $$P=\left[\begin{array}{cc}Q&R\\\textbf{0}_{r\times m}&I_r\end{array}\right],$$
 
