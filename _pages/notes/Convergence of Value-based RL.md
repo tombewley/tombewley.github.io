@@ -1,15 +1,15 @@
 ---
 title: "Convergence of Value-based RL"
-permalink: /notes/Convergence%20of%20Value-based%20RL
+permalink: /notes/Convergence of Value-based RL
 ---
 
 [https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f](https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f)
 
-We often hear that [[Website/_pages/notes/Reinforcement Learning|reinforcement learning]] always converges to a unique fixed point. Why is that?
+We often hear that [reinforcement learning](Reinforcement%20Learning) always converges to a unique fixed point. Why is that?
 
 We are going to prove this using the Banach fixed point theorem by showing that the Bellman optimality operator is a contraction over a complete metric space of real numbers with metric L-infinity norm. For this, we will first discuss the fixed point problem and complete metric spaces with respect to the Cauchy sequence.
 
-Given a [[Sets and spaces|metric space]] $(\mathcal{X}, d)$, the infinite sequence $x_1,x_2,x_3...,$ is a *Cauchy sequence* if for *every* $\varepsilon\in\mathbb{R}^+$, there exists an $N\in\mathbb{Z}^+$ such that $d(x_a,x_b)<\varepsilon,a,b>N$. This definition formalises the notion of convergence to a fixed point. A metric space is *complete* if every possible Cauchy sequence among the elements of $\mathcal{X}$ converges to some fixed point that itself lies in $X$. Given a complete metric space $(\mathcal{X},d)$, a function $f:\mathcal{X}\rightarrow \mathcal{X}$ is a *contraction* if applying it to two elements $x,x'\in\mathcal{X}$ moves them closer together by a factor of at least $\gamma\in[0,1)$, i.e.
+Given a [metric space](Sets%20and%20spaces) $(\mathcal{X}, d)$, the infinite sequence $x_1,x_2,x_3...,$ is a *Cauchy sequence* if for *every* $\varepsilon\in\mathbb{R}^+$, there exists an $N\in\mathbb{Z}^+$ such that $d(x_a,x_b)<\varepsilon,a,b>N$. This definition formalises the notion of convergence to a fixed point. A metric space is *complete* if every possible Cauchy sequence among the elements of $\mathcal{X}$ converges to some fixed point that itself lies in $X$. Given a complete metric space $(\mathcal{X},d)$, a function $f:\mathcal{X}\rightarrow \mathcal{X}$ is a *contraction* if applying it to two elements $x,x'\in\mathcal{X}$ moves them closer together by a factor of at least $\gamma\in[0,1)$, i.e.
 
 $$d(f(x),f(x'))\leq\gamma d(x,x')$$
 
@@ -45,4 +45,4 @@ which means that $\mathbb{B}$ is a contractor in $(\mathbb{R},\lVert\cdot\rVert_
 FQI gives no guarantees of convergence to the optimal solution.
 - Proof: Mix of contraction under $\infty$-norm and $\ell 2$-norm.
 - $Q$ learning is not true gradient descent (semi-gradient) because we don't take the gradient through the target value. Residual algorithms slow and not numerically stable (learning rates).
-- Also means that actor-critic won't converge (policy gradient converges to local maximum, just like supervised learning).
+- Also means that actor-critic won't converge (policy gradient converges to local maximum, just like supervised learning

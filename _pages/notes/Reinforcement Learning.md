@@ -1,6 +1,6 @@
 ---
 title: "Reinforcement Learning"
-permalink: /notes/Reinforcement%20Learning
+permalink: /notes/Reinforcement Learning
 ---
 
 S = discrete set of environmental states
@@ -33,4 +33,4 @@ The multi-armed bandit problem is a thought experiment used to understand this p
 
 Reinforcement learning is highly sensitive to small perturbations in the setup of the environment (e.g. a different world shape in pacman) as it is essentially a model-free decision machine. Several proposals have been put forward to improve this. One recent examples is Schema Networks.
 
-Utilitarian reward functions are obviously over-simplistic as humans are often not fully utilitarian and we disagree about utility. We must model the optimal choice of reward function as a variable with uncertainty, and make decisions accordingly (Bayes theorem!)
+Utilitarian reward functions are obviously over-simplistic as humans are often not fully utilitarian and we disagree about utility. We must model the optimal choice of reward function as a variable with uncertainty, and make decisions accordingly (Bayes theorem
