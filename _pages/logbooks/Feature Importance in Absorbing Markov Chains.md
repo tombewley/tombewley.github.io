@@ -1,5 +1,6 @@
 ---
-title: "Feature importance and the fundamental matrix"
+title: Feature importance and the fundamental matrix
+permalink: Feature Importance in Absorbing Markov Chains
 ---
 
 #Logbook for #Interaction on 30/06/21.

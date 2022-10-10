@@ -1,5 +1,6 @@
 ---
-title: "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"
+title: A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
+permalink: /notes/A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
 alias: [DAgger]
 ---
 
@@ -14,7 +15,7 @@ Our goal is to find a policy $\hat{\pi}$ which minimises some loss function $\ma
 
 $$\hat{\pi}=\arg\min_{\pi\in\Pi}\mathbb{E}_{s\sim d_\pi}[\mathcal{L(s,\pi,\pi^*)}]$$
 
-Traditional approaches to [Imitation Learning](Imitation%20Learning) instead train a policy to perform well under the distribution encountered by $\pi^\ast$, $d_{\pi^\ast}$. Poor performance can result. A naïve solution would be to iterative train a new policy for each timestep $t$, on the distribution of states induced by all previously-trained policies, but this is extremely computationally intensive.
+Traditional approaches to imitation learning instead train a policy to perform well under the distribution encountered by $\pi^\ast$, $d_{\pi^\ast}$. Poor performance can result. A naïve solution would be to iterative train a new policy for each timestep $t$, on the distribution of states induced by all previously-trained policies, but this is extremely computationally intensive.
 The generic `DAgger` proceeds as follows:
 - Initialise an imitation policy $\hat{\pi}_1$.
 - Use $\pi^*$ to gather a dataset $\mathcal{D}$.

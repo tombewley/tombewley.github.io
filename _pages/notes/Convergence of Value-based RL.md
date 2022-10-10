@@ -1,5 +1,6 @@
 ---
-title: "Convergence of Value-based RL"
+title: Convergence of Value-based RL
+permalink: /notes/Convergence of Value-based RL
 ---
 
 [https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f](https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f)
