@@ -26,5 +26,3 @@ The generic `DAgger` proceeds as follows:
 
 Starting with $\beta_1=1$ is typically useful because it means we don't have to specify an initial policy $\hat\pi_1$. The only requirement for the evolution of $\beta_i$ is that the average value across all iterations $\rightarrow0$ as $i\rightarrow\infty$. In practice, the best approach seems to be to set $\beta_1=1$ and $\beta_i=0\ \forall i>1$.
 A theoretical analysis in the paper demonstrates the robustness of the algorithm, and it is shown to outperform a couple of earlier alternatives for imitation learning.
-
-[[x
