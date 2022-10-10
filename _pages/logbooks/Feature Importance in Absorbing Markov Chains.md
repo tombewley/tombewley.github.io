@@ -1,7 +1,5 @@
 ---
 title: "Feature importance and the fundamental matrix"
-permalink: /logbooks/Feature Importance in Absorbing Markov Chains
-author_profile: true
 ---
 
 #Logbook for #Interaction on 30/06/21.
@@ -43,4 +41,4 @@ There are many possible intervention models:
 # Feedback
 - Transition-wise interventions require too many assumptions, and are less meaningful from a feature selection/importance standpoint, so focus on the state-wise case from now on. These count as *rank 1 modifications* of the transition matrix, about which there is a decent amount of existing literature.
 - Can also analyse the partial effect of a row-wise blending between two transition matrices. At every point in a linear interpolation, we retain a valid transition matrix.
-- Also a note on the semantic context: it is very likely that we can treat $p$ and $q$ asymmetrically, treating $p$ as a *fact* case and $q$ as a *foil*. This means that we only need to consider interventions in one direction, and therefore don't need to worry about the problem of combining influences from both direction
+- Also a note on the semantic context: it is very likely that we can treat $p$ and $q$ asymmetrically, treating $p$ as a *fact* case and $q$ as a *foil*. This means that we only need to consider interventions in one direction, and therefore don't need to worry about the problem of combining influences from both directions.

@@ -1,6 +1,5 @@
 ---
 title: "Convergence of Value-based RL"
-permalink: /notes/Convergence of Value-based RL
 ---
 
 [https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f](https://towardsdatascience.com/mathematical-analysis-of-reinforcement-learning-bellman-equation-ac9f0954e19f)
@@ -45,4 +44,4 @@ which means that $\mathbb{B}$ is a contractor in $(\mathbb{R},\lVert\cdot\rVert_
 FQI gives no guarantees of convergence to the optimal solution.
 - Proof: Mix of contraction under $\infty$-norm and $\ell 2$-norm.
 - $Q$ learning is not true gradient descent (semi-gradient) because we don't take the gradient through the target value. Residual algorithms slow and not numerically stable (learning rates).
-- Also means that actor-critic won't converge (policy gradient converges to local maximum, just like supervised learning
+- Also means that actor-critic won't converge (policy gradient converges to local maximum, just like supervised learning).
