@@ -1,5 +1,6 @@
 ---
 title: "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"
+permalink: "/notes/A%20Reduction%20of%20Imitation%20Learning%20and%20Structured%20Prediction%20to%20No-Regret%20Online%20Learning.md"
 alias: [DAgger]
 ---
 
