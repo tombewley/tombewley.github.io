@@ -5,14 +5,14 @@ author_profile: true
 alias: [DAgger]
 ---
 
-[[2011]] [[AISTATS]] #Content/Paper by [[Stéphane Ross]], Geoffrey J Gordon, and [[J Andrew Bagnell]]. 
+[2011](2011.md) [AISTATS](AISTATS.md) #Content/Paper by [Stéphane Ross](St%C3%A9phane%20Ross.md), Geoffrey J Gordon, and [J Andrew Bagnell](J%20Andrew%20Bagnell.md). 
 
-In [[Imitation Learning]] (among other sequential prediction problems), future observations depend on previous actions, which violates the common i.i.d. assumption made in statistical learning. Ignoring this issue compromises learning: mistakes lead the [[Imitator]] to parts of the state space never encountered by the [[Target]] policy, leading to a compounding of errors. Here an [[Online Learning]] algorithm called `DAgger` is proposed to find a strong policy under these conditions.
+In [Imitation Learning](Imitation%20Learning.md) (among other sequential prediction problems), future observations depend on previous actions, which violates the common i.i.d. assumption made in statistical learning. Ignoring this issue compromises learning: mistakes lead the [Imitator](Imitator.md) to parts of the state space never encountered by the [Target](Target.md) policy, leading to a compounding of errors. Here an [Online Learning](Online%20Learning.md) algorithm called `DAgger` is proposed to find a strong policy under these conditions.
 Denote $d^t_\pi$ the distribution of states at time $t$ if policy $\pi$ is followed from time $1$ to $t-1$. The average distribution of states if $\pi$ is followed for $T$ steps is therefore
 
 $$d_\pi=\frac{1}{T}\sum_{t=1}^Td_\pi^t$$
 
-Our goal is to find a policy $\hat{\pi}$ which minimises some loss function $\mathcal{L}$ relative to a [[Target]] policy $\pi^*$ on samples from $d_\pi$:
+Our goal is to find a policy $\hat{\pi}$ which minimises some loss function $\mathcal{L}$ relative to a [Target](Target.md) policy $\pi^*$ on samples from $d_\pi$:
 
 $$\hat{\pi}=\arg\min_{\pi\in\Pi}\mathbb{E}_{s\sim d_\pi}[\mathcal{L(s,\pi,\pi^*)}]$$
 
