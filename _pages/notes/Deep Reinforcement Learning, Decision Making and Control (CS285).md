@@ -1,9 +1,13 @@
 ---
+title: Deep Reinforcement Learning, Decision Making and Control (CS285)
+permalink: /notes/Deep Reinforcement Learning, Decision Making and Control (CS285)
+---
+---
 title: CS285
 permalink: /notes/CS285
 ---
 
-#Content/Course on "deep [Reinforcement Learning](Reinforcement%20Learning), decision making and control" by [Sergey Levine](Sergey%20Levine) and others at [UC Berkeley](UC%20Berkeley).
+#Content/Course by [Sergey Levine](Sergey%20Levine) and others at [UC Berkeley](UC%20Berkeley).
 
 [http://rail.eecs.berkeley.edu/deeprlcourse/](http://rail.eecs.berkeley.edu/deeprlcourse/)
 
@@ -655,7 +659,7 @@ Now let's turn our attention to the multi-task transfer case, where all tasks si
 - Gradient interference: becoming better on one task can make you worse on another. This in turn can lead to a widely observed winner-take-all problem, where the agent starts to prioritise a single task on which early performance is best.
 - This can be partially mitigated using a policy distillation approach: learn an independent policy for each task, while simultaneously training a single centralised policy via supervised learning using data from all tasks. Alone this provides no knowledge transfer, but this can be achieved in a soft way by adding a loss term to encourage each task-specific policy to resemble the centralised policy.
 
-Finally, we can focus on a more narrow, concrete problem setting with a single source and target. Let us assume that the dynamics are the same in both domains, but the *reward function* is different. What is the best object to transfer in this setting? Clearly, in model-based RL we can trivially transfer the model (although we still may face a distributional shift problem). On the other end of the spectrum, policies are generally tricky to transfer because they contain no explicit dynamics information. A value function is not straightforward to transfer as-is, as it couples dynamics, rewards and policies, but progress can be made using the [Successor Features](Successor%20Features) decomposition (see separate notes).
+Finally, we can focus on a more narrow, concrete problem setting with a single source and target. Let us assume that the dynamics are the same in both domains, but the *reward function* is different. What is the best object to transfer in this setting? Clearly, in model-based RL we can trivially transfer the model (although we still may face a distributional shift problem). On the other end of the spectrum, policies are generally tricky to transfer because they contain no explicit dynamics information. A value function is not straightforward to transfer as-is, as it couples dynamics, rewards and policies, but progress can be made using the [Successor Representation](Successor%20Representation) decomposition (see separate notes).
 
 ## Lecture 22: [Meta-learning](Meta-learning)
 Building on the ideas of the previous lecture, can we use multiple source domain tasks not to learn value functions, policies and representations, but to learn something about the *learning process itself*, which includes intelligent exploration and feature acquisition? The act of "learning to learn" is called meta-learning, and the equivalent of a test set is the entire training process of an RL agent in the target domain.

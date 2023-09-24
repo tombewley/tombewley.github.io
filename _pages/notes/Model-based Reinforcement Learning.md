@@ -4,6 +4,8 @@ permalink: /notes/Model-based Reinforcement Learning
 alias: [model-based]
 ---
 
+Debugging tips: https://www.natolambert.com/writing/debugging-mbrl
+
 Basic methods:
 - **I2A**: [Imagination-Augmented Agents](https://arxiv.org/pdf/1707.06203.pdf)
 	- Many model-based RL methods are not robust because they treat the model as infallible and use it for classical planning. I2A uses a more implicit approach in which a rollout encoder [RNN](RNN) produces an embedding for each rollout, which are then stacked into a single __imagination code__. The imagination code serves the input to a model-based policy model $\pi$. Furthermore, $\pi$ is not used directly, but used to define an additional cross-entropy loss for a model-free (A3C) policy $\hat{\pi}$ which is actually used for behaviour.

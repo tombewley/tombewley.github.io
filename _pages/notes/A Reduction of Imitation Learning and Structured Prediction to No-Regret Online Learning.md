@@ -4,7 +4,7 @@ permalink: /notes/A Reduction of Imitation Learning and Structured Prediction to
 alias: [DAgger]
 ---
 
-[2011](2011) [AISTATS](AISTATS) #Content/Paper by [Stéphane Ross](Stéphane%20Ross), Geoffrey J Gordon, and [J Andrew Bagnell](J%20Andrew%20Bagnell). 
+[2011](2011) [AISTATS](AISTATS) #Content/Paper by [Stéphane Ross](Stéphane%20Ross), Geoffrey J Gordon, and [J. Andrew Bagnell](J.%20Andrew%20Bagnell). 
 
 In [Imitation Learning](Imitation%20Learning) (among other sequential prediction problems), future observations depend on previous actions, which violates the common i.i.d. assumption made in statistical learning. Ignoring this issue compromises learning: mistakes lead the [Imitator](Imitator) to parts of the state space never encountered by the [Target](Target) policy, leading to a compounding of errors. Here an [Online Learning](Online%20Learning) algorithm called `DAgger` is proposed to find a strong policy under these conditions.
 Denote $d^t_\pi$ the distribution of states at time $t$ if policy $\pi$ is followed from time $1$ to $t-1$. The average distribution of states if $\pi$ is followed for $T$ steps is therefore
