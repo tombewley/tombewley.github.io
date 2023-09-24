@@ -2,10 +2,6 @@
 title: Deep Reinforcement Learning, Decision Making and Control (CS285)
 permalink: /notes/Deep Reinforcement Learning, Decision Making and Control (CS285)
 ---
----
-title: CS285
-permalink: /notes/CS285
----
 
 #Content/Course by [Sergey Levine](Sergey%20Levine) and others at [UC Berkeley](UC%20Berkeley).
 
