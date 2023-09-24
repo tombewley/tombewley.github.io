@@ -1,12 +1,12 @@
 main:
-  - title: "🗂️ Research Repo"
-    url: /repo
+#  - title: "🗂️ Research Repo"
+#    url: /repo
   
   - title: "📃 Publications"
     url: /publications
 
-  - title: "📊 Visualisation"
-    url: /visual  
+#  - title: "📊 Visualisation"
+#    url: /visual
 
   - title: "✍️ Blog"
     url: /blog
@@ -26,8 +26,8 @@ main:
   # - title: "Test Page"
   #   url: /test
 
-  - title: "🎙️ Engenius Podcast"
-    url: /Engenius
+#  - title: "🎙️ Engenius Podcast"
+#    url: /Engenius
     
   # - title: "CV"
   #   url: /cv
