@@ -82,11 +82,11 @@ analytics:
 author:
   name             : "Tom Bewley"
   avatar           : "profile.png"
-  bio              : "PhD student in artificial intelligence at the <a style='color: black;' href='http://bristol.ac.uk/'>University of Bristol</a>. Trying to build aligned and interpretable autonomous agents."
-  location         : "Bristol, UK"
+  bio              : "Research Scientist at the J.P. Morgan <a style='color: black;' href='https://www.jpmorgan.com/technology/artificial-intelligence/initiatives/explainable-ai-center-of-excellence'>Explainable AI Center of Excellence</a>. Trying to build aligned and interpretable AI agents."
+  location         : "London, UK"
   employer         :
   googlescholar    : "https://scholar.google.co.uk/citations?user=OqPzZ08AAAAJ&hl=en"
-  email            : "tom.bewley@bristol.ac.uk"
+  email            : "tomdbewley@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/Tom_Bewley2"
   uri              :
   bitbucket        :
