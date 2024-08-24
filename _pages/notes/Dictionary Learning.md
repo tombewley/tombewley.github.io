@@ -13,13 +13,13 @@ The preeminent model for dictionary learning is a sparse autoencoder (SAE), whic
 Let $x\in \mathbb{R}^D$ be the representation at a particular point in a model (for transformers, often the residual stream in a middle-ish layer), normalised so the mean L2 norm of each dimension is constant (typically $\sqrt{D}$ or $1$). The encoder part of the SAE maps $x$ to a vector of $F\gg D$ *latents*:
 
 $$
-f(x) \coloneq \sigma(W^{enc}x + b^{enc}),
+f(x) = \sigma(W^{enc}x + b^{enc}),
 $$
 
 which are always non-negative due to the activation function $\sigma$ (JumpReLU seems SoTA?). The decoder is a linear mapping of the latents back into a reconstruction of $x$:
 
 $$
-\hat{x} \coloneq W^{dec} f(x) + b^{dec}.
+\hat{x} = W^{dec} f(x) + b^{dec}.
 $$
 
 We can interpret $W^{dec}$ as associating each latent $i\in\{1,\dots,F\}$ with a direction in the representation space, that we can call a *feature*:
