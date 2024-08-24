@@ -11,31 +11,43 @@ It was initially most vigorously pursued in a series of reports culminating in [
 The preeminent model for dictionary learning is a sparse autoencoder (SAE), which has a single latent layer whose dimensionality is (unconventionally) much *higher* than that of the representation space being studied.
 
 Let $x\in \mathbb{R}^D$ be the representation at a particular point in a model (for transformers, often the residual stream in a middle-ish layer), normalised so the mean L2 norm of each dimension is constant (typically $\sqrt{D}$ or $1$). The encoder part of the SAE maps $x$ to a vector of $F\gg D$ *latents*:
+
 $$
-f(x) \coloneqq \sigma(W^{enc}x + b^{enc}),
+f(x) \coloneq \sigma(W^{enc}x + b^{enc}),
 $$
+
 which are always non-negative due to the activation function $\sigma$ (JumpReLU seems SoTA?). The decoder is a linear mapping of the latents back into a reconstruction of $x$:
+
 $$
-\hat{x} \coloneqq W^{dec} f(x) + b^{dec}.
+\hat{x} \coloneq W^{dec} f(x) + b^{dec}.
 $$
+
 We can interpret $W^{dec}$ as associating each latent $i\in\{1,\dots,F\}$ with a direction in the representation space, that we can call a *feature*:
+
 $$
 \text{feature}_i = \frac{W^{dec}_{:, i}}{\|W^{dec}_{:, i}\|_2}
 $$
+
 The activation of feature $i$ for representation $x$ can be defined as 
+
 $$
 \text{activation}_i(x) = f_i(x) \cdot \|W^{dec}_{:, i}\|_2
 $$
+
 SAEs are trained with a loss function combining an L2 penalty on the reconstruction loss and a sparsity penality:
+
 $$
 \mathcal{L}=\mathbb{E}_x\Big[\|x-\hat{x}\|_2^2 + \lambda\ \text{sparsity}(x)\Big]
 $$
 
 [This Anthropic blog post](https://transformer-circuits.pub/2024/april-update/index.html#training-saes) uses an L1 penalty on feature activations (but they may now accept this is no longer SoTA):
+
 $$
 \text{sparsity}(x)=\sum_i |f_i(x)| \cdot \|W^{dec}_{:, i}\|_2.
 $$
+
  The [Gemma Scope](Gemma%20Scope:%20Open%20Sparse%20Autoencoders%20Everywhere%20All%20At%20Once%20on%20Gemma%202) paper, which open-sources over $400$ learnt dictionaries for several layer of the Gemma 2 models, uses an L0 penalty on latent activations ([straight-through estimation](straight-through%20estimation) is required to make backprop work with this):
+
 $$
 \text{sparsity}(x)=\|f(x)\|_0.
 $$
