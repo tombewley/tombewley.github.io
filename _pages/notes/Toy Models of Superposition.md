@@ -9,7 +9,7 @@ This post operates on the basis of the [linear representation hypothesis](linear
 It begins by carefully defining three terms:
 - **Polysemanticity**: The empirically-verified phenomenon that single dimensions in activation spaces ("neurons") often correlate with multiple unrelated features.
 - **No privileged basis**: One hypothesised contributor to polysemanticity, namely that the basis defined by the neurons has limited meaning to the model.
-	- However, subtle properties of activation functions, regularisers and optimisers means that it often does have some meaning. This may explain why we can sometimes find monosemantic "Jennifer Aniston neurons".
+	- However, subtle properties of activation functions, regularisers and optimisers (especially Adam) means that it often does have some meaning. This may explain why we can sometimes find monosemantic "Jennifer Aniston neurons".
 - **Superposition**: Another hypothesised contributor to polysemanticity, namely that the number of features $F$ that the model "wants" to represent exceeds the number of neurons $D$, requiring them to be non-orthogonal.
 	- Note: the Johnson–Lindenstrauss lemma says that it's possible to pack $\exp(D)$ "almost orthogonal" ($<\epsilon$ cosine similarity) vectors into a $D$-dimensional space.
 
