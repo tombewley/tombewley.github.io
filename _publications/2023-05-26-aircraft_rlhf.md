@@ -1,5 +1,4 @@
 ---
----
 title: "Learning Interpretable Models of Aircraft Handling Behaviour by Reinforcement Learning from Human Feedback"
 pubtype: "conference"
 collection: publications

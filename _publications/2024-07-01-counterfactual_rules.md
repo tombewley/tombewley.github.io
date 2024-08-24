@@ -1,5 +1,4 @@
 ---
----
 title: "Counterfactual Metarules for Local and Global Recourse"
 pubtype: "conference"
 collection: publications
