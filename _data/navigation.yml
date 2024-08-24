@@ -2,7 +2,7 @@ main:
 #  - title: "🗂️ Research Repo"
 #    url: /repo
   
-  - title: "📃 Publications"
+  - title: "📃 Papers"
     url: /publications
 
 #  - title: "📊 Visualisation"
@@ -11,14 +11,17 @@ main:
   - title: "✍️ Blog"
     url: /blog
   
-  - title: "🗣️ Talks"
-    url: /talks  
-  
-  - title: "🧰 Side Projects"
-    url: /projects     
+- title: "🎵 Music"
+  url: https://soundcloud.com/tombewley
 
-  - title: "📚 Weekly Readings"
-    url: /readings
+  # - title: "🗣️ Talks"
+  #   url: /talks  
+  
+  # - title: "🧰 Side Projects"
+  #   url: /projects     
+
+  # - title: "📚 Weekly Readings"
+  #   url: /readings
 
   # - title: "Teaching"
   #   url: /teaching    
