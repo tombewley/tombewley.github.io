@@ -11,8 +11,8 @@ main:
   - title: "✍️ Blog"
     url: /blog
   
-- title: "🎵 Music"
-  url: https://soundcloud.com/tombewley
+  - title: "🎵 Music"
+    url: https://soundcloud.com/tombewley
 
   # - title: "🗣️ Talks"
   #   url: /talks  
