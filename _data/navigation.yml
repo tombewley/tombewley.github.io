@@ -10,7 +10,10 @@ main:
 
   - title: "✍️ Blog"
     url: /blog
-  
+
+  - title: "📝 Notes"
+    url: /notes
+
   - title: "🎵 Music"
     url: https://soundcloud.com/tombewley
 
