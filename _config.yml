@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Tom Bewley"
   avatar           : "profile.jpg"
-  bio              : "Research Scientist at the J.P. Morgan <a style='color: black;' href='https://www.jpmorgan.com/technology/artificial-intelligence/initiatives/explainable-ai-center-of-excellence'>Explainable AI Center of Excellence</a>. Working to build aligned and interpretable AI systems."
+  bio              : "Research Scientist at the J.P. Morgan <a style='color: black;' href='https://www.jpmorgan.com/technology/artificial-intelligence/initiatives/explainable-ai-center-of-excellence'>Explainable AI Center of Excellence</a>. Working to build aligned and interpretable AI."
   location         : "London, UK"
   employer         :
   googlescholar    : "https://scholar.google.co.uk/citations?user=OqPzZ08AAAAJ&hl=en"
