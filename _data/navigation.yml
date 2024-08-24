@@ -12,7 +12,7 @@ main:
     url: /blog
 
   - title: "📝 Notes"
-    url: /notes
+    url: /notes/home
 
   - title: "🎵 Music"
     url: https://soundcloud.com/tombewley

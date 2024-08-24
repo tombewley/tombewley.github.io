@@ -1,10 +1,7 @@
 ---
-permalink: /notes
+permalink: /notes/home
 title: "📝 Notes"
 author_profile: true
-redirect_from: 
-  - /notes/
-  - /notes.html
 ---
 
 TEST
