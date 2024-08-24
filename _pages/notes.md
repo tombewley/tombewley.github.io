@@ -4,4 +4,4 @@ title: "📝 Notes"
 author_profile: true
 ---
 
-- [[Transformer]]
+- [Transformer architecture](Transformer)
