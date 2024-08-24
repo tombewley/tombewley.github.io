@@ -86,11 +86,11 @@
     max-width: 175px;
     border-radius: 50%;
     padding: 2px;
-    border: 1px solid $border-color; // $orange;
+    border: 1px solid $deep-orange;
 
     @include breakpoint($large) {
       padding: 2px;
-      border: 1px solid $border-color; // $orange;
+      border: 1px solid $deep-orange;
     }
   }
 }
