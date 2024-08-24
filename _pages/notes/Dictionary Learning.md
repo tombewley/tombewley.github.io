@@ -1,6 +1,10 @@
-One of three approaches to alleviating superposition suggested in Anthropic's [[Toy Models of Superposition|toy models]] blog post, which has a long history in the sparse coding literature and may even be [[Sparse coding with an overcomplete basis set: A strategy employed by V1?|a strategy employed by the brain]].
+---
+title: Dictionary Learning
+permalink: /notes/Dictionary Learning
+---
+One of three approaches to alleviating superposition suggested in Anthropic's [toy models](Toy%20Models%20of%20Superposition) blog post, which has a long history in the sparse coding literature and may even be [a strategy employed by the brain](Sparse%20coding%20with%20an%20overcomplete%20basis%20set:%20A%20strategy%20employed%20by%20V1?).
 
-It was initially most vigorously pursued in a series of reports culminating in [[Sparse Autoencoders Find Highly Interpretable Features in Language Models]]. Anthropic then came out with the [[Towards Monosemanticity - Decomposing Language Models With Dictionary Learning|towards monosemanticity]] and [[Scaling Monosemanticity - Extracting Interpretable Features from Claude 3 Sonnet|scaling monosemanticity]] posts, which are detailed demonstrations of essentially the same technique at increasing scales. Work in this area has since exploded, making it the hottest ticket in [[mechanistic interpretability]] as of mid-2024.
+It was initially most vigorously pursued in a series of reports culminating in [Sparse Autoencoders Find Highly Interpretable Features in Language Models](Sparse%20Autoencoders%20Find%20Highly%20Interpretable%20Features%20in%20Language%20Models). Anthropic then came out with the [towards monosemanticity](Towards%20Monosemanticity%20-%20Decomposing%20Language%20Models%20With%20Dictionary%20Learning) and [scaling monosemanticity](Scaling%20Monosemanticity%20-%20Extracting%20Interpretable%20Features%20from%20Claude%203%20Sonnet) posts, which are detailed demonstrations of essentially the same technique at increasing scales. Work in this area has since exploded, making it the hottest ticket in [mechanistic interpretability](mechanistic%20interpretability) as of mid-2024.
 
 ---
 
@@ -31,7 +35,7 @@ $$
 $$
 \text{sparsity}(x)=\sum_i |f_i(x)| \cdot \|W^{dec}_{:, i}\|_2.
 $$
- The [[Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2|Gemma Scope]] paper, which open-sources over $400$ learnt dictionaries for several layer of the Gemma 2 models, uses an L0 penalty on latent activations ([[straight-through estimation]] is required to make backprop work with this):
+ The [Gemma Scope](Gemma%20Scope:%20Open%20Sparse%20Autoencoders%20Everywhere%20All%20At%20Once%20on%20Gemma%202) paper, which open-sources over $400$ learnt dictionaries for several layer of the Gemma 2 models, uses an L0 penalty on latent activations ([straight-through estimation](straight-through%20estimation) is required to make backprop work with this):
 $$
 \text{sparsity}(x)=\|f(x)\|_0.
 $$
@@ -46,11 +50,11 @@ cosine similarity between feature vectors maps roughly onto conceptual relatedne
 
 The Gemma Scope paper outlines many open problems, of which I find the following most interesting:
 
-1. Exploring the structure and relationships between SAE features, as suggested in [[Relational composition in neural networks - A gentle survey and call to action]].
+1. Exploring the structure and relationships between SAE features, as suggested in [Relational composition in neural networks - A gentle survey and call to action](Relational%20composition%20in%20neural%20networks%20-%20A%20gentle%20survey%20and%20call%20to%20action).
 2. Comparisons of residual stream SAE features across layers, e.g. are there persistent features that one can match up across adjacent layers?
 3. Better understanding the phenomenon of feature splitting, where high-level features in a small SAE break apart into several finer-grained features in a wider SAE.
 4. We know that SAEs introduce error, and completely miss out on some features that are captured by wider SAEs. Can we quantify and easily measure “how much” they miss and how much this matters in practice?
 5. Using SAEs to improve performance on real-world tasks, e.g. through steering.
 6. Do SAEs really find the “true” concepts in a model? How robust are claims about the interpretability of SAE features? How can we measure intepretability?
-7. Can SAEs be extended to find *nonlinear* features, such as those that live in low-rank subspaces [[Not All Language Model Features Are Linear]], or even those that don't?
-8. Understand how features contribute to circuits, e.g. [[Sparse feature circuits - Discovering and editing interpretable causal graphs in language models]].
+7. Can SAEs be extended to find *nonlinear* features, such as those that live in low-rank subspaces [Not All Language Model Features Are Linear](Not%20All%20Language%20Model%20Features%20Are%20Linear), or even those that don't?
+8. Understand how features contribute to circuits, e.g. [Sparse feature circuits - Discovering and editing interpretable causal graphs in language models](Sparse%20feature%20circuits%20-%20Discovering%20and%20editing%20interpretable%20causal%20graphs%20in%20language%20models).
