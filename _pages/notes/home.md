@@ -9,8 +9,8 @@ permalink: /notes/home
 
 <ul>
 {% for post in site.pages %}
-  {% if post.title != 'home'}
-    <li><a href="{{ post.link }}">{{ post.title }}</a></li>
-  {% endif %}
+  <!-- {% if post.title != 'home'} -->
+  <li><a href="{{ post.link }}">{{ post.title }}</a></li>
+  <!-- {% endif %} -->
 {% endfor %}
 </ul>
