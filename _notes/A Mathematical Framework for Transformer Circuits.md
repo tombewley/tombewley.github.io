@@ -1,6 +1,7 @@
 ---
 title: A Mathematical Framework for Transformer Circuits
 permalink: /notes/A Mathematical Framework for Transformer Circuits
+collection: notes
 ---
 [2021](2021) #Content/Paper by Nelson Elhage, Neel Nanda, Catherine Olsson, Tom Henighan, Nicholas Joseph, Ben Mann, Amanda Askell, Yuntao Bai, Anna Chen, Tom Conerly, Nova DasSarma, Dawn Drain, Deep Ganguli, Zac Hatfield-Dodds, Danny Hernandez, Andy Jones, Jackson Kernion, Liane Lovitt, Kamal Ndousse, Dario Amodei, Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish, and [Chris Olah](Chris%20Olah). There's also an accompanying YouTube playlist [here](https://www.youtube.com/watch?v=V3NQaDR3xI4) and walkthrough by Neel Nanda [here](https://www.youtube.com/watch?v=KV5gbOmHbjU)
 

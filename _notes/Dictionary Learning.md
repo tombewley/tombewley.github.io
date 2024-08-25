@@ -1,6 +1,7 @@
 ---
 title: Dictionary Learning
 permalink: /notes/Dictionary Learning
+collection: notes
 ---
 One of three approaches to alleviating superposition suggested in Anthropic's [toy models](Toy%20Models%20of%20Superposition) blog post, which has a long history in the sparse coding literature and may even be [a strategy employed by the brain](Sparse%20coding%20with%20an%20overcomplete%20basis%20set:%20A%20strategy%20employed%20by%20V1?).
 

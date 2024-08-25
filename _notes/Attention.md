@@ -1,6 +1,7 @@
 ---
 title: Attention
 permalink: /notes/Attention
+collection: notes
 ---
 *Note: traditional attention was first used as a mechanism to improve the performance of [RNN](RNN)s. The [Attention is All You Need](Attention%20is%20All%20You%20Need) paper proposed self-attention as a complete replacement for the RNN itself, which has subsequently proven to be more performant as well as faster due to the lack of reliance on sequential processing.*
 

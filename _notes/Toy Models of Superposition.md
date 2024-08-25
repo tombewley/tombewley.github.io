@@ -1,6 +1,7 @@
 ---
 title: Toy Models of Superposition
 permalink: /notes/Toy Models of Superposition
+collection: notes
 ---
 [2022](2022) #Content/Blog by Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, Roger Grosse, Sam McCandlish, Jared Kaplan, Dario Amodei, Martin Wattenberg, and [Chris Olah](Chris%20Olah).
 
