@@ -192,7 +192,9 @@ collections:
   readings:
     output: true
     permalink: /:collection/:path/
-
+  notes:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
