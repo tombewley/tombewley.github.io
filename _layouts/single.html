@@ -71,15 +71,14 @@ layout: default
       {% include post_pagination.html %}
 
       <!-- include a list of all pages in the site that link to this one -->
-      {% if site.data.ui-text[site.locale].backlinks_label %}
-        <h4 class="page__back
-        links-title">{{ site.data.ui-text[site.locale].backlinks_label }}</h4>
-        <ul class="page__backlinks">
-          {% for backlink in site.backlinks[page.path] %}
-            <li><a href="{{ backlink.url }}">{{ backlink.title }}</a></li>
+      {% for post in site.notes %}
+        <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+        <ul>
+          {% for link in post.links %}
+            <li>so something here with {{link.contents}} and {{link.href}}.</li>
           {% endfor %}
         </ul>
-      {% endif %}
+      {% endfor %}
       
     </div>
 
