@@ -32,3 +32,9 @@ Jekyll::Hooks.register :site, :pre_render do |site|
                         end
                     end
                 end
+
+                file.merge_data!({"links" => links})
+            end
+        end
+    end
+end
