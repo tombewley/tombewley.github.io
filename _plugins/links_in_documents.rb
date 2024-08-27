@@ -4,13 +4,12 @@ module Jekyll
     priority :low
 
     def generate(site)
-      site.pages.each do |page|
-        collect_links(page)
-      end
-
-      site.posts.docs.each do |post|
-        collect_links(post)
-      end
+      site.collections.each do |collection, files|
+        if files.docs.any?
+          files.docs.each do |document|
+            collect_links(document)
+          end
+        end
     end
 
     def collect_links(document)
