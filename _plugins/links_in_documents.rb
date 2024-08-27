@@ -1,3 +1,6 @@
+# https://stackoverflow.com/a/74956708/23615922
+# This plugin dynamically adds the frontmatter attribute. This covers documents in all collections including posts.
+# It does not cover non-collection pages like index, search or 404 pages, on which attributes have to be set manually.
 Jekyll::Hooks.register :site, :pre_render do |site|
     site.collections.each do |collection, files|
 
@@ -6,31 +9,14 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
                 links = []
 
-                inline_regex = /[^!]\[([^\]]+)\]\(([^)]+)\)/
-                referenced_regex = /\[([^\]]+)\](?:\[([^\]]+)\])?[^:]/
-                references_regex = /\[([^\]]+)\]: ?(.+)/
-                
-                file.content.scan(inline_regex).each do |match|
-                    if match.length == 2
-                        links << { 
-                            "text" => match[1],
-                            "ref" => match[1],
-                            "link_url" => match[2]
-                        } 
-                    end
-                end
+                regex = /\[(.*?)\]\((.*?)\)/
+                match = file.content.match(regex)
 
-                file.content.scan(referenced_regex).each do |d_match|
-                    if d_match.length == 2
-                        link = { "text" => d_match[0], "ref" => d_match[1] }
-                    elsif d_match.label == 1
-                        link = { "text" => d_match[0], "ref" => d_match[0] }
-                    end
-                    file.content.scan(references_regex).each do |s_match|
-                        if s_match[0] == link["ref"] and s_match[1]
-                            links << link.merge!({"url" => s_match[1]})
-                        end
-                    end
+                # insert any link into the array
+                if match 
+                  ## debug output on jekyll serve
+                  # puts "link #{match} found in #{file.relative_path}" 
+                  links << { "link_text" => match[1], "link_url" => match[2] } 
                 end
 
                 file.merge_data!({"links" => links})
