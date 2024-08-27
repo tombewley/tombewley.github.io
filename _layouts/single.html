@@ -74,7 +74,7 @@ layout: default
       {% for post in site.notes %}
         <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
         <ul>
-          {% for link in post.links %}
+          {% for link in post.markdown_links %}
             <li>do something here with {{link.text}} and {{link.url}}.</li>
           {% endfor %}
         </ul>
