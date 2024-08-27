@@ -69,6 +69,18 @@ layout: default
       {% if page.share %}{% include social-share.html %}{% endif %}
 
       {% include post_pagination.html %}
+
+      <!-- include a list of all pages in the site that link to this one -->
+      {% if site.data.ui-text[site.locale].backlinks_label %}
+        <h4 class="page__back
+        links-title">{{ site.data.ui-text[site.locale].backlinks_label }}</h4>
+        <ul class="page__backlinks">
+          {% for backlink in site.backlinks[page.path] %}
+            <li><a href="{{ backlink.url }}">{{ backlink.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
     </div>
 
     {% if site.comments.provider and page.comments %}
