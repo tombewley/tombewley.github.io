@@ -1,26 +1,31 @@
-# https://stackoverflow.com/a/74956708/23615922
-# This plugin dynamically adds the frontmatter attribute. This covers documents in all collections including posts.
-# It does not cover non-collection pages like index, search or 404 pages, on which attributes have to be set manually.
-Jekyll::Hooks.register :site, :pre_render do |site|
-    site.collections.each do |collection, files|
+module Jekyll
+  class MarkdownLinksCollector < Jekyll::Generator
+    safe true
+    priority :low
 
-        if files.docs.any?
-            files.docs.each do |file|
+    def generate(site)
+      site.pages.each do |page|
+        collect_links(page)
+      end
 
-                links = []
-
-                regex = /\[(.*?)\]\((.*?)\)/
-                match = file.content.match(regex)
-
-                # insert any link into the array
-                if match 
-                  ## debug output on jekyll serve
-                  # puts "link #{match} found in #{file.relative_path}" 
-                  links << { "link_text" => match[1], "link_url" => match[2] } 
-                end
-
-                file.merge_data!({"links" => links})
-            end
-        end
+      site.posts.docs.each do |post|
+        collect_links(post)
+      end
     end
-end
+
+    def collect_links(document)
+      content = document.content
+      links = extract_markdown_links(content)
+      document.data['markdown_links'] = links if links.any?
+    end
+
+    def extract_markdown_links(content)
+      # Regular expression to find Markdown links: [text](url)
+      link_regex = /\[([^\]]+)\]\(([^)]+)\)/
+
+      content.scan(link_regex).map do |match|
+        { "text" => match[0], "url" => match[1] }
+      end
+    end
+  end
+end  
