@@ -71,14 +71,14 @@ layout: default
       <!-- {% include post_pagination.html %} -->
 
       <!-- include a list of all pages in the site that link to this one -->
-      {% for post in site.notes %}
-        <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+      {% if page.backlinks %}
+        <h2>Pages that link here:</h2>
         <ul>
-          {% for link in post.markdown_links %}
-            <li>do something here with {{link.text}} and {{link.url}}.</li>
+          {% for link in page.backlinks %}
+            <li><a href="{{ link }}">{{ link }}</a></li>
           {% endfor %}
         </ul>
-      {% endfor %}
+      {% endif %}
       
     </div>
 
