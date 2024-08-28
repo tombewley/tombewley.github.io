@@ -1,0 +1,3 @@
+[[2024]] #Content/Paper by Joshua Engels, Isaac Liao, Eric J. Michaud, Wes Gurnee, and Max Tegmark.
+
+The surge of enthusiasm around [[Dictionary Learning]] effectively takes the [[Linear Representation Hypothesis]] as an axiom. There has been comparatively little research on nonlinear features ([[Interpreting Neural Networks through the Polytope Lens]]) is one example. This paper uses a clustering technique to find a few such nonlinear features, including a circular representation of days of the week.
