@@ -29,7 +29,7 @@ for root, subdirs, files in os.walk("."):
                         {"title": this_title, "url": this_title.replace(" ", "%20")}
                     )
 
-# save backlinks to a yaml file in the _data directory
+backlinks = {k: v for k, v in backlinks.items() if len(v) > 0}
 
 with open("_data/backlinks.yml", "w") as f:
     yaml.dump(backlinks, f)
