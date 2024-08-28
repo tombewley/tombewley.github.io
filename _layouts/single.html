@@ -57,6 +57,18 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+
+        <!-- iterate through backlinks for this page in site.data and display as a list -->
+        {% if site.data.backlinks[page.title] %}
+          <hr>
+          <h4>Backlinks</h4>
+          <ul>
+            {% for backlink in site.data.backlinks[page.title] %}
+              <li><a href="{{ backlink.url }}">{{ backlink.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
       </section>
 
       <footer class="page__meta">
@@ -70,16 +82,6 @@ layout: default
 
       <!-- {% include post_pagination.html %} -->
 
-      <!-- iterate through backlinks for this page in site.data and display as a list -->
-      <hr> 
-      {% if site.data.backlinks[page.title] %}
-        <h4>Backlinks</h4>
-        <ul>
-          {% for backlink in site.data.backlinks[page.title] %}
-            <li><a href="{{ backlink.url }}">{{ backlink.title }}</a></li>
-          {% endfor %}
-        </ul>
-      {% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}
