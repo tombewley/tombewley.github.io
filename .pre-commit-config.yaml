@@ -1,0 +1,15 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: format_notes
+        name: format_notes
+        entry: python scripts/format_notes.py
+        always_run: true
+        language: system
+        types: [python]
+    -   id: get_backlinks
+        name: get_backlinks
+        entry: python scripts/get_backlinks.py
+        always_run: true
+        language: system
+        types: [python]

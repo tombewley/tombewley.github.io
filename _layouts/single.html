@@ -70,16 +70,15 @@ layout: default
 
       <!-- {% include post_pagination.html %} -->
 
-      <!-- include a list of all pages in the site that link to this one -->
-      {% if page.backlinks %}
-        <h2>Pages that link here:</h2>
+      <!-- iterate through backlinks for this page in site.data and display as a list -->
+      {% if site.data.backlinks[page.title] %}
+        <h4>Backlinks</h4>
         <ul>
-          {% for link in page.backlinks %}
-            <li><a href="{{ link }}">{{ link }}</a></li>
+          {% for backlink in site.data.backlinks[page.title] %}
+            <li><a href="{{ backlink.url }}">{{ backlink.title }}</a></li>
           {% endfor %}
         </ul>
       {% endif %}
-      
     </div>
 
     {% if site.comments.provider and page.comments %}

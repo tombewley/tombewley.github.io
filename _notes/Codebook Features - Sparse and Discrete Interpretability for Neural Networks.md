@@ -1,6 +1,6 @@
 ---
 title: Codebook Features - Sparse and Discrete Interpretability for Neural Networks
-permalink: /Codebook Features - Sparse and Discrete Interpretability for Neural Networks
+permalink: /notes/Codebook Features - Sparse and Discrete Interpretability for Neural Networks
 collection: notes
 ---
 [2024](2024) [ICML](ICML) #Content/Paper by [Alex Tamkin](Alex%20Tamkin), [Mohammad Taufeeque](Mohammad%20Taufeeque), and [Noah D. Goodman](Noah%20D.%20Goodman).

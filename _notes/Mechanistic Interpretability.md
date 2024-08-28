@@ -1,6 +1,6 @@
 ---
 title: Mechanistic Interpretability
-permalink: /Mechanistic Interpretability
+permalink: /notes/Mechanistic Interpretability
 collection: notes
 ---
 Embodies a fundamental belief that neural networks are only black boxes by default, and that we can understand their function in terms of interpretable concepts and algorithms if we try hard enough.

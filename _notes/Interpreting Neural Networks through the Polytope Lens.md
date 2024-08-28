@@ -1,6 +1,6 @@
 ---
 title: Interpreting Neural Networks through the Polytope Lens
-permalink: /Interpreting Neural Networks through the Polytope Lens
+permalink: /notes/Interpreting Neural Networks through the Polytope Lens
 collection: notes
 ---
 [2022](2022) #Content/Paper by Sid Black, Lee Sharkey, Leo Grinsztajn, Eric Winsor, Dan Braun, Jacob Merizian, Kip Parker, Carlos Ramón Guevara, Beren Millidge, Gabriel Alfour, and Connor Leahy.

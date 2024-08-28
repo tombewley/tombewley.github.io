@@ -3,7 +3,6 @@ title: Transformer
 permalink: /notes/Transformer
 collection: notes
 ---
-
 The term "transformer" doesn't have a fully precise definition, but in general is used to refer to any neural sequence-to-sequence model where the *only* interaction between positions is through a sequence of multi-head [attention](Attention) layers that iteratively update a central embedding called a *residual stream* by addition.
 
 Each attention head operates on a lower-dimensional linear projection of the residual stream embedding. The sum of the outputs of all heads in an attention layer are embedded (via another linear map) back into the residual stream. 
