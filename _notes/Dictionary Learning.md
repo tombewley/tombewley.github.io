@@ -69,5 +69,5 @@ The Gemma Scope paper outlines many open problems, of which I find the following
 4. We know that SAEs introduce error, and completely miss out on some features that are captured by wider SAEs. Can we quantify and easily measure “how much” they miss and how much this matters in practice?
 5. Using SAEs to improve performance on real-world tasks, e.g. through steering.
 6. Do SAEs really find the “true” concepts in a model? How robust are claims about the interpretability of SAE features? How can we measure intepretability?
-7. Can SAEs be extended to find *nonlinear* features, such as those that live in low-rank subspaces [Not All Language Model Features Are Linear](Not%20All%20Language%20Model%20Features%20Are%20Linear.md), or even those that don't?
+7. Can SAEs be extended to find *nonlinear* features, such as those that live in low-rank subspaces [Not All Language Model Features Are Linear](Not%20All%20Language%20Model%20Features%20Are%20Linear), or even those that don't?
 8. Understand how features contribute to circuits, e.g. [Sparse feature circuits - Discovering and editing interpretable causal graphs in language models](Sparse%20feature%20circuits%20-%20Discovering%20and%20editing%20interpretable%20causal%20graphs%20in%20language%20models).

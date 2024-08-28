@@ -5,7 +5,7 @@ collection: notes
 ---
 [2022](2022) #Content/Blog by Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, Roger Grosse, Sam McCandlish, Jared Kaplan, Dario Amodei, Martin Wattenberg, and [Chris Olah](Chris%20Olah).
 
-This post operates on the basis of the [Linear Representation Hypothesis](Linear%20Representation%20Hypothesis) that semantic features can be understood as directions in models' activation spaces (alternative perspectives: [Not All Language Model Features Are Linear](Not%20All%20Language%20Model%20Features%20Are%20Linear.md), [Interpreting Neural Networks through the Polytope Lens](Interpreting%20Neural%20Networks%20through%20the%20Polytope%20Lens)).
+This post operates on the basis of the [Linear Representation Hypothesis](Linear%20Representation%20Hypothesis) that semantic features can be understood as directions in models' activation spaces (alternative perspectives: [Not All Language Model Features Are Linear](Not%20All%20Language%20Model%20Features%20Are%20Linear), [Interpreting Neural Networks through the Polytope Lens](Interpreting%20Neural%20Networks%20through%20the%20Polytope%20Lens)).
 
 It begins by carefully defining three terms:
 - **Polysemanticity**: The empirically-verified phenomenon that single dimensions in activation spaces ("neurons") often correlate with multiple unrelated features.

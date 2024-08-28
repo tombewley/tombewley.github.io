@@ -8,7 +8,11 @@ Dictionary Learning:
   url: A%20Mathematical%20Framework%20for%20Transformer%20Circuits
 - title: Codebook Features - Sparse and Discrete Interpretability for Neural Networks
   url: Codebook%20Features%20-%20Sparse%20and%20Discrete%20Interpretability%20for%20Neural%20Networks
+- title: Not All Language Model Features Are Linear
+  url: Not%20All%20Language%20Model%20Features%20Are%20Linear
 Interpreting Neural Networks through the Polytope Lens:
+- title: Not All Language Model Features Are Linear
+  url: Not%20All%20Language%20Model%20Features%20Are%20Linear
 - title: Mechanistic Interpretability
   url: Mechanistic%20Interpretability
 - title: Toy Models of Superposition
@@ -18,6 +22,8 @@ Linear Representation Hypothesis:
   url: Interpreting%20Neural%20Networks%20through%20the%20Polytope%20Lens
 - title: Codebook Features - Sparse and Discrete Interpretability for Neural Networks
   url: Codebook%20Features%20-%20Sparse%20and%20Discrete%20Interpretability%20for%20Neural%20Networks
+- title: Not All Language Model Features Are Linear
+  url: Not%20All%20Language%20Model%20Features%20Are%20Linear
 - title: Mechanistic Interpretability
   url: Mechanistic%20Interpretability
 - title: Toy Models of Superposition
@@ -25,6 +31,11 @@ Linear Representation Hypothesis:
 Mechanistic Interpretability:
 - title: Dictionary Learning
   url: Dictionary%20Learning
+Not All Language Model Features Are Linear:
+- title: Dictionary Learning
+  url: Dictionary%20Learning
+- title: Toy Models of Superposition
+  url: Toy%20Models%20of%20Superposition
 Scaling Monosemanticity - Extracting Interpretable Features from Claude 3 Sonnet:
 - title: Dictionary Learning
   url: Dictionary%20Learning
