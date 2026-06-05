@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I’m Tom, an AI researcher working at the intersection of 🔍 interpretability and 🎯 alignment at the J.P. Morgan [Explainable AI Center of Excellence](https://www.jpmorgan.com/technology/artificial-intelligence/initiatives/explainable-ai-center-of-excellence). During my [PhD](https://research-information.bris.ac.uk/en/studentTheses/tree-models-for-interpretable-agents) at the [University of Bristol](https://www.bristol.ac.uk/) and [Alan Turing Institute](https://www.turing.ac.uk/), I worked on both problems (🔍, 🎯) with a focus on 🤖 reinforcement learning agents. I'm now expanding my scope to work on other kinds of AI system, including 💬 language models.
+I’m Tom, and I'm on the Safety team at [Mistral AI](https://mistral.ai/). I work on post-training, evals and guardrails.
+
+I previous worked at the intersection of 🔍 interpretability and 🎯 alignment at the J.P. Morgan [Explainable AI Center of Excellence](https://www.jpmorgan.com/technology/artificial-intelligence/initiatives/explainable-ai-center-of-excellence). During my [PhD](https://research-information.bris.ac.uk/en/studentTheses/tree-models-for-interpretable-agents) at the [University of Bristol](https://www.bristol.ac.uk/) and [Alan Turing Institute](https://www.turing.ac.uk/), I worked on both problems (🔍, 🎯) with a focus on 🤖 reinforcement learning agents.
 
 Fancy a chinwag? You can reach me at the links in the sidebar (or under the "Connect" button above if you're on mobile).
 
